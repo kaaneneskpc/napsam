@@ -205,8 +205,19 @@ SECURE_REFERRER_POLICY = "same-origin"
 if not DEBUG:
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
-    SECURE_SSL_REDIRECT = env_bool("DJANGO_SECURE_SSL_REDIRECT", default=False)
+
+    # Vercel TLS'i kendisi sonlandirip x-forwarded-proto gonderir; bu basligi
+    # tanittigimiz icin yonlendirme dongusu olusmaz. TLS sonlandirmayan bir
+    # vekil arkasinda calistirilacaksa bu degisken ile kapatilabilir.
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+    SECURE_SSL_REDIRECT = env_bool("DJANGO_SECURE_SSL_REDIRECT", default=True)
+
+    # HSTS kademeli acilir: once kisa bir sure, her sey duzgun calistigi
+    # dogrulandiktan sonra bir yila cikarilir. Erken ve uzun bir deger,
+    # ozel alan adina gecerken geri donulemez sorunlar cikarabilir.
+    SECURE_HSTS_SECONDS = int(os.environ.get("DJANGO_HSTS_SECONDS", "3600"))
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = env_bool("DJANGO_HSTS_SUBDOMAINS", default=False)
+    SECURE_HSTS_PRELOAD = env_bool("DJANGO_HSTS_PRELOAD", default=False)
 
 LOGGING = {
     "version": 1,

@@ -1,0 +1,19 @@
+# Sirlar - hicbir kosulda yuklenmemeli
+.env
+.env.*
+!.env.example
+
+# Yerel veritabani ve sanal ortam
+db.sqlite3
+.venv/
+venv/
+
+# Derleme ciktilari (Vercel collectstatic'i kendisi calistirir)
+staticfiles/
+
+# Gelistirme artiklari
+__pycache__/
+*.py[cod]
+.git/
+.claude/
+.DS_Store
