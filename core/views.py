@@ -298,6 +298,9 @@ def api_state(request):
 def healthz(request):
     return JsonResponse({
         "ok": True,
-        "suggestions": Suggestion.objects.active().count(),
+        # Anlamli olan sayi seed havuzudur; toplam, artik gosterilmeyen
+        # eski AI kayitlarini da sayardi.
+        "suggestions": Suggestion.objects.active().seeds().count(),
+        "aiEnabled": ai.is_enabled(),
         "wage": str(engine.current_wage()),
     })

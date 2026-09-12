@@ -172,6 +172,13 @@ def check_shape(data: dict) -> list[str]:
     if len(data.get("required_items") or []) > 3:
         hatalar.append("required_items en fazla 3 madde")
 
+    # seasonality AY NUMARASI listesidir. Buraya "ramazan" gibi bir etiket
+    # yazmak oneriyi sessizce olduruyordu: ay filtresi hicbir zaman tutmaz
+    # ve oneri havuzda gorunur olmasina ragmen ASLA gosterilmez.
+    for ay in data.get("seasonality") or []:
+        if not isinstance(ay, int) or not 1 <= ay <= 12:
+            hatalar.append(f"seasonality ay numarası olmalı (1-12), bulunan: {ay!r}")
+
     if (data.get("cost_max") or 0) < (data.get("cost_min") or 0):
         hatalar.append("cost_max < cost_min")
 

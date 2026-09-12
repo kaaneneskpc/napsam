@@ -46,6 +46,24 @@ Katman 2 — AI (Gemini)            yalnızca serbest metin ("Yaz") modu
 AI bir süstür, çekirdek değil. `GEMINI_API_KEY` tanımsızken uygulama
 eksiksiz çalışır.
 
+### AI katmanını açma / kapama
+
+Katman tek bir ortam değişkenine bağlıdır; kod değişikliği gerekmez.
+
+```bash
+# Kapat (uygulama seed havuzuyla tam çalışmaya devam eder)
+npx vercel@latest env rm GEMINI_API_KEY production --yes
+
+# Sonradan aç
+printf '%s' "ANAHTAR" | npx vercel@latest env add GEMINI_API_KEY production
+npx vercel@latest deploy --prod --yes
+```
+
+`/healthz/` ucundaki `aiEnabled` alanı o an hangi modda olduğunu söyler.
+Kapalıyken "Yaz" modu, seed havuzunda anahtar kelime eşleştirmesi yapan
+`core/textmode.py` ile çalışır — yani metin girişi hiçbir zaman ölü bir
+özellik olmaz.
+
 ### AI maliyet koruması
 
 API anahtarı proje sahibinin, çağrıyı yapan ise ziyaretçidir. Bu yüzden üç
