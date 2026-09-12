@@ -182,7 +182,7 @@ class AiGenerateTests(TestCase):
 
     def test_gunluk_kota_bitince_model_cagrilmiyor(self):
         AiUsage.objects.create(
-            anon_id=self.anon, day=timezone.localdate(), count=99
+            scope=f"anon:{self.anon}", day=timezone.localdate(), count=99
         )
         with patch("core.ai.requests.post") as post:
             self.assertIsNone(ai.generate(self.ctx, "bir şey", self.anon, 0))
@@ -248,3 +248,121 @@ class AiDisabledTests(TestCase):
         data = response.json()
         self.assertIsNotNone(data["suggestion"])
         self.assertEqual(data["suggestion"]["source"], "seed")
+
+
+@override_settings(GEMINI_API_KEY="test-key", GEMINI_MODEL="test-model")
+class AiCostGuardTests(TestCase):
+    """
+    Maliyet korumalari.
+
+    API anahtari proje sahibinindir, cagriyi yapan ziyaretcidir. Cerez tabanli
+    sayac tek basina koruma DEGILDIR: cerez silmek ya da gizli sekme acmak onu
+    sifirlar. Bu testler global ve IP tavanlarinin gercekten baglayici
+    oldugunu kilitler.
+    """
+
+    @classmethod
+    def setUpTestData(cls):
+        call_command("seed", verbosity=0)
+
+    def setUp(self):
+        from django.core.cache import cache
+
+        cache.clear()
+        self.ctx = engine.Context(budget_key="bedava", now=timezone.localtime())
+
+    def test_global_tavan_yeni_cerezi_de_durduruyor(self):
+        """Cerezi silip yeniden gelmek global tavani asmaya yaramamali."""
+        AiUsage.objects.create(
+            scope=ai.GLOBAL_SCOPE, day=timezone.localdate(),
+            count=ai.global_daily_limit(),
+        )
+        with patch("core.ai.requests.post") as post:
+            for _ in range(3):
+                taze_cerez = uuid.uuid4()          # her seferinde yepyeni kimlik
+                self.assertIsNone(
+                    ai.generate(self.ctx, "bir şey", taze_cerez, 0, ip_hash="abc")
+                )
+        post.assert_not_called()
+
+    def test_ip_tavani_baglayici(self):
+        AiUsage.objects.create(
+            scope="ip:sabit-ip", day=timezone.localdate(), count=ai.ip_daily_limit(),
+        )
+        with patch("core.ai.requests.post") as post:
+            self.assertIsNone(
+                ai.generate(self.ctx, "bir şey", uuid.uuid4(), 0, ip_hash="sabit-ip")
+            )
+        post.assert_not_called()
+
+    def test_kalan_hak_en_dar_kapsamdan_geliyor(self):
+        anon = uuid.uuid4()
+        AiUsage.objects.create(scope=f"anon:{anon}", day=timezone.localdate(), count=4)
+        # cerez tavani 5 -> 1 kaldi; global ve IP bos ama en dar olan gecerli
+        self.assertEqual(ai.quota_left(anon, "bos-ip"), 1)
+
+    def test_basarili_cagri_uc_sayaci_da_artiriyor(self):
+        anon = uuid.uuid4()
+        with patch("core.ai.requests.post", return_value=yanit(GECERLI_CIKTI)):
+            ai.generate(self.ctx, "bir şey", anon, 0, ip_hash="ip1")
+        kapsamlar = set(AiUsage.objects.values_list("scope", flat=True))
+        self.assertEqual(kapsamlar, {ai.GLOBAL_SCOPE, f"anon:{anon}", "ip:ip1"})
+
+    def test_tavan_panelden_dusurulebiliyor(self):
+        """Maliyet kontrolu kod dagitimi beklemeden devreye girmeli."""
+        from core.models import RemoteConfig
+
+        RemoteConfig.objects.update_or_create(
+            key="ai_daily_global_limit", defaults={"value": 0}
+        )
+        with patch("core.ai.requests.post") as post:
+            self.assertIsNone(ai.generate(self.ctx, "bir şey", uuid.uuid4(), 0))
+        post.assert_not_called()
+
+    def test_ip_acik_saklanmiyor(self):
+        ozet = ai.hash_ip("203.0.113.45")
+        self.assertNotIn("203.0.113.45", ozet)
+        self.assertEqual(len(ozet), 16)
+        self.assertNotEqual(ozet, ai.hash_ip("203.0.113.46"))
+
+
+class ClientIpTests(TestCase):
+    """
+    IP'yi yanlis basliktan okumak, IP tavanini islevsiz birakir.
+
+    X-Forwarded-For'un ILK girdisi istemci tarafindan uydurulabilir: istemci
+    kendi XFF basligini gonderir, vekil gercek IP'yi SONA ekler. Her istekte
+    farkli bir sahte ilk girdi gondermek, ilk girdiye bakan bir sayaci
+    tamamen etkisiz kilardi.
+    """
+
+    def _hash(self, **meta):
+        from django.test import RequestFactory
+
+        from core.views import client_ip_hash
+
+        request = RequestFactory().get("/")
+        request.META.update(meta)
+        return client_ip_hash(request)
+
+    def test_platform_basligi_oncelikli(self):
+        beklenen = ai.hash_ip("198.51.100.7")
+        self.assertEqual(
+            self._hash(
+                HTTP_X_VERCEL_FORWARDED_FOR="198.51.100.7",
+                HTTP_X_FORWARDED_FOR="1.2.3.4, 198.51.100.7",
+            ),
+            beklenen,
+        )
+
+    def test_uydurma_ilk_girdi_sayaci_kacirmiyor(self):
+        """Farkli sahte ilk girdiler ayni ozeti vermeli."""
+        a = self._hash(HTTP_X_FORWARDED_FOR="9.9.9.9, 198.51.100.7")
+        b = self._hash(HTTP_X_FORWARDED_FOR="7.7.7.7, 198.51.100.7")
+        self.assertEqual(a, b)
+        self.assertEqual(a, ai.hash_ip("198.51.100.7"))
+
+    def test_baslik_yoksa_remote_addr(self):
+        self.assertEqual(
+            self._hash(REMOTE_ADDR="192.0.2.9"), ai.hash_ip("192.0.2.9")
+        )

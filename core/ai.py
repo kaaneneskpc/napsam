@@ -27,6 +27,7 @@ from datetime import timedelta
 import requests
 from django.conf import settings
 from django.db import transaction
+from django.db.models import F
 from django.utils import timezone
 from django.utils.text import slugify
 
@@ -146,18 +147,68 @@ def signature(ctx, text: str) -> str:
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 
-def quota_left(anon_id) -> int:
-    today = timezone.localdate()
-    usage = AiUsage.objects.filter(anon_id=anon_id, day=today).first()
-    used = usage.count if usage else 0
-    return max(settings.NAPSAM_AI_DAILY_LIMIT - used, 0)
+# Kapsam basina gunluk tavanlar. Global tavan ASIL korumadir: API anahtari
+# proje sahibinin, cagriyi yapan ise ziyaretci. Cerez sayaci tek basina bir
+# koruma degildir cunku cerez silinebilir; global tavan ise kac kisi ne
+# yaparsa yapsin gunluk maliyeti ustten kilitler.
+GLOBAL_SCOPE = "global"
+DEFAULT_GLOBAL_DAILY_LIMIT = 200
+DEFAULT_IP_DAILY_LIMIT = 15
 
 
-def _consume_quota(anon_id) -> None:
+def global_daily_limit() -> int:
+    from core.models import RemoteConfig
+
+    return int(RemoteConfig.get("ai_daily_global_limit", DEFAULT_GLOBAL_DAILY_LIMIT))
+
+
+def ip_daily_limit() -> int:
+    from core.models import RemoteConfig
+
+    return int(RemoteConfig.get("ai_daily_ip_limit", DEFAULT_IP_DAILY_LIMIT))
+
+
+def hash_ip(ip: str) -> str:
+    """
+    IP acik saklanmaz; SECRET_KEY ile tuzlanip kisaltilmis ozeti tutulur.
+
+    Amac kotuye kullanimi saymak, ziyaretciyi tanimak degil. Sayaclar
+    gunluktur ve geriye donuk iz birakmaz.
+    """
+    return hashlib.sha256(f"{ip}|{settings.SECRET_KEY}".encode()).hexdigest()[:16]
+
+
+def _scopes(anon_id, ip_hash: str | None) -> list[tuple[str, int]]:
+    scopes = [
+        (GLOBAL_SCOPE, global_daily_limit()),
+        (f"anon:{anon_id}", settings.NAPSAM_AI_DAILY_LIMIT),
+    ]
+    if ip_hash:
+        scopes.append((f"ip:{ip_hash}", ip_daily_limit()))
+    return scopes
+
+
+def quota_left(anon_id, ip_hash: str | None = None) -> int:
+    """En dar kapsamda kalan hak. Uc tavandan hangisi once dolarsa o gecerli."""
+    scopes = _scopes(anon_id, ip_hash)
+    used = dict(
+        AiUsage.objects.filter(
+            day=timezone.localdate(), scope__in=[k for k, _ in scopes]
+        ).values_list("scope", "count")
+    )
+    return min(max(limit - used.get(key, 0), 0) for key, limit in scopes)
+
+
+def _consume_quota(anon_id, ip_hash: str | None = None) -> None:
+    """Uc sayaci da artirir. Artirma F() ile yapilir: es zamanli istekler
+    birbirinin uzerine yazmasin."""
     today = timezone.localdate()
-    usage, _ = AiUsage.objects.get_or_create(anon_id=anon_id, day=today)
-    usage.count += 1
-    usage.save(update_fields=["count"])
+    for key, _ in _scopes(anon_id, ip_hash):
+        satir, olusturuldu = AiUsage.objects.get_or_create(
+            scope=key, day=today, defaults={"count": 1}
+        )
+        if not olusturuldu:
+            AiUsage.objects.filter(pk=satir.pk).update(count=F("count") + 1)
 
 
 # --------------------------------------------------------------------------
@@ -336,7 +387,10 @@ def _unique_slug(title: str) -> str:
 # --------------------------------------------------------------------------
 # Genel arayuz
 # --------------------------------------------------------------------------
-def generate(ctx, text: str, anon_id, budget_ceiling: int | None) -> Suggestion | None:
+def generate(
+    ctx, text: str, anon_id, budget_ceiling: int | None,
+    ip_hash: str | None = None,
+) -> Suggestion | None:
     """
     Serbest metin icin AI onerisi uretir.
 
@@ -358,13 +412,15 @@ def generate(ctx, text: str, anon_id, budget_ceiling: int | None) -> Suggestion 
     if cached:
         return cached.suggestion
 
-    # 2) Kota
-    if quota_left(anon_id) <= 0:
+    # 2) Kota - global, IP ve cerez tavanlarindan en dar olani
+    if quota_left(anon_id, ip_hash) <= 0:
         logger.info("AI günlük kota doldu, seed havuzuna düşülüyor")
         return None
 
-    # 3) Cagri
-    _consume_quota(anon_id)
+    # 3) Cagri. Kota cagri ONCESINDE dusulur: model hata verse bile hak
+    #    harcanmis sayilir, aksi halde surekli hata veren bir istek tavani
+    #    hic tuketmeden sonsuz denenebilirdi.
+    _consume_quota(anon_id, ip_hash)
     data = _call_model(_build_input(ctx, text, budget_ceiling))
     if data is None:
         return None

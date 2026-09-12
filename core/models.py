@@ -404,26 +404,37 @@ class SuggestionState(models.Model):
 # --------------------------------------------------------------------------
 class AiUsage(models.Model):
     """
-    Gunluk AI cagri sayaci.
+    Gunluk AI cagri sayaci - uc ayri kapsamda.
 
-    AnonProfile'a bagli DEGIL, dogrudan cerezdeki anon_id'ye bagli. Boylece
-    yalnizca serbest metin yazan bir ziyaretci icin bile kalici bir profil
-    satiri olusturmak gerekmez.
+    Neden uc kapsam: API anahtari proje sahibinindir, cagriyi yapan ise
+    ziyaretcidir. Tek basina cerez sayaci koruma DEGILDIR; cerez silmek ya
+    da gizli sekme acmak onu sifirlar. Bu yuzden:
+
+      global      Gunluk TOPLAM tavan. Kac kisi ne yaparsa yapsin maliyet
+                  ustten kilitlenir. Asil koruma budur.
+      ip:<hash>   IP basina tavan. Tek bir kaynagin tavani tek basina
+                  tuketmesini zorlastirir.
+      anon:<uuid> Cerez basina tavan. Normal kullanicida devreye giren,
+                  en nazik sinir.
+
+    IP acik olarak SAKLANMAZ; SECRET_KEY ile tuzlanip kisaltilmis ozeti
+    tutulur. Sayaclar gunluktur ve geriye donuk bir iz birakmaz.
     """
 
-    anon_id = models.UUIDField()
+    scope = models.CharField(max_length=80, help_text="global | ip:<hash> | anon:<uuid>")
     day = models.DateField()
-    count = models.PositiveSmallIntegerField(default=0)
+    count = models.PositiveIntegerField(default=0)
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(fields=["anon_id", "day"], name="uniq_ai_usage_day")
+            models.UniqueConstraint(fields=["scope", "day"], name="uniq_ai_usage_scope_day")
         ]
+        indexes = [models.Index(fields=["day"])]
         verbose_name = "AI kullanımı"
         verbose_name_plural = "AI kullanımları"
 
     def __str__(self) -> str:
-        return f"{self.anon_id} · {self.day} · {self.count}"
+        return f"{self.scope} · {self.day} · {self.count}"
 
 
 class AiRequestCache(models.Model):

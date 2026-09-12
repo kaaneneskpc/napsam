@@ -66,6 +66,27 @@ def budget_tier_payload() -> list[dict]:
     ]
 
 
+def client_ip_hash(request) -> str | None:
+    """
+    Istemci IP'sinin ozeti (acik IP saklanmaz).
+
+    DIKKAT: X-Forwarded-For'un ILK girdisi guvenilir DEGILDIR; istemci kendi
+    basligini gonderebilir, vekil gercek IP'yi sona ekler. Bu yuzden once
+    platformun kendi yazdigi basliklara bakilir, en son care olarak XFF'in
+    SON girdisi kullanilir.
+    """
+    for header in ("HTTP_X_VERCEL_FORWARDED_FOR", "HTTP_X_REAL_IP"):
+        if value := request.META.get(header, "").strip():
+            return ai.hash_ip(value.split(",")[-1].strip())
+
+    if xff := request.META.get("HTTP_X_FORWARDED_FOR", "").strip():
+        return ai.hash_ip(xff.split(",")[-1].strip())
+
+    if remote := request.META.get("REMOTE_ADDR", "").strip():
+        return ai.hash_ip(remote)
+    return None
+
+
 def _parse_body(request) -> dict:
     if not request.body:
         return {}
@@ -199,7 +220,9 @@ def api_suggest(request):
         raw_text = str(data.get("text", ""))[:MAX_TEXT_LEN].strip()
         if raw_text:
             suggestion = ai.generate(
-                ctx, raw_text, request.anon_id, engine.budget_ceiling(ctx.budget_key)
+                ctx, raw_text, request.anon_id,
+                engine.budget_ceiling(ctx.budget_key),
+                ip_hash=client_ip_hash(request),
             )
 
     if suggestion is None:
@@ -215,7 +238,10 @@ def api_suggest(request):
             "budget": ctx.budget_key,
             "keywords": ctx.keywords,
             "isNight": ctx.is_night,
-            "aiQuotaLeft": ai.quota_left(request.anon_id) if ai.is_enabled() else None,
+            "aiQuotaLeft": (
+                ai.quota_left(request.anon_id, client_ip_hash(request))
+                if ai.is_enabled() else None
+            ),
         },
     })
 

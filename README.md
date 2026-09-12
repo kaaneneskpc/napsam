@@ -46,6 +46,33 @@ Katman 2 — AI (Gemini)            yalnızca serbest metin ("Yaz") modu
 AI bir süstür, çekirdek değil. `GEMINI_API_KEY` tanımsızken uygulama
 eksiksiz çalışır.
 
+### AI maliyet koruması
+
+API anahtarı proje sahibinin, çağrıyı yapan ise ziyaretçidir. Bu yüzden üç
+ayrı günlük tavan var ve **en dar olanı** geçerlidir:
+
+| Kapsam | Varsayılan | Neden |
+|---|---|---|
+| `global` | 200/gün | **Asıl koruma.** Kaç kişi ne yaparsa yapsın maliyeti üstten kilitler. |
+| `ip:<özet>` | 15/gün | Tek bir kaynağın tavanı tek başına tüketmesini zorlaştırır. |
+| `anon:<uuid>` | 5/gün | Normal kullanıcıda devreye giren en nazik sınır. |
+
+İkisi de `RemoteConfig` üzerinden, panelden değiştirilebilir — kod dağıtımı
+gerekmez (`ai_daily_global_limit`, `ai_daily_ip_limit`).
+
+Ölçülen maliyet: çağrı başına 922 girdi + 270 çıktı token. `flash-lite`
+ücretli fiyatlarıyla ~$0.00095. Global tavan 200 iken günlük üst sınır
+~$0.19.
+
+Çerez tabanlı sayaç **tek başına koruma değildir** — çerez silinebilir.
+Global tavan bu yüzden var. IP, `X-Forwarded-For`'un ilk girdisinden değil
+platformun kendi başlığından okunur; ilk girdi istemci tarafından
+uydurulabilir.
+
+En güçlü koruma uygulamada değil Google tarafındadır: **AI Studio'da
+faturalandırma kapalıysa** kota bitince `429` döner ve hiçbir ücret
+tahakkuk etmez. Kod 429'u zaten sessizce yutup seed havuzuna düşer.
+
 ### Dosya haritası
 
 | Dosya | İş |

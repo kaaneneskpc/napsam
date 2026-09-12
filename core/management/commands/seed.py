@@ -39,6 +39,19 @@ REMOTE_CONFIG = [
         "note": "2026 net asgari ücret (TL). Bütçe kademeleri buna endeksli — "
                 "yılda bir bu satırı güncellemek yeter, kod dağıtımı gerekmez.",
     },
+    {
+        "key": "ai_daily_global_limit",
+        "value": 200,
+        "note": "Tüm kullanıcılar için günlük TOPLAM AI çağrısı tavanı. "
+                "Maliyeti üstten kilitleyen asıl koruma budur; bu satırı "
+                "düşürmek anında etkili olur, kod dağıtımı gerekmez.",
+    },
+    {
+        "key": "ai_daily_ip_limit",
+        "value": 15,
+        "note": "IP başına günlük AI çağrısı tavanı. Ev/ofis ağları tek IP "
+                "paylaştığı için çerez tavanından (5) daha geniş tutuldu.",
+    },
 ]
 
 # Bolum 7.6 - haftalik tema. Kullanici gormez, sadece siralamayi etkiler.
