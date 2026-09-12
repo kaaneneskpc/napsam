@@ -203,16 +203,29 @@ button { font: inherit; color: inherit; cursor: pointer; }
   font-weight: 700;
 }
 
+/* Dokunma alani 44px, gorsel daire 32px kalir (Bolum 14).
+   Onceki denemede alan gorunmez bir ::after katmaniyla buyutulmustu; ust
+   bardaki backdrop-filter o katmani isabet testinin disinda biraktigi icin
+   sag ve alt kenarlarda calismiyordu. Gercek cozum butonu buyutmek. */
 .icon-btn {
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--secondary);
+  transition: color .15s ease;
+}
+.icon-btn__dot {
   width: 32px; height: 32px;
   display: grid; place-items: center;
   border-radius: 999px;
   border: 1px solid var(--border);
   background: var(--surface-low);
-  color: var(--secondary);
-  transition: color .15s ease, background .15s ease;
+  transition: background .15s ease;
 }
-.icon-btn:hover { color: var(--on-surface); background: var(--surface-container); }
+.icon-btn:hover { color: var(--on-surface); }
+.icon-btn:hover .icon-btn__dot { background: var(--surface-container); }
 [data-theme="dark"] .icon-btn { color: var(--primary); }
 
 .avatar {
@@ -636,3 +649,88 @@ button { font: inherit; color: inherit; cursor: pointer; }
 /* Mobilde satir sonu gizlenir, genis ekranda gorunur. */
 .hide-sm { display: none; }
 @media (min-width: 640px) { .hide-sm { display: inline; } }
+
+/* --------------------------------------------------------------------------
+   Daraltma bolumu - ikincil, kucuk ve KAPALI baslar.
+
+   Filtreler acik dururken kullanici bir sey secmek zorunda hissediyordu.
+   Sadelik Anayasasi kural 6: "Filtreler OPSIYONEL. Hicbiri doldurulmadan
+   uygulama tam calisir." Bolum 7'deki akis da bu ikisini butonun ALTINDA,
+   kucuk baglantilar olarak gosterir.
+   -------------------------------------------------------------------------- */
+.refine {
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-md);
+}
+
+.refine__toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;            /* dokunma alani */
+  padding: 4px 0;
+  border: none;
+  background: none;
+  color: var(--secondary);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  transition: color .15s ease;
+}
+.refine__toggle:hover { color: var(--on-surface); }
+
+.refine__chevron { flex: none; transition: transform .2s ease; }
+.refine__toggle[aria-expanded="true"] .refine__chevron { transform: rotate(180deg); }
+
+.refine__count {
+  margin-left: auto;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.refine__panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding-top: var(--space-sm);
+}
+
+.refine__clear {
+  border: none;
+  background: none;
+  color: var(--secondary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 4px;
+}
+.refine__clear:hover { color: var(--primary); }
+
+/* --------------------------------------------------------------------------
+   Dokunma alanlari - en az 44px (Bolum 14 erisilebilirlik kurali)
+
+   Gorsel boyut degismiyor; yalnizca tiklanabilir alan buyutuluyor. Ust bar
+   ve alt bilgi, mobilde parmagin en cok isabetsiz kaldigi yerler.
+   -------------------------------------------------------------------------- */
+.logo,
+.navlink,
+.footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.cta-note { text-align: center; }
+
+/* Cok dar ekranlar (320px) icin son ayar */
+@media (max-width: 360px) {
+  :root { --margin-mobile: 1rem; }
+  .cta { font-size: 18px; }
+  .badge { font-size: 11px; padding: 3px 8px; }
+  .budget__item { min-height: 48px; }
+}

@@ -36,41 +36,53 @@
         </div>
       </div>
 
-      <!-- Giriş modu. İkisi de İSTEĞE BAĞLI (Bölüm 3 kural 6) -->
-      <div class="field">
-        <div class="tabs">
-          <div class="tabs__group" role="tablist">
-            <button class="tab t-label-lg" id="tab-chips" type="button"
-                    role="tab" aria-selected="true" aria-controls="panel-chips">Kelime Seç</button>
-            <button class="tab t-label-lg" id="tab-text" type="button"
-                    role="tab" aria-selected="false" aria-controls="panel-text">Yaz</button>
-          </div>
-          <span class="t-label-sm muted">İsteğe bağlı filtre</span>
-        </div>
-
-        <div class="chips" id="panel-chips" role="tabpanel" aria-labelledby="tab-chips">
-          {% for chip in chips %}
-          <button class="chip" type="button" data-tag="{{ chip }}" aria-pressed="false">{{ chip }}</button>
-          {% endfor %}
-        </div>
-
-        <div id="panel-text" role="tabpanel" aria-labelledby="tab-text" hidden>
-          <label class="sr-only" for="free-text">Ne istediğini yaz</label>
-          <div class="textfield">
-            <svg width="20" height="20" aria-hidden="true"><use href="#i-edit"></use></svg>
-            <input id="free-text" type="text" autocomplete="off"
-                   placeholder="Örn: “3 saatim var param yok”, “canım biraz deniz gördü”…">
-          </div>
-        </div>
-      </div>
-
-      <!-- Ekrandaki TEK birincil eylem (Bölüm 3 kural 4) -->
+      <!-- Birincil eylem, butcenin hemen altinda: kullanici hicbir sey
+           doldurmadan buraya basabilmeli (Sadelik Anayasasi kural 6). -->
       <div class="cta-wrap">
         <button class="cta" id="napsam" type="button">
           <svg width="26" height="26" aria-hidden="true"><use href="#i-bolt"></use></svg>
           <span>NAPSAM?</span>
         </button>
         <span class="cta-note t-label-sm">Tek dokunuş · Tek kesin karar · Sonsuz kaydırma yok</span>
+      </div>
+
+      <!-- Ikincil, kucuk ve KAPALI baslar. Acik dururken kullanici bir sey
+           secmek zorunda hissediyordu; dokumandaki akis da butonun ALTINDA
+           kucuk iki baglanti gosteriyor (Bolum 7). -->
+      <div class="refine">
+        <button class="refine__toggle" id="refine-toggle" type="button"
+                aria-expanded="false" aria-controls="refine-panel">
+          <svg class="refine__chevron" width="14" height="14" aria-hidden="true"><use href="#i-chevron"></use></svg>
+          <span>İstersen daralt — kelime seç ya da yaz</span>
+          <span class="refine__count" id="refine-count" hidden></span>
+        </button>
+
+        <div class="refine__panel" id="refine-panel" hidden>
+          <div class="tabs">
+            <div class="tabs__group" role="tablist">
+              <button class="tab t-label-lg" id="tab-chips" type="button"
+                      role="tab" aria-selected="true" aria-controls="panel-chips">Kelime Seç</button>
+              <button class="tab t-label-lg" id="tab-text" type="button"
+                      role="tab" aria-selected="false" aria-controls="panel-text">Yaz</button>
+            </div>
+            <button class="refine__clear t-label-sm" id="refine-clear" type="button" hidden>Temizle</button>
+          </div>
+
+          <div class="chips" id="panel-chips" role="tabpanel" aria-labelledby="tab-chips">
+            {% for chip in chips %}
+            <button class="chip" type="button" data-tag="{{ chip }}" aria-pressed="false">{{ chip }}</button>
+            {% endfor %}
+          </div>
+
+          <div id="panel-text" role="tabpanel" aria-labelledby="tab-text" hidden>
+            <label class="sr-only" for="free-text">Ne istediğini yaz</label>
+            <div class="textfield">
+              <svg width="20" height="20" aria-hidden="true"><use href="#i-edit"></use></svg>
+              <input id="free-text" type="text" autocomplete="off"
+                     placeholder="Örn: “3 saatim var param yok”">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

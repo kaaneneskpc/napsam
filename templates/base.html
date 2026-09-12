@@ -19,8 +19,7 @@ document.documentElement.dataset.theme=s||(matchMedia('(prefers-color-scheme: da
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="{% static 'css/napsam.css' %}">
-{# Kacisi yapilmamis < > karakterleri yuzunden data: URI bazi tarayicilarda
-   reddediliyor ve /favicon.ico icin bos yere bir istek daha atiliyordu. #}
+{# data: URI yerine statik dosya: kacisi yapilmamis < > bazi tarayicilarda reddediliyordu. #}
 <link rel="icon" type="image/svg+xml" href="{% static 'favicon.svg' %}">
 </head>
 <body>
@@ -40,6 +39,7 @@ document.documentElement.dataset.theme=s||(matchMedia('(prefers-color-scheme: da
 <symbol id="i-wallet" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M3 7.5h15a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="16.5" cy="13" r="1.3" fill="currentColor"/></symbol>
 <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 21s6.5-6.2 6.5-11a6.5 6.5 0 1 0-13 0C5.5 14.8 12 21 12 21Z"/><circle cx="12" cy="10" r="2.3" fill="currentColor"/></symbol>
 <symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M5 19.5a7 7 0 0 1 14 0"/></symbol>
+<symbol id="i-chevron" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></symbol>
 <symbol id="i-back" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11 5 4 12l7 7M4 12h16"/></symbol>
 </defs></svg>
 
@@ -52,7 +52,9 @@ document.documentElement.dataset.theme=s||(matchMedia('(prefers-color-scheme: da
         Kaydedilenler{% if saved_count %}<span class="navlink__count" id="saved-count">{{ saved_count }}</span>{% endif %}
       </a>
       <button class="icon-btn" id="theme-toggle" type="button" aria-label="Temayı değiştir">
-        <svg width="16" height="16" id="theme-icon"><use href="#i-moon"></use></svg>
+        <span class="icon-btn__dot">
+          <svg width="16" height="16" id="theme-icon"><use href="#i-moon"></use></svg>
+        </span>
       </button>
     </nav>
   </div>

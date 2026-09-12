@@ -451,3 +451,46 @@ class VarietyTests(TestCase):
             with self.subTest(kelime=kelime):
                 for _ in range(25):
                     self.assertIn(kelime, engine.pick(ctx).tags or [])
+
+
+class TemplateRenderTests(TestCase):
+    """
+    Sablon ciktisi denetimleri.
+
+    Regresyon: Django'da {# ... #} yalnizca TEK SATIRDA yorumdur. Cok satirli
+    yazilmis bir tanesi yorum sayilmayip duz metin olarak basiliyordu; <head>
+    icinde oldugu icin tarayici onu govdeye tasiyip sayfanin tepesine,
+    ust barin arkasina yaziyordu.
+    """
+
+    @classmethod
+    def setUpTestData(cls):
+        call_command("seed", verbosity=0)
+
+    def test_sayfalarda_islenmemis_sablon_etiketi_yok(self):
+        for yol in ("/", "/kaydedilenler/", "/gizlilik/"):
+            html = self.client.get(yol).content.decode()
+            with self.subTest(yol=yol):
+                # {{ ve }} denetlenmez: satir ici JavaScript'te mesru olarak
+                # gecerler (ornegin "}})();"). Tehlikeli olanlar sablon yorum
+                # ve etiket acilislaridir.
+                for kacak in ("{#", "#}", "{%"):
+                    self.assertNotIn(kacak, html, f"{yol} içinde işlenmemiş {kacak}")
+
+    def test_filtre_paneli_kapali_basliyor(self):
+        """
+        Filtre acik dururken kullanici bir sey secmek zorunda hissediyordu.
+        Sadelik Anayasasi kural 6: filtreler opsiyoneldir.
+        """
+        html = self.client.get("/").content.decode()
+        self.assertIn('id="refine-panel"', html)
+        panel = html[html.index('id="refine-panel"'):][:60]
+        self.assertIn("hidden", panel, "filtre paneli kapalı başlamalı")
+
+    def test_birincil_eylem_filtreden_once_geliyor(self):
+        """NAPSAM? butonu, isteğe bağlı filtreden ÖNCE görünmeli."""
+        html = self.client.get("/").content.decode()
+        self.assertLess(
+            html.index('id="napsam"'), html.index('id="refine-toggle"'),
+            "birincil eylem filtrenin altında kalmış",
+        )

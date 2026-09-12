@@ -107,9 +107,47 @@
     panelChips.hidden = !isChips;
     panelText.hidden = isChips;
     if (!isChips) $("free-text").focus();
+    paintRefineSummary();
   }
   tabChips.addEventListener("click", function () { selectTab("chips"); });
   tabText.addEventListener("click", function () { selectTab("text"); });
+
+  /* --- daraltma bolumu: kapali baslar, kullanici zorunda hissetmesin --- */
+  var refineToggle = $("refine-toggle");
+  var refinePanel = $("refine-panel");
+  var refineCount = $("refine-count");
+  var refineClear = $("refine-clear");
+
+  refineToggle.addEventListener("click", function () {
+    var acik = refineToggle.getAttribute("aria-expanded") === "true";
+    refineToggle.setAttribute("aria-expanded", String(!acik));
+    refinePanel.hidden = acik;
+    if (!acik && state.mode === "text") $("free-text").focus();
+  });
+
+  function paintRefineSummary() {
+    var n = state.keywords.length;
+    var yazi = $("free-text").value.trim();
+    var etiket = "";
+
+    if (state.mode === "text" && yazi) etiket = "yazıldı";
+    else if (n === 1) etiket = state.keywords[0];
+    else if (n > 1) etiket = n + " kelime";
+
+    refineCount.textContent = etiket;
+    refineCount.hidden = !etiket;
+    refineClear.hidden = !etiket;
+  }
+
+  refineClear.addEventListener("click", function (e) {
+    e.stopPropagation();
+    state.keywords = [];
+    $("free-text").value = "";
+    Array.prototype.forEach.call(panelChips.querySelectorAll(".chip"), function (c) {
+      c.setAttribute("aria-pressed", "false");
+    });
+    paintRefineSummary();
+  });
 
   /* --- chipler --- */
   panelChips.addEventListener("click", function (e) {
@@ -121,12 +159,14 @@
     state.keywords = on
       ? state.keywords.filter(function (k) { return k !== tag; })
       : state.keywords.concat([tag]);
+    paintRefineSummary();
   });
 
   /* --- serbest metin: Enter da tetikler --- */
   $("free-text").addEventListener("keydown", function (e) {
     if (e.key === "Enter") { e.preventDefault(); requestSuggestion(); }
   });
+  $("free-text").addEventListener("input", paintRefineSummary);
 
   /* --- kart cizimi --- */
   function renderCard(s) {
