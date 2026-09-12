@@ -46,7 +46,11 @@ VENUE_OPEN_UNTIL = 23
 
 # Puanlama agirliklari. Tek yerde toplandi ki ayarlamasi kolay olsun.
 W_KEYWORD = 3.0
-W_THEME = 2.0
+# DIKKAT: W_THEME, NEAR_SCORE'dan KUCUK kalmali. Buyuk oldugunda haftalik
+# tema bir agirlik olmaktan cikip sert filtre gibi davraniyor: 58 adaylik
+# bir havuzda secimlerin tamami temali 6 oneriye sikismisti. Bolum 7.6
+# temayi "siralamayi agirliklandirir" diye tanimlar, daraltir demez.
+W_THEME = 1.0
 # Butce kademesi secildiginde o parayi GERCEKTEN kullanan oneriler one cikar.
 # Aksi halde "Bol" secen kullaniciya bedava oneri donuyordu (olcum: %82).
 W_IN_BAND = 3.5
@@ -318,7 +322,19 @@ def _relax(ctx: Context) -> Context | None:
     return None
 
 
-def pick(ctx: Context, profile=None, *, top_n: int = 5) -> Suggestion | None:
+# Puani en iyiye yakin adaylar arasindan kac tanesinin ornekleneceği.
+# Olculdu: 58 adaylik bedava havuzda 80 cekilis ->
+#   top_n=5  : 13 farkli oneri, secimlerin %94'u haftalik temali
+#   top_n=15 : 42 farkli oneri, %46 temali
+#   top_n=25 : 45 farkli oneri, %26 temali
+# Kelime isabeti her degerde %100 kaldi; cunku hassasiyeti saglayan sey bu
+# kapak degil, kelime ve butce bandinin SERT filtre olmasi. Kapak yalnizca
+# cesitliligi kirpiyordu. 15, temanin editoryal etkisini korurken havuzun
+# buyuk kismini erisilebilir birakiyor.
+DEFAULT_TOP_N = 15
+
+
+def pick(ctx: Context, profile=None, *, top_n: int = DEFAULT_TOP_N) -> Suggestion | None:
     """Baglama en uygun TEK oneriyi dondurur (Sadelik Anayasasi kural 4)."""
     theme = active_theme()
 

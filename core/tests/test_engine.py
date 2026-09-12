@@ -406,3 +406,48 @@ class KeywordIntentTests(TestCase):
             self.assertIn("yemek", secim.tags or [])
             self.assertGreater(secim.cost_max, lo)
             self.assertLessEqual(secim.cost_max, hi)
+
+
+class VarietyTests(TestCase):
+    """
+    Cesitlilik ve editoryal agirlik dengesi.
+
+    Regresyon: kelime seyrelmesini duzeltmek icin eklenen "en iyiye yakin
+    adaylar" kurali, haftalik temayi sert filtre haline getirmisti. 58
+    adaylik bir havuzda secimlerin %94'u ayni 6 temali oneriye sikisiyordu.
+    Bolum 7.6 temayi "siralamayi agirliklandirir" diye tanimlar.
+    """
+
+    @classmethod
+    def setUpTestData(cls):
+        call_command("seed", verbosity=0)
+
+    def test_tema_agirligi_near_score_esigini_asmiyor(self):
+        """Tema bonusu esikten buyukse tema filtreye donusur."""
+        self.assertLess(engine.W_THEME, engine.NEAR_SCORE)
+
+    def test_havuzun_buyuk_kismi_erisilebilir(self):
+        ctx = engine.Context(budget_key="bedava", now=at(14))
+        havuz = len(engine.candidates(ctx))
+        gorulen = {engine.pick(ctx).slug for _ in range(150)}
+        self.assertGreater(
+            len(gorulen), havuz * 0.4,
+            f"{havuz} adaydan yalnızca {len(gorulen)} tanesi gösteriliyor",
+        )
+
+    def test_tema_secimleri_tekeline_almiyor(self):
+        tema = engine.active_theme()
+        if tema is None:
+            self.skipTest("aktif tema yok")
+        ctx = engine.Context(budget_key="bedava", now=at(14))
+        secimler = [engine.pick(ctx) for _ in range(80)]
+        temali = sum(1 for s in secimler if tema.key in (s.theme_tags or []))
+        self.assertLess(temali / 80, 0.85, "haftalık tema seçimleri tekeline almış")
+
+    def test_cesitlilik_kelime_isabetini_bozmuyor(self):
+        """Genis ornekleme, kullanicinin acik sinyalini seyreltmemeli."""
+        for kelime in ("kahve", "müzik", "fotoğraf"):
+            ctx = engine.Context(budget_key="bol", keywords=[kelime], now=at(14))
+            with self.subTest(kelime=kelime):
+                for _ in range(25):
+                    self.assertIn(kelime, engine.pick(ctx).tags or [])
