@@ -188,6 +188,50 @@ def check_shape(data: dict) -> list[str]:
     return hatalar
 
 
+def find_duplicates(items: list[dict], *, esik: float = 0.72) -> list[str]:
+    """
+    Havuzdaki yakin tekrarlari bulur.
+
+    500 oneriye giderken asil risk hacim degil TEKRARDIR: ayni fikrin farkli
+    kelimelerle iki kez yazilmasi. Kullanici bunu "hep ayni seyi soyluyor"
+    diye hisseder ve tek retention kozumuz icerik kalitesidir.
+
+    Iki olcut kullanilir:
+      - baslik benzerligi (karakter dizisi)
+      - ilk adimin birebir ayni olmasi
+    """
+    from difflib import SequenceMatcher
+
+    problemler: list[str] = []
+    n = len(items)
+    basliklar = [(x.get("slug", "?"), fold(x.get("title", ""))) for x in items]
+
+    for i in range(n):
+        slug_i, baslik_i = basliklar[i]
+        for j in range(i + 1, n):
+            slug_j, baslik_j = basliklar[j]
+            oran = SequenceMatcher(None, baslik_i, baslik_j).ratio()
+            if oran >= esik:
+                problemler.append(
+                    f"benzer başlık (%{oran*100:.0f}): '{slug_i}' ~ '{slug_j}'"
+                )
+
+    ilk_adimlar: dict[str, str] = {}
+    for x in items:
+        adimlar = x.get("steps") or []
+        if not adimlar:
+            continue
+        anahtar = fold(str(adimlar[0]))
+        if anahtar in ilk_adimlar:
+            problemler.append(
+                f"aynı ilk adım: '{x.get('slug')}' ~ '{ilk_adimlar[anahtar]}'"
+            )
+        else:
+            ilk_adimlar[anahtar] = x.get("slug", "?")
+
+    return problemler
+
+
 def validate(data: dict, *, strict: bool = True) -> list[str]:
     """Tum denetimleri calistirir. strict=True ise hata varsa firlatir."""
     hatalar = (

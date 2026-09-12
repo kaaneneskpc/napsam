@@ -18,7 +18,7 @@ from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 
 from core.models import BudgetTier, RemoteConfig, Suggestion, WeeklyTheme
-from core.validators import ContentError, validate
+from core.validators import ContentError, find_duplicates, validate
 
 FIXTURES = Path(__file__).resolve().parents[2] / "fixtures"
 
@@ -94,6 +94,8 @@ class Command(BaseCommand):
                 validate(item, strict=True)
             except ContentError as exc:
                 problems.append(str(exc))
+
+        problems.extend(find_duplicates(items))
 
         if problems:
             self.stderr.write(self.style.ERROR(f"{len(problems)} içerik hatası:"))
