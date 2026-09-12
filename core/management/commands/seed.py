@@ -148,17 +148,38 @@ class Command(BaseCommand):
                     },
                 )
 
-            created = updated = 0
+            # Toplu yazma. Satir satir update_or_create her oneri icin ~2 sorgu
+            # demekti; sunucusuz havuza ~70 ms gidis-donusle 246 oneride islem
+            # dakikalarca acik kaldi ve havuz baglantiyi kesti (islem geri
+            # alindi). Simdi oneri sayisindan bagimsiz olarak birkac sorgu.
+            slugs = [item["slug"] for item in items]
+            existing = {s.slug: s for s in Suggestion.objects.filter(slug__in=slugs)}
+
+            to_create: list[Suggestion] = []
+            to_update: list[Suggestion] = []
+            update_fields: set[str] = set()
+
             for item in items:
                 data = dict(item)
                 slug = data.pop("slug")
                 data["source"] = "seed"
                 data["is_active"] = True
-                _, was_created = Suggestion.objects.update_or_create(
-                    slug=slug, defaults=data
+                update_fields.update(data.keys())
+
+                obj = existing.get(slug)
+                if obj is None:
+                    to_create.append(Suggestion(slug=slug, **data))
+                else:
+                    for field, value in data.items():
+                        setattr(obj, field, value)
+                    to_update.append(obj)
+
+            Suggestion.objects.bulk_create(to_create, batch_size=200)
+            if to_update:
+                Suggestion.objects.bulk_update(
+                    to_update, fields=sorted(update_fields), batch_size=100
                 )
-                created += was_created
-                updated += not was_created
+            created, updated = len(to_create), len(to_update)
 
         if loud:
             self.stdout.write(self.style.SUCCESS(

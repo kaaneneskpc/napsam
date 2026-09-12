@@ -133,6 +133,20 @@ if DATABASE_URL:
     DATABASES["default"].setdefault("OPTIONS", {})
     DATABASES["default"]["OPTIONS"]["prepare_threshold"] = None
     DATABASES["default"]["DISABLE_SERVER_SIDE_CURSORS"] = True
+
+    # Zaman asimi ve keepalive. Havuz adresi birden fazla IP'ye cozuluyor;
+    # biri yanit vermezse psycopg her birinde isletim sisteminin varsayilan
+    # zaman asimini (~75 sn) bekliyordu. Keepalive olmadan da ortada kopan bir
+    # baglanti hata vermek yerine sonsuza kadar asili kaliyordu (olculdu:
+    # seed "idle in transaction / ClientRead" durumunda dakikalarca takildi).
+    # Sunucusuz fonksiyonda asili baglanti 30 sn'lik sureyi yakip 504 dondurur.
+    DATABASES["default"]["OPTIONS"].update({
+        "connect_timeout": 10,
+        "keepalives": 1,
+        "keepalives_idle": 30,
+        "keepalives_interval": 10,
+        "keepalives_count": 3,
+    })
 else:
     DATABASES = {
         "default": {

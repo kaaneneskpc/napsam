@@ -235,6 +235,21 @@ için gerekli, DDL için uygun değil.
 > statement'ları kapalı (`prepare_threshold=None`). Bunlar olmadan pgbouncer
 > transaction modunda sorgular kırılır.
 
+> **Seed'i her zaman session pooler (5432) ile çalıştır.** `.env` Vercel ile
+> aynı transaction pooler'ı (6543) gösterse bile, uzun yazma işlemleri o
+> havuzda kırılgan. Ölçülen olay: 6543 üzerinden seed işlemin ortasında
+> "idle in transaction / ClientRead" durumunda dakikalarca asılı kaldı; aynı
+> iş 5432 üzerinden 29 sn'de bitti. Portu yalnızca o komut için değiştirmek:
+>
+> ```bash
+> DATABASE_URL=$(python -c "import pathlib,re;u=next(l.split('=',1)[1] for l in pathlib.Path('.env').read_text().splitlines() if l.startswith('DATABASE_URL='));print(re.sub(r':(\d+)/',':5432/',u,count=1))") .venv/bin/python manage.py seed
+> ```
+>
+> `settings.py` ayrıca `connect_timeout=10` ve TCP keepalive ayarlar: havuz
+> adresi birden fazla IP'ye çözülüyor, biri yanıt vermezse bağlantı eskiden
+> dakikalarca bekliyordu; kopan bir bağlantı da hata vermek yerine asılı
+> kalıyordu.
+
 ### 3. Veri erişimi: yalnızca Django
 
 `public` şemasındaki tüm tablolarda RLS açık ve **hiç policy yok**; ayrıca
