@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Gizlilik — NAPSAM{% endblock %}
+
+{% block content %}
+<div class="shell section">
+  <section class="stage prose">
+    <a class="navlink t-label-lg" href="/" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:1rem">
+      <svg width="16" height="16" aria-hidden="true"><use href="#i-back"></use></svg> Ana ekran
+    </a>
+
+    <h1 class="t-head-lg">Gizlilik ve veriler</h1>
+    <p class="t-body-lg">Kısa tutuyoruz, çünkü toplanan veri de kısa.</p>
+
+    <h2 class="t-head-sm">Ne toplamıyoruz</h2>
+    <ul>
+      <li class="t-body">Ad, e-posta, telefon — hiçbiri istenmiyor.</li>
+      <li class="t-body">Konum. Uygulama şehir ayrımı yapmaz; öneriler Türkiye'nin her yerinde geçerlidir.</li>
+      <li class="t-body">Reklam kimliği, çapraz site takip çerezi.</li>
+    </ul>
+
+    <h2 class="t-head-sm">Ne tutuyoruz</h2>
+    <ul>
+      <li class="t-body">Tarayıcında rastgele üretilmiş bir kimlik çerezi. Kim olduğunu söylemez;
+        yalnızca kaydettiklerini sana geri gösterebilmek için var.</li>
+      <li class="t-body">Kaydettiğin, geçtiğin ve yaptım dediğin önerilerin listesi.</li>
+    </ul>
+    <p class="t-body">Bu kayıtlar ancak sen bir öneriyi kaydettiğinde, geçtiğinde ya da
+      &ldquo;yapıyorum&rdquo; dediğinde oluşur. Sadece ana ekranı açıp çıkarsan hiçbir kayıt yazılmaz.</p>
+
+    <h2 class="t-head-sm">Verilerini silmek</h2>
+    <p class="t-body">Tarayıcının site verilerini temizlemen yeter: çerez gidince o kimliğe bağlı
+      kayıtlar erişilemez hale gelir. Kalıcı silme talebin için aşağıdaki adrese yazabilirsin.</p>
+
+    <h2 class="t-head-sm">İletişim</h2>
+    <p class="t-body">Soruların için: <a href="/">ana ekrandaki</a> iletişim kanalı.</p>
+  </section>
+</div>
+{% endblock %}

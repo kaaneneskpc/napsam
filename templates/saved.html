@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Kaydedilenler — NAPSAM{% endblock %}
+
+{% block content %}
+<div class="shell section">
+  <section class="stage">
+    <a class="navlink t-label-lg" href="/" style="display:inline-flex;align-items:center;gap:6px;margin-bottom:1rem">
+      <svg width="16" height="16" aria-hidden="true"><use href="#i-back"></use></svg> Ana ekran
+    </a>
+
+    <h1 class="t-head-lg" style="margin:0 0 .25rem">Kaydedilenler</h1>
+    {# Bölüm 7.5: düz liste. Klasör yok, etiket yok, sıralama yok. #}
+    <p class="t-body muted" style="margin:0 0 1.75rem">
+      Sağa kaydırdıkların. Klasör yok, etiket yok — sadece liste.
+    </p>
+
+    {% if states %}
+    <ul class="saved-list">
+      {% for state in states %}
+      <li class="saved-item" data-slug="{{ state.suggestion.slug }}">
+        <div>
+          <h3 class="t-head-sm">{{ state.suggestion.title }}</h3>
+          <p class="t-body">{{ state.suggestion.hook }}</p>
+          <div class="badges">
+            <span class="badge badge--strong">{{ state.suggestion.cost_badge }}</span>
+            <span class="badge">{{ state.suggestion.duration_badge }}</span>
+            <span class="badge">{{ state.suggestion.place_badge }}</span>
+          </div>
+        </div>
+        <button class="btn btn--icon js-unsave" type="button"
+                aria-label="Listeden çıkar" data-slug="{{ state.suggestion.slug }}">
+          <svg width="20" height="20"><use href="#i-close"></use></svg>
+        </button>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <div class="empty">
+      <p class="t-body-lg" style="margin:0 0 .5rem">Henüz bir şey kaydetmedin.</p>
+      <p class="t-body" style="margin:0">Bir öneriyi beğendiğinde kalp ikonuna bas, burada birikir.</p>
+    </div>
+    {% endif %}
+  </section>
+</div>
+{% endblock %}

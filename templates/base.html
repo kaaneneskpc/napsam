@@ -1,0 +1,71 @@
+{% load static %}<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}NAPSAM — ne yapsam ya?{% endblock %}</title>
+<meta name="description" content="{% block description %}Kararsız kaldığında tek dokunuşla, bütçene uyan, şu an yapabileceğin tek bir somut fikir. Konum bağımsız, reklamsız.{% endblock %}">
+<meta name="theme-color" content="#f9f9f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f0f11" media="(prefers-color-scheme: dark)">
+
+{# Tema, CSS'ten ONCE uygulanir; aksi halde koyu temada beyaz bir flas olur. #}
+<script>
+(function(){try{var s=localStorage.getItem('napsam-theme');
+document.documentElement.dataset.theme=s||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+}catch(e){document.documentElement.dataset.theme='light';}})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="{% static 'css/napsam.css' %}">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23f0643b'/><path d='M17 5 9 18h6l-1 9 8-13h-6z' fill='%23fff'/></svg>">
+</head>
+<body>
+
+{# ---- SVG sembol deposu: Material Symbols yerine satir ici, sifir istek ---- #}
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H12z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m1.5 12.5 4 4 8-9m4.5 1-6.5 8"/></symbol>
+<symbol id="i-replay" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M20 12a8 8 0 1 1-2.7-6"/><path fill="currentColor" d="M20 3v6h-6z"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 20.5C6 16.5 3 13.4 3 9.9 3 7.2 5.1 5 7.8 5c1.6 0 3.2.8 4.2 2.1C13 5.8 14.6 5 16.2 5 18.9 5 21 7.2 21 9.9c0 3.5-3 6.6-9 10.6Z"/></symbol>
+<symbol id="i-swap" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 8h13l-3-3m6 11H7l3 3"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path fill="currentColor" d="M20 14.3A8.5 8.5 0 0 1 9.7 4a8.5 8.5 0 1 0 10.3 10.3Z"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+<symbol id="i-edit" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 15.5 15.2 4.3a2 2 0 0 1 2.8 2.8L6.8 18.3 3 19.5z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 7.5V12l3 2"/></symbol>
+<symbol id="i-wallet" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M3 7.5h15a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="16.5" cy="13" r="1.3" fill="currentColor"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 21s6.5-6.2 6.5-11a6.5 6.5 0 1 0-13 0C5.5 14.8 12 21 12 21Z"/><circle cx="12" cy="10" r="2.3" fill="currentColor"/></symbol>
+<symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M5 19.5a7 7 0 0 1 14 0"/></symbol>
+<symbol id="i-back" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M11 5 4 12l7 7M4 12h16"/></symbol>
+</defs></svg>
+
+<header class="header">
+  <div class="shell header__inner">
+    <a class="logo" href="/">napsam<span>.</span></a>
+    <nav class="header__nav">
+      <a class="navlink t-label-lg" href="/kaydedilenler/"
+         {% if request.resolver_match.url_name == 'saved' %}aria-current="page"{% endif %}>
+        Kaydedilenler{% if saved_count %}<span class="navlink__count" id="saved-count">{{ saved_count }}</span>{% endif %}
+      </a>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Temayı değiştir">
+        <svg width="16" height="16" id="theme-icon"><use href="#i-moon"></use></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="main">{% block content %}{% endblock %}</main>
+
+<footer class="footer">
+  <div class="shell footer__inner t-label muted">
+    <span>Konum bağımsız, reklamsız, hemen harekete geçiren Türkiye boş zaman rehberi.</span>
+    <a href="/gizlilik/">Gizlilik</a>
+  </div>
+</footer>
+
+<script src="{% static 'js/napsam.js' %}" defer></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

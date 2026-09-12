@@ -61,6 +61,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         check_only = options["check"]
+        loud = options.get("verbosity", 1) >= 1
 
         path = FIXTURES / "suggestions.json"
         if not path.exists():
@@ -87,13 +88,15 @@ class Command(BaseCommand):
                 self.stderr.write(f"  ✗ {p}")
             raise CommandError("İçerik kuralları sağlanmadı; hiçbir şey yazılmadı.")
 
-        self.stdout.write(self.style.SUCCESS(
+        if loud:
+            self.stdout.write(self.style.SUCCESS(
             f"✓ {len(items)} öneri içerik denetiminden geçti "
             f"(konum bağımsızlık, şekil, güvenlik, ton)."
         ))
 
         if check_only:
-            self.stdout.write("--check verildi, veritabanına yazılmadı.")
+            if loud:
+                self.stdout.write("--check verildi, veritabanına yazılmadı.")
             return
 
         # --- 2) Yazma ------------------------------------------------------
@@ -142,7 +145,8 @@ class Command(BaseCommand):
                 created += was_created
                 updated += not was_created
 
-        self.stdout.write(self.style.SUCCESS(
+        if loud:
+            self.stdout.write(self.style.SUCCESS(
             f"✓ Yazıldı: {created} yeni, {updated} güncellenen öneri · "
             f"{len(BUDGET_TIERS)} bütçe kademesi · {len(WEEKLY_THEMES)} haftalık tema."
         ))

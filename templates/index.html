@@ -1,0 +1,205 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="shell section">
+
+  <!-- ================= Hero ================= -->
+  <section class="stage hero">
+    <div class="overline t-label-sm">
+      <span class="pulse"></span>
+      <span>Karar verme motoru · Sıfır tereddüt</span>
+    </div>
+
+    <h1 class="t-display">&ldquo;Ne yapsam ya?&rdquo;</h1>
+
+    <p class="hero__sub t-body-lg">
+      Algoritma döngülerine, sonsuz listelere ve kararsızlığa son.<br class="hide-sm">
+      10 saniyede somut, uygulanabilir tek bir eylem.
+    </p>
+
+    <!-- ================= Karar konsolu ================= -->
+    <div class="console">
+
+      <!-- Bütçe. Varsayılan "Bedava" (Bölüm 7.2) -->
+      <div class="field">
+        <span class="field__label t-label">Bütçe durumu</span>
+        <div class="budget" id="budget" role="group" aria-label="Bütçe durumu">
+          {% for tier in budget_tiers %}
+          <button class="budget__item" type="button"
+                  data-budget="{{ tier.key }}"
+                  aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+                  {% if tier.hint %}title="{{ tier.hint }}"{% endif %}>
+            <strong>₺ {{ tier.label }}</strong>
+            <small>{{ tier.amount }}</small>
+          </button>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Giriş modu. İkisi de İSTEĞE BAĞLI (Bölüm 3 kural 6) -->
+      <div class="field">
+        <div class="tabs">
+          <div class="tabs__group" role="tablist">
+            <button class="tab t-label-lg" id="tab-chips" type="button"
+                    role="tab" aria-selected="true" aria-controls="panel-chips">Kelime Seç</button>
+            <button class="tab t-label-lg" id="tab-text" type="button"
+                    role="tab" aria-selected="false" aria-controls="panel-text">Yaz</button>
+          </div>
+          <span class="t-label-sm muted">İsteğe bağlı filtre</span>
+        </div>
+
+        <div class="chips" id="panel-chips" role="tabpanel" aria-labelledby="tab-chips">
+          {% for chip in chips %}
+          <button class="chip" type="button" data-tag="{{ chip }}" aria-pressed="false">{{ chip }}</button>
+          {% endfor %}
+        </div>
+
+        <div id="panel-text" role="tabpanel" aria-labelledby="tab-text" hidden>
+          <label class="sr-only" for="free-text">Ne istediğini yaz</label>
+          <div class="textfield">
+            <svg width="20" height="20" aria-hidden="true"><use href="#i-edit"></use></svg>
+            <input id="free-text" type="text" autocomplete="off"
+                   placeholder="Örn: “3 saatim var param yok”, “canım biraz deniz gördü”…">
+          </div>
+        </div>
+      </div>
+
+      <!-- Ekrandaki TEK birincil eylem (Bölüm 3 kural 4) -->
+      <div class="cta-wrap">
+        <button class="cta" id="napsam" type="button">
+          <svg width="26" height="26" aria-hidden="true"><use href="#i-bolt"></use></svg>
+          <span>NAPSAM?</span>
+        </button>
+        <span class="cta-note t-label-sm">Tek dokunuş · Tek kesin karar · Sonsuz kaydırma yok</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Öneri kartı ================= -->
+  <section class="stage section" id="result-stage" aria-live="polite">
+    <div class="stage-head">
+      <span class="t-label-sm accent">Canlı Öneri</span>
+      <span class="sep">/</span>
+      <span class="t-label-sm muted">Hemen şimdi başla</span>
+    </div>
+
+    {% if suggestion %}
+    <article class="card" id="card" data-slug="{{ suggestion.slug }}">
+      <div class="card__band" id="card-band" data-category="{{ suggestion.category }}">
+        <span class="card__category t-label-sm" id="card-category">{{ suggestion.get_category_display }}</span>
+        <div class="badges">
+          <span class="badge badge--strong" id="badge-cost">
+            <svg width="13" height="13" aria-hidden="true"><use href="#i-wallet"></use></svg>{{ suggestion.cost_badge }}
+          </span>
+          <span class="badge" id="badge-duration">
+            <svg width="13" height="13" aria-hidden="true"><use href="#i-clock"></use></svg>{{ suggestion.duration_badge }}
+          </span>
+          <span class="badge" id="badge-place">
+            <svg width="13" height="13" aria-hidden="true"><use href="#i-pin"></use></svg>{{ suggestion.place_badge }}
+          </span>
+          <span class="badge" id="badge-companion">
+            <svg width="13" height="13" aria-hidden="true"><use href="#i-person"></use></svg>{{ suggestion.companion_badge }}
+          </span>
+        </div>
+      </div>
+
+      <div class="card__body">
+        <div>
+          <h2 class="card__title t-head-lg" id="card-title">{{ suggestion.title }}</h2>
+          <p class="card__hook t-body-lg" id="card-hook">{{ suggestion.hook }}</p>
+        </div>
+
+        <div>
+          <span class="block__label t-label">Nasıl yapılır ({{ suggestion.steps|length }} adım)</span>
+          <ol class="steps" id="card-steps">
+            {% for step in suggestion.steps %}
+            <li class="step">
+              <span class="step__n">{{ forloop.counter }}</span>
+              <p>{{ step }}</p>
+            </li>
+            {% endfor %}
+          </ol>
+        </div>
+
+        {% if suggestion.required_items %}
+        <div id="card-needs-wrap">
+          <span class="block__label t-label">Gerekenler</span>
+          <div class="needs" id="card-needs">
+            {% for item in suggestion.required_items %}<span class="need">{{ item }}</span>{% endfor %}
+          </div>
+        </div>
+        {% else %}
+        <div id="card-needs-wrap" hidden>
+          <span class="block__label t-label">Gerekenler</span>
+          <div class="needs" id="card-needs"></div>
+        </div>
+        {% endif %}
+
+        <!-- "Olmazsa" zorunlu alanı (Bölüm 7.4) -->
+        <div class="fallback">
+          <svg width="22" height="22" aria-hidden="true"><use href="#i-swap"></use></svg>
+          <div>
+            <strong>Olmazsa alternatifi</strong>
+            <p id="card-fallback">{{ suggestion.fallback }}</p>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn--commit" id="btn-commit" type="button">
+            <svg width="18" height="18" aria-hidden="true"><use href="#i-check"></use></svg>
+            <span>Tamam, yapıyorum</span>
+          </button>
+          <button class="btn" id="btn-reroll" type="button">
+            <svg width="18" height="18" aria-hidden="true"><use href="#i-replay"></use></svg>
+            <span>Başka fikir</span>
+          </button>
+          <button class="btn btn--icon" id="btn-save" type="button"
+                  aria-pressed="false" aria-label="Kaydet">
+            <svg width="20" height="20" aria-hidden="true"><use href="#i-heart"></use></svg>
+          </button>
+        </div>
+      </div>
+    </article>
+
+    <div class="toast" id="commit-toast" hidden>
+      <div>
+        <p class="t-head-sm">Harika seçim. Şimdi ekranı kapat.</p>
+        <p class="t-body muted">Bu uygulamada iyi bir oturum, kısa bitendir.</p>
+      </div>
+      <button class="toast__close" id="toast-close" type="button" aria-label="Kapat">
+        <svg width="20" height="20"><use href="#i-close"></use></svg>
+      </button>
+    </div>
+    {% else %}
+    <div class="empty">
+      <p class="t-body-lg">Havuz henüz boş.</p>
+      <p class="t-body"><code>python manage.py seed</code> komutunu çalıştır.</p>
+    </div>
+    {% endif %}
+  </section>
+
+  <!-- ================= Neden ================= -->
+  <section class="stage section bento">
+    <div class="bento__item">
+      <span class="t-label-sm accent">01 / Kararsızlık yok</span>
+      <h4 class="t-head-sm">Tekil odak</h4>
+      <p class="t-body">Seçenekler çoğaldıkça felç olursun. NAPSAM tek ve net bir yön önerir.</p>
+    </div>
+    <div class="bento__item">
+      <span class="t-label-sm accent">02 / Sıfır maliyet</span>
+      <h4 class="t-head-sm">Varsayılan: 0 TL</h4>
+      <p class="t-body">Zaman geçirmek parayla ölçülmez. Tüm öneriler önce bütçesiz kurgulanır.</p>
+    </div>
+    <div class="bento__item">
+      <span class="t-label-sm accent">03 / Anında hareket</span>
+      <h4 class="t-head-sm">Somut adımlar</h4>
+      <p class="t-body">Soyut tavsiye değil, hemen şimdi yapabileceğin sıralı adımlar.</p>
+    </div>
+  </section>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script id="bootstrap" type="application/json">{"saved": {{ saved_slugs_json|safe }}}</script>
+{% endblock %}
