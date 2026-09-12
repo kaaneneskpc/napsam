@@ -1,0 +1,16 @@
+[project]
+name = "napsam"
+version = "0.1.0"
+description = "NAPSAM - tek dokunusla somut bir fikir veren karar motoru"
+requires-python = ">=3.13"
+dependencies = [
+    "Django>=5.2,<6.0",
+    "psycopg[binary]>=3.2",
+    "dj-database-url>=2.3",
+    "whitenoise>=6.8",
+    "python-dotenv>=1.0",
+    "requests>=2.32",
+]
+
+[tool.vercel]
+entrypoint = "napsam.wsgi:application"
