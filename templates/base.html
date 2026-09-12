@@ -19,7 +19,9 @@ document.documentElement.dataset.theme=s||(matchMedia('(prefers-color-scheme: da
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="{% static 'css/napsam.css' %}">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23f0643b'/><path d='M17 5 9 18h6l-1 9 8-13h-6z' fill='%23fff'/></svg>">
+{# Kacisi yapilmamis < > karakterleri yuzunden data: URI bazi tarayicilarda
+   reddediliyor ve /favicon.ico icin bos yere bir istek daha atiliyordu. #}
+<link rel="icon" type="image/svg+xml" href="{% static 'favicon.svg' %}">
 </head>
 <body>
 
