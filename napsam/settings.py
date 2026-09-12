@@ -207,6 +207,6 @@ NAPSAM_DISMISS_COOLDOWN_DAYS = 30
 
 # AI katmani (Faz 4). Anahtar yoksa uygulama tamamen seed havuzuyla calisir.
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
-GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash").strip()
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash-lite").strip()
 NAPSAM_AI_DAILY_LIMIT = int(os.environ.get("NAPSAM_AI_DAILY_LIMIT", "5"))
 NAPSAM_AI_CACHE_TTL_DAYS = 7

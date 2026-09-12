@@ -6,7 +6,7 @@ import json
 from datetime import datetime
 
 from django.core.management import call_command
-from django.test import TestCase
+from django.test import TestCase, override_settings
 from django.utils import timezone
 
 from core import engine, textmode
@@ -150,6 +150,7 @@ class TextModeTests(TestCase):
         self.assertEqual(textmode.parse("   "), {})
 
 
+@override_settings(GEMINI_API_KEY="")   # testler aga cikmaz
 class ApiTests(TestCase):
     @classmethod
     def setUpTestData(cls):

@@ -106,6 +106,31 @@ class ValidatorTests(TestCase):
         item = {**self.BASE, "hook": "Hayatını değiştir."}
         self.assertTrue(check_tone(item))
 
+    def test_buyuk_harfli_il_adlari_da_yakalanir(self):
+        """
+        Turkce kucultme tuzagi.
+
+        "İ".lower() -> "i" + birlesik nokta, "I".lower() -> "i" (dogrusu "ı").
+        Ikisi de blok listesini sessizce delerdi.
+        """
+        for metin in ["İstanbul'da sahile yürü", "ISPARTA'ya git",
+                      "Iğdır'da dolaş", "ızmir'e uğra", "ANKARA'da yürü"]:
+            with self.subTest(metin=metin):
+                item = {**self.BASE, "steps": [metin, "dön"]}
+                self.assertTrue(check_location_independence(item), metin)
+
+    def test_buyuk_harfli_yasakli_terim_yakalanir(self):
+        item = {**self.BASE, "hook": "VAPURLA karşıya geç."}
+        self.assertTrue(check_location_independence(item))
+
+    def test_konum_bagimsiz_ifade_yanlis_yere_takilmiyor(self):
+        """Yanlis pozitif olmamali: bunlar gecerli onerilerdir."""
+        for metin in ["En yakın su kenarına yürü", "Toplu taşımada son durağa git",
+                      "Bulunduğun yerin en yüksek noktasına çık"]:
+            with self.subTest(metin=metin):
+                item = {**self.BASE, "steps": [metin, "dön"]}
+                self.assertEqual(check_location_independence(item), [], metin)
+
     def test_temiz_oneri_gecer(self):
         self.assertEqual(check_shape(self.BASE), [])
         self.assertEqual(check_location_independence(self.BASE), [])

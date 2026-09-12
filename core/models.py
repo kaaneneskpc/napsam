@@ -397,3 +397,49 @@ class SuggestionState(models.Model):
     @property
     def is_cooling_down(self) -> bool:
         return bool(self.dismissed_until and self.dismissed_until > timezone.now())
+
+
+# --------------------------------------------------------------------------
+# AI katmani (Bolum 10, Katman 2)
+# --------------------------------------------------------------------------
+class AiUsage(models.Model):
+    """
+    Gunluk AI cagri sayaci.
+
+    AnonProfile'a bagli DEGIL, dogrudan cerezdeki anon_id'ye bagli. Boylece
+    yalnizca serbest metin yazan bir ziyaretci icin bile kalici bir profil
+    satiri olusturmak gerekmez.
+    """
+
+    anon_id = models.UUIDField()
+    day = models.DateField()
+    count = models.PositiveSmallIntegerField(default=0)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=["anon_id", "day"], name="uniq_ai_usage_day")
+        ]
+        verbose_name = "AI kullanımı"
+        verbose_name_plural = "AI kullanımları"
+
+    def __str__(self) -> str:
+        return f"{self.anon_id} · {self.day} · {self.count}"
+
+
+class AiRequestCache(models.Model):
+    """
+    Filtre imzasi -> uretilmis oneri (Bolum 10: 7 gun TTL).
+
+    Ayni baglam icin modeli tekrar cagirmak hem para hem sure kaybi.
+    """
+
+    signature = models.CharField(max_length=64, primary_key=True)
+    suggestion = models.ForeignKey(Suggestion, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "AI önbelleği"
+        verbose_name_plural = "AI önbellekleri"
+
+    def __str__(self) -> str:
+        return self.signature[:12]

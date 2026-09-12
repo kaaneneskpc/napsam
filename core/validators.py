@@ -13,6 +13,7 @@ Bu modul iki yerde kullanilir:
 from __future__ import annotations
 
 import re
+import unicodedata
 
 # Turkiye'nin 81 ili. Bir oneride il adi geciyorsa konum bagimsiz degildir.
 IL_ADLARI = {
@@ -60,8 +61,35 @@ class ContentError(ValueError):
     """Bir oneri icerik kurallarindan birini ciğnediginde firlatilir."""
 
 
+# Turkce kucultme, blok listesi eslestirmesinde iki sessiz tuzak barindirir:
+#   "İstanbul".lower() -> "i" + U+0307 (birlesik nokta), "istanbul" ile eslesmez
+#   "Isparta".lower()  -> "isparta"  ama dogru kucuk hali "ısparta"
+# Ikisi de kacak demektir; kacak, urunun en onemli kuralini deler.
+# Bu yuzden karsilastirma ASCII'ye katlanarak yapilir: fazla eslesmek
+# (yanlis pozitif) burada guvenli taraftir, kacirmak degildir.
+_KATLAMA = str.maketrans({
+    "ç": "c", "ğ": "g", "ı": "i", "İ": "i", "ö": "o", "ş": "s", "ü": "u",
+    "Ç": "c", "Ğ": "g", "I": "i", "Ö": "o", "Ş": "s", "Ü": "u", "â": "a", "î": "i", "û": "u",
+})
+
+
+def fold(metin: str) -> str:
+    """Metni buyuk/kucuk ve Turkce karakter farklarindan arindirir."""
+    metin = metin.translate(_KATLAMA).lower()
+    # Kucultmeden arta kalan birlesik isaretleri (ornegin U+0307) at.
+    metin = unicodedata.normalize("NFD", metin)
+    return "".join(ch for ch in metin if not unicodedata.combining(ch))
+
+
 def _kelimeler(metin: str) -> set[str]:
-    return set(re.findall(r"[\wçğıöşüÇĞİÖŞÜ]+", metin.lower()))
+    return set(re.findall(r"[\w]+", fold(metin)))
+
+
+# Blok listeleri de ayni bicimde katlanir ki iki taraf ayni dilde konussun.
+_IL_ADLARI_F = {fold(x) for x in IL_ADLARI}
+_YASAKLI_YER_F = {fold(x) for x in YASAKLI_YER_TERIMLERI}
+_YASAKLI_ICERIK_F = {fold(x) for x in YASAKLI_ICERIK}
+_YASAKLI_TON_F = {fold(x) for x in YASAKLI_TON}
 
 
 def suggestion_text(data: dict) -> str:
@@ -80,29 +108,27 @@ def check_location_independence(data: dict) -> list[str]:
     """Sehir/ilce/isletme ismi kacaklarini bulur."""
     metin = suggestion_text(data)
     kelimeler = _kelimeler(metin)
-    dusuk = metin.lower()
+    katlanmis = fold(metin)
 
     hatalar = []
-    for il in IL_ADLARI & kelimeler:
+    for il in sorted(_IL_ADLARI_F & kelimeler):
         hatalar.append(f"il adı geçiyor: '{il}'")
-    for terim in YASAKLI_YER_TERIMLERI:
-        if terim in dusuk:
+    for terim in sorted(_YASAKLI_YER_F):
+        if terim in katlanmis:
             hatalar.append(f"yere bağımlı terim: '{terim}'")
     return hatalar
 
 
 def check_safety(data: dict) -> list[str]:
-    metin = suggestion_text(data).lower()
-    kelimeler = _kelimeler(metin)
-    hatalar = []
-    for terim in YASAKLI_ICERIK & kelimeler:
-        hatalar.append(f"yasaklı içerik: '{terim}'")
-    return hatalar
+    kelimeler = _kelimeler(suggestion_text(data))
+    return [
+        f"yasaklı içerik: '{terim}'" for terim in sorted(_YASAKLI_ICERIK_F & kelimeler)
+    ]
 
 
 def check_tone(data: dict) -> list[str]:
-    metin = suggestion_text(data).lower()
-    return [f"yasaklı ton: '{t}'" for t in YASAKLI_TON if t in metin]
+    katlanmis = fold(suggestion_text(data))
+    return [f"yasaklı ton: '{t}'" for t in sorted(_YASAKLI_TON_F) if t in katlanmis]
 
 
 def check_shape(data: dict) -> list[str]:

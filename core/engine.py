@@ -114,7 +114,9 @@ def candidates(ctx: Context, profile=None) -> list[Suggestion]:
     `contains` aramasi SQLite'ta desteklenmiyor; havuz birkac yuz satir
     oldugu icin bellekte suzmek hem tasinabilir hem de bedelsiz.
     """
-    qs = Suggestion.objects.active()
+    # AI ile uretilenler genel havuza girmez; onlar yalnizca kendi
+    # istegine cevap olarak dondurulur.
+    qs = Suggestion.objects.active().seeds()
 
     # 1) BUTCE - asla asilmaz.
     ceiling = budget_ceiling(ctx.budget_key)
@@ -296,7 +298,7 @@ def pick(ctx: Context, profile=None, *, top_n: int = 5) -> Suggestion | None:
         current = _relax(current)
 
     # Son care: havuzdaki herhangi bir bedava oneri. Bos ekran gosterme.
-    return Suggestion.objects.active().filter(cost_max=0).order_by("?").first()
+    return Suggestion.objects.active().seeds().filter(cost_max=0).order_by("?").first()
 
 
 def mark_shown(profile, suggestion: Suggestion) -> None:

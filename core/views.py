@@ -22,7 +22,7 @@ from django.utils import timezone
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.decorators.http import require_GET, require_POST
 
-from core import chips, engine, textmode
+from core import ai, chips, engine, textmode
 from core.models import AnonProfile, BudgetTier, StateStatus, Suggestion, SuggestionState
 from core.serializers import suggestion_to_dict
 
@@ -185,7 +185,20 @@ def api_suggest(request):
 
     ctx, mode = build_context(data)
     profile = existing_profile(request)
-    suggestion = engine.pick(ctx, profile)
+
+    suggestion = None
+
+    # AI katmani YALNIZCA serbest metin modunda denenir (Bolum 10).
+    # Basarisiz olursa kullaniciya hata gosterilmez, seed havuzuna dusulur.
+    if mode == "text" and ai.is_enabled():
+        raw_text = str(data.get("text", ""))[:MAX_TEXT_LEN].strip()
+        if raw_text:
+            suggestion = ai.generate(
+                ctx, raw_text, request.anon_id, engine.budget_ceiling(ctx.budget_key)
+            )
+
+    if suggestion is None:
+        suggestion = engine.pick(ctx, profile)
 
     if suggestion is None:
         return JsonResponse({"suggestion": None}, status=200)
@@ -197,6 +210,7 @@ def api_suggest(request):
             "budget": ctx.budget_key,
             "keywords": ctx.keywords,
             "isNight": ctx.is_night,
+            "aiQuotaLeft": ai.quota_left(request.anon_id) if ai.is_enabled() else None,
         },
     })
 
