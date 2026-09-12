@@ -136,26 +136,58 @@ ayarından giriş noktasını bulur ve `STATIC_ROOT` tanımlıysa `collectstatic
 komutunu **kendisi çalıştırır**. Ayrı bir `api/index.py` sarmalayıcısı
 gerekmez.
 
-### 1. Veritabanı şemasını Supabase'e uygula
+### 1. Şema
 
-Supabase panelinden bağlantı dizesini al:
+Şema Supabase projesine **zaten uygulandı** (`napsam`, `oihloudoojbxeobxlwhp`).
+`django_migrations` kayıtları da yazıldığı için `migrate` komutu tekrar
+çalıştırıldığında hiçbir şeyi yeniden uygulamaz.
+
+### 2. Bağlantı dizesi
+
+Supabase şifreyi yalnızca proje oluşturulurken bir kez gösterir. Elinde
+yoksa yenile:
 
 ```
-Project Settings → Database → Connection string → Transaction pooler
+Project Settings → Database → Reset database password
 ```
 
-`.env` dosyandaki `DATABASE_URL` satırına yapıştır (port **6543**), sonra:
+Sonra `.env` içindeki `DATABASE_URL` satırına yapıştır ve seed verisini yükle:
 
 ```bash
-.venv/bin/python manage.py migrate
+.venv/bin/python manage.py migrate      # no-op olmalı
 .venv/bin/python manage.py seed
 ```
 
-> Sunucusuz ortamda kalıcı bağlantı tutulamaz. `settings.py` bunu bilir:
-> `CONN_MAX_AGE=0`, `DISABLE_SERVER_SIDE_CURSORS=True` ve psycopg'nin
-> otomatik prepared statement'ları kapalı (`prepare_threshold=None`).
+**Hangi bağlantı nerede:**
 
-### 2. Vercel ortam değişkenleri
+| Kullanım | Havuz | Port |
+|---|---|---|
+| `migrate` / `seed` (lokalden) | Session pooler | 5432 |
+| Vercel çalışma anı | Transaction pooler | **6543** |
+
+Session pooler tam bir oturum verir; şema işlemleri için doğru olan odur.
+Transaction pooler her işlemden sonra bağlantıyı havuza iade eder — sunucusuz
+için gerekli, DDL için uygun değil.
+
+> `settings.py` transaction pooler'ı bilir: `CONN_MAX_AGE=0`,
+> `DISABLE_SERVER_SIDE_CURSORS=True` ve psycopg'nin otomatik prepared
+> statement'ları kapalı (`prepare_threshold=None`). Bunlar olmadan pgbouncer
+> transaction modunda sorgular kırılır.
+
+### 3. Veri erişimi: yalnızca Django
+
+`public` şemasındaki tüm tablolarda RLS açık ve **hiç policy yok**; ayrıca
+`anon` ve `authenticated` rollerinin yetkileri geri alındı. Yani tablolar
+PostgREST üzerinden (anon anahtarıyla) dışarıya tamamen kapalı.
+
+Django `postgres` rolüyle, yani tablo sahibi olarak bağlandığı için RLS'i
+varsayılan olarak baypas eder; uygulama bundan etkilenmez.
+
+Bu bilinçli bir karar: Supabase burada saf Postgres olarak kullanılıyor,
+BaaS olarak değil. İleride Supabase istemci kütüphanelerini kullanmak
+istersen bu kilidi gevşetmen ve gerçek policy'ler yazman gerekir.
+
+### 4. Vercel ortam değişkenleri
 
 | Değişken | Değer |
 |---|---|
@@ -167,7 +199,7 @@ Project Settings → Database → Connection string → Transaction pooler
 
 `ALLOWED_HOSTS` elle ayarlanmaz; `VERCEL_URL` ve `*.vercel.app` otomatik eklenir.
 
-### 3. Dağıt
+### 5. Dağıt
 
 ```bash
 vercel deploy
