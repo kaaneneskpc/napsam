@@ -22,7 +22,7 @@ from django.utils import timezone
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.decorators.http import require_GET, require_POST
 
-from core import ai, chips, engine, textmode
+from core import ai, chips, config, engine, textmode
 from core.models import AnonProfile, BudgetTier, StateStatus, Suggestion, SuggestionState
 from core.serializers import suggestion_to_dict
 
@@ -43,12 +43,17 @@ def existing_profile(request):
 
     Sadece okuma yapan yollarda kullanilir; boylece ana ekrani acip cikan
     ziyaretci icin tek bir veritabani yazmasi bile yapilmaz.
+
+    Cerez bu istekte uretildiyse profil arama sorgusu da atilmaz: yeni bir
+    kimlige ait kayit tanim geregi yoktur.
     """
+    if getattr(request, "anon_is_new", False):
+        return None
     return AnonProfile.objects.filter(anon_id=request.anon_id).first()
 
 
 def budget_tier_payload() -> list[dict]:
-    wage = engine.current_wage()
+    wage = config.current_wage()
     return [
         {
             "key": t.key,
@@ -57,7 +62,7 @@ def budget_tier_payload() -> list[dict]:
             "amount": t.describe(wage),
             "max": t.amount_max(wage),
         }
-        for t in BudgetTier.objects.filter(is_active=True).order_by("order")
+        for t in config.budget_tiers()
     ]
 
 

@@ -33,7 +33,7 @@ python -c "from django.core.management.utils import get_random_secret_key as k; 
 
 ```
 Katman 1 — SEED HAVUZU            trafiğin ~%85'i
-  core/fixtures/suggestions.json  elle yazılmış, tam etiketli öneriler
+  core/fixtures/suggestions.json  74 elle yazılmış, tam etiketli öneri
   core/engine.py                  filtreleme + puanlama
   Sıfır maliyet, sıfır halüsinasyon, internet gerektirmez.
 
@@ -80,6 +80,22 @@ metni ASCII'ye katlayarak yapar: `"İ".lower()` Python'da `i` + birleşik
 nokta üretir, `"I".lower()` ise `ı` değil `i` verir. İkisi de blok
 listesini sessizce delerdi.
 
+### 1b. Kullanıcının açık sinyali gevşetilmez
+
+İki kural motoru yönetir:
+
+- **Seçilen kelime sert filtredir.** "kahve" seçildiyse yalnızca o etikete
+  sahip öneriler havuza girer. Hiçbiri tutmazsa kısıt düşer ve kullanıcı boş
+  ekran yerine alakasız olmayan bir kart görür.
+- **Bütçe kademesi bir tercihtir, sadece tavan değil.** "İyi" seçildiyse
+  501-1.500 TL bandındaki öneriler varsa yalnızca onlar gösterilir; o bantta
+  hiç öneri yoksa filtre kendiliğinden geri çekilir. Tavan her koşulda sert
+  kalır — bütçe asla aşılmaz.
+
+Bu ikisi başlangıçta yumuşak puandı ve ölçüldüğünde kırıktı: "Bol" seçen
+kullanıcıya %82 oranında bedava öneri, "kahve" seçene %25 isabet dönüyordu.
+Regresyon testleri `BudgetIntentTests` ve `KeywordIntentTests` altında.
+
 ### 2. Bütçe tutarları koda gömülü değil
 
 Enflasyonla 6 ayda eskidiği için kademeler **net asgari ücrete endeksli
@@ -122,7 +138,7 @@ Kural ihlali olan hiçbir şey yazılmaz; komut hata verip çıkar.
 .venv/bin/python manage.py test core
 ```
 
-81 test. Hiçbiri ağa çıkmaz (AI çağrıları taklit edilir).
+95 test. Hiçbiri ağa çıkmaz (AI çağrıları taklit edilir).
 
 Testler içerik kurallarını da kilitler: seed havuzundaki bir öneri konum
 bağımsızlık testini geçmiyorsa test kırılır.

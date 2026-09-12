@@ -22,6 +22,7 @@ from decimal import Decimal
 from django.conf import settings
 from django.utils import timezone
 
+from core import config
 from core.models import (
     BudgetTier,
     Energy,
@@ -46,6 +47,11 @@ VENUE_OPEN_UNTIL = 23
 # Puanlama agirliklari. Tek yerde toplandi ki ayarlamasi kolay olsun.
 W_KEYWORD = 3.0
 W_THEME = 2.0
+# Butce kademesi secildiginde o parayi GERCEKTEN kullanan oneriler one cikar.
+# Aksi halde "Bol" secen kullaniciya bedava oneri donuyordu (olcum: %82).
+W_IN_BAND = 3.5
+W_BELOW_BAND = 1.0
+W_FREE_WHEN_PAID = -2.0
 W_ENERGY = 2.0
 W_COMPANION = 2.0
 W_PLACE_PREF = 2.5
@@ -53,6 +59,11 @@ W_FREE_BONUS = 0.5
 W_RECENT_CATEGORY_PENALTY = -2.5
 W_ALREADY_SHOWN_PENALTY = -1.5
 W_JITTER = 1.2
+
+# Secim, en iyi puana BU KADAR yakin adaylar arasindan yapilir. Sabit bir
+# "ilk 5" arasindan rastgele secmek, kullanicinin acik sinyalini seyreltiyordu:
+# "kahve" secildiginde eslesen 2 oneri varken isabet %25'e dusuyordu.
+NEAR_SCORE = 1.5
 
 
 @dataclass(slots=True)
@@ -86,7 +97,21 @@ class Context:
 # --------------------------------------------------------------------------
 def current_wage() -> Decimal:
     """Net asgari ucret. Koda gomulu degil; RemoteConfig'ten okunur."""
-    return Decimal(str(RemoteConfig.get("net_minimum_wage", 28075)))
+    return config.current_wage()
+
+
+def budget_band(budget_key: str) -> tuple[int, int | None]:
+    """
+    Kademenin alt ve ust siniri (TL).
+
+    Alt sinir, "bu parayi gercekten kullanan" oneriyi ayirt etmek icin gerekli:
+    tavan tek basina bir tercih degil, sadece bir kisittir.
+    """
+    tier = config.budget_tier(budget_key)
+    if tier is None:
+        return (0, 0)
+    wage = config.current_wage()
+    return (tier.amount_min(wage), tier.amount_max(wage))
 
 
 def budget_ceiling(budget_key: str) -> int | None:
@@ -96,10 +121,10 @@ def budget_ceiling(budget_key: str) -> int | None:
     Bolum 8.2 ekonomik gerceklik kurali: kullanici butce belirtmediyse
     varsayilan 'bedava'dir ve ucretli oneri HIC gosterilmez.
     """
-    tier = BudgetTier.objects.filter(key=budget_key, is_active=True).first()
+    tier = config.budget_tier(budget_key)
     if tier is None:
         return 0  # taninmayan kademe -> en guvenli taraf: bedava
-    return tier.amount_max(current_wage())
+    return tier.amount_max(config.current_wage())
 
 
 # --------------------------------------------------------------------------
@@ -170,6 +195,7 @@ def candidates(ctx: Context, profile=None) -> list[Suggestion]:
         qs = qs.exclude(id__in=list(cooling))
 
     month = ctx.now.month
+    keywords = {k.lower() for k in ctx.keywords}
     pool = []
     for item in qs:
         # 5) KIMINLE
@@ -179,7 +205,26 @@ def candidates(ctx: Context, profile=None) -> list[Suggestion]:
         season = item.seasonality or []
         if season and month not in season:
             continue
+        # 9) KELIMELER - kullanicinin tek acik sinyali, bu yuzden SERT filtre.
+        #    En az bir kelime tutmali. Hicbiri tutmazsa _relax() kelimeleri
+        #    dusurur; kullanici bos ekran gormez ama alakasiz kart da gormez.
+        if keywords:
+            tags = {str(t).lower() for t in (item.tags or [])}
+            if not (keywords & tags):
+                continue
         pool.append(item)
+
+    # 1b) BUTCE BANDI - tercih, ama kendi icinde geri cekilir.
+    #     Ucretli bir kademe secildiyse o bandin icindeki oneriler VARSA
+    #     yalnizca onlar gosterilir. Puan olarak birakildiginda tema ya da
+    #     enerji eslesmesi bandi yenebiliyordu: "Iyi" (500-1500) secen
+    #     kullaniciya 120 TL'lik oneri donuyordu.
+    if ctx.budget_key != "bedava":
+        band_lo, _ = budget_band(ctx.budget_key)
+        bantta = [s for s in pool if s.cost_max > band_lo]
+        if bantta:
+            return bantta
+
     return pool
 
 
@@ -188,12 +233,7 @@ def candidates(ctx: Context, profile=None) -> list[Suggestion]:
 # --------------------------------------------------------------------------
 def active_theme() -> WeeklyTheme | None:
     """Bolum 7.6: kullanicinin hic gormedigi haftalik tema."""
-    today = timezone.localdate()
-    return (
-        WeeklyTheme.objects.filter(is_active=True, starts_on__lte=today)
-        .order_by("-starts_on")
-        .first()
-    )
+    return config.active_theme()
 
 
 def score(
@@ -202,6 +242,7 @@ def score(
     theme: WeeklyTheme | None,
     recent_categories: set[str],
     shown_ids: set[int],
+    band: tuple[int, int | None] = (0, 0),
 ) -> float:
     value = 0.0
 
@@ -226,9 +267,16 @@ def score(
     elif ctx.place_pref == "disari" and suggestion.place != Place.EV:
         value += W_PLACE_PREF
 
-    # Bedava oneriler, butce yuksek olsa bile hafif one cikar (Bolum 8.2).
-    if suggestion.cost_max == 0:
-        value += W_FREE_BONUS
+    # Butce. Bedava kademede bedava one cikar; ucretli bir kademe SECILDIYSE
+    # o parayi kullanan oneri one cikar, bedava olan geri duser. Tavan yine
+    # sert filtredir (Bolum 11 kural 3): butce hicbir zaman asilmaz.
+    if ctx.budget_key == "bedava":
+        if suggestion.cost_max == 0:
+            value += W_FREE_BONUS
+    elif suggestion.cost_max == 0:
+        # Bant filtresi bos donduginde (o bantta hic oneri yoksa) bedava
+        # olanlar yine de geri plana dusmeli.
+        value += W_FREE_WHEN_PAID
 
     # Cesitlilik: son gorulen kategoriden uzaklas.
     if suggestion.category in recent_categories:
@@ -289,12 +337,18 @@ def pick(ctx: Context, profile=None, *, top_n: int = 5) -> Suggestion | None:
     while current is not None:
         pool = candidates(current, profile)
         if pool:
-            ranked = sorted(
-                pool,
-                key=lambda s: score(s, current, theme, recent_categories, shown_ids),
+            band = budget_band(current.budget_key)
+            scored = sorted(
+                (
+                    (score(s, current, theme, recent_categories, shown_ids, band), s)
+                    for s in pool
+                ),
+                key=lambda pair: pair[0],
                 reverse=True,
             )
-            return random.choice(ranked[:top_n])
+            best = scored[0][0]
+            yakin = [s for puan, s in scored if best - puan <= NEAR_SCORE]
+            return random.choice(yakin[:top_n])
         current = _relax(current)
 
     # Son care: havuzdaki herhangi bir bedava oneri. Bos ekran gosterme.

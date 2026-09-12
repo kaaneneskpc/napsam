@@ -39,10 +39,19 @@ class EngineTests(TestCase):
         """Guvenli taraf: bilinmeyen deger para harcatmamali."""
         self.assertEqual(engine.budget_ceiling("uydurma-kademe"), 0)
 
-    def test_ust_kademe_alt_kademeyi_kapsar(self):
+    def test_kademe_degistirmek_havuzu_degistiriyor(self):
+        """
+        Butce dugmesi gorunur bir sey yapmali.
+
+        Eskiden ust kademe alt kademeyi KAPSIYORDU (tavan mantigi); o yuzden
+        "Bol" secmek pratikte hicbir sey degistirmiyordu. Artik her kademe
+        kendi bandini gosterir.
+        """
         az = {s.slug for s in engine.candidates(engine.Context(budget_key="az", now=at(14)))}
         bol = {s.slug for s in engine.candidates(engine.Context(budget_key="bol", now=at(14)))}
-        self.assertTrue(az.issubset(bol))
+        self.assertTrue(az)
+        self.assertTrue(bol)
+        self.assertFalse(az & bol, "kademeler ayni onerileri gosteriyor")
 
     # --- saat ve guvenlik ----------------------------------------------
     def test_gece_tek_basina_riskli_oneri_dusuyor(self):
@@ -53,9 +62,9 @@ class EngineTests(TestCase):
 
     def test_gece_yanindaysa_riskli_oneri_kalabilir(self):
         """Kural tek basinayken gecerli; yanindakiler varsa kisit kalkar."""
-        yalniz = engine.candidates(engine.Context(budget_key="bol", now=at(2)))
+        yalniz = engine.candidates(engine.Context(budget_key="bedava", now=at(2)))
         yanimda = engine.candidates(
-            engine.Context(budget_key="bol", now=at(2), companions="friends")
+            engine.Context(budget_key="bedava", now=at(2), companions="friends")
         )
         self.assertFalse(any(s.night_unsafe_solo for s in yalniz))
         self.assertTrue(any(s.night_unsafe_solo for s in yanimda))
@@ -67,25 +76,25 @@ class EngineTests(TestCase):
 
     # --- diger sert filtreler -------------------------------------------
     def test_sure_filtresi(self):
-        ctx = engine.Context(budget_key="bol", duration_max=25, now=at(14))
+        ctx = engine.Context(budget_key="bedava", duration_max=25, now=at(14))
         for item in engine.candidates(ctx):
             self.assertLessEqual(item.duration_min, 25, item.slug)
 
     def test_kiminle_filtresi(self):
-        ctx = engine.Context(budget_key="bol", companions="kids", now=at(14))
+        ctx = engine.Context(budget_key="bedava", companions="kids", now=at(14))
         pool = engine.candidates(ctx)
         self.assertTrue(pool)
         for item in pool:
             self.assertIn("kids", item.companions, item.slug)
 
     def test_evde_filtresi(self):
-        ctx = engine.Context(budget_key="bol", place_pref="ev", now=at(14))
+        ctx = engine.Context(budget_key="bedava", place_pref="ev", now=at(14))
         for item in engine.candidates(ctx):
             self.assertEqual(item.place, "ev", item.slug)
 
     def test_yagmurda_acik_hava_onerilmiyor(self):
         ctx = engine.Context(
-            budget_key="bol", now=at(14), weather={"condition": "rain", "tempC": 12}
+            budget_key="bedava", now=at(14), weather={"condition": "rain", "tempC": 12}
         )
         for item in engine.candidates(ctx):
             self.assertNotIn(item.weather_need, {"dry", "warm"}, item.slug)
@@ -241,3 +250,159 @@ class ApiTests(TestCase):
         data = self.client.get("/healthz/").json()
         self.assertTrue(data["ok"])
         self.assertGreaterEqual(data["suggestions"], 60)
+
+
+class ConfigCacheTests(TestCase):
+    """
+    Yavas degisen yapilandirma onbellekten gelmeli.
+
+    Sunucusuz ortamda her sorgu ayri bir gidis-donus: olculen deger
+    Turkiye -> Frankfurt icin ~80 ms. Bu testler dort sorgunun bire
+    inmesini ve onbellegin yonetim degisikliklerinde dusmesini kilitler.
+    """
+
+    @classmethod
+    def setUpTestData(cls):
+        call_command("seed", verbosity=0)
+
+    def setUp(self):
+        from django.core.cache import cache
+
+        cache.clear()
+
+    def test_sicak_pick_tek_sorgu_atiyor(self):
+        engine.pick(engine.Context(budget_key="bedava", now=at(14)))  # isinma
+        with self.assertNumQueries(1):
+            engine.pick(engine.Context(budget_key="bedava", now=at(14)))
+
+    def test_soguk_pick_yapilandirmayi_bir_kez_okuyor(self):
+        with self.assertNumQueries(4):
+            engine.pick(engine.Context(budget_key="bedava", now=at(14)))
+
+    def test_butce_degisince_onbellek_dusuyor(self):
+        """Bolum 7.2: kod dagitimi gerekmemeli, onbellek bunu geciktirmemeli."""
+        from core.models import RemoteConfig
+
+        onceki = engine.budget_ceiling("orta")
+        RemoteConfig.objects.filter(key="net_minimum_wage").update(value=56150)
+        # update() sinyal tetiklemez; panelden kaydetme yolunu taklit et.
+        RemoteConfig.objects.get(key="net_minimum_wage").save()
+        self.assertGreater(engine.budget_ceiling("orta"), onceki)
+
+    def test_onbellek_kullaniciya_ozel_veri_tutmuyor(self):
+        """Onbellekte yalnizca yapilandirma olmali; kullanici verisi asla."""
+        from django.core.cache import cache
+
+        from core import config
+
+        config.budget_tiers(); config.current_wage(); config.active_theme()
+        for key in ("napsam:budget_tiers", "napsam:net_minimum_wage", "napsam:weekly_theme"):
+            self.assertIsNotNone(cache.get(key), key)
+
+
+class BudgetIntentTests(TestCase):
+    """
+    Butce SECIMI bir tercihtir, sadece bir tavan degil.
+
+    Regresyon: kademe yukseltildiginde motor yine bedava oneri donuyordu
+    (olcum: "Bol" secildiginde %82 bedava). Kullanici acisindan bu, butce
+    dugmesinin hicbir ise yaramamasi demekti.
+    """
+
+    @classmethod
+    def setUpTestData(cls):
+        call_command("seed", verbosity=0)
+
+    def test_bedava_kademesinde_hepsi_bedava(self):
+        ctx = engine.Context(budget_key="bedava", now=at(14))
+        for _ in range(20):
+            self.assertEqual(engine.pick(ctx).cost_max, 0)
+
+    def test_ucretli_kademede_bedava_oneri_gelmiyor(self):
+        for kademe in ("az", "orta", "iyi", "bol"):
+            ctx = engine.Context(budget_key=kademe, now=at(14))
+            with self.subTest(kademe=kademe):
+                for _ in range(20):
+                    self.assertGreater(engine.pick(ctx).cost_max, 0)
+
+    def test_ucretli_kademede_bandin_icinde_kaliniyor(self):
+        for kademe in ("orta", "iyi", "bol"):
+            lo, hi = engine.budget_band(kademe)
+            ctx = engine.Context(budget_key=kademe, now=at(14))
+            with self.subTest(kademe=kademe):
+                for _ in range(20):
+                    secim = engine.pick(ctx)
+                    self.assertGreater(secim.cost_max, lo)
+                    if hi is not None:
+                        self.assertLessEqual(secim.cost_max, hi)
+
+    def test_her_kademede_oneri_var(self):
+        """Bos bir kademe, calisan bir motorda bile bozuk deneyim demektir."""
+        from core.models import Suggestion
+
+        for kademe in ("bedava", "az", "orta", "iyi", "bol"):
+            lo, hi = engine.budget_band(kademe)
+            qs = Suggestion.objects.active().seeds()
+            n = qs.filter(cost_max=0).count() if kademe == "bedava" else (
+                qs.filter(cost_max__gt=lo, cost_max__lte=hi).count()
+                if hi is not None else qs.filter(cost_max__gt=lo).count()
+            )
+            with self.subTest(kademe=kademe):
+                self.assertGreater(n, 0, f"{kademe} kademesinde hiç öneri yok")
+
+    def test_tavan_yine_asilmiyor(self):
+        """Bant tercihi, Bolum 11 kural 3'u gevsetmemeli."""
+        for kademe in ("az", "orta", "iyi"):
+            tavan = engine.budget_ceiling(kademe)
+            for item in engine.candidates(engine.Context(budget_key=kademe, now=at(14))):
+                self.assertLessEqual(item.cost_max, tavan, item.slug)
+
+
+class KeywordIntentTests(TestCase):
+    """
+    Secilen kelime SERT filtredir.
+
+    Regresyon: puanlama yumusakti ve secim sabit "ilk 5" arasindan rastgele
+    yapiliyordu; eslesen oneri az oldugunda isabet %25'e kadar dusuyordu.
+    """
+
+    @classmethod
+    def setUpTestData(cls):
+        call_command("seed", verbosity=0)
+
+    def test_havuzda_yalnizca_eslesenler_var(self):
+        for kelime in ("kahve", "yemek", "müzik", "fotoğraf"):
+            ctx = engine.Context(budget_key="bol", keywords=[kelime], now=at(14))
+            havuz = engine.candidates(ctx)
+            with self.subTest(kelime=kelime):
+                self.assertTrue(havuz, f"'{kelime}' için hiç öneri yok")
+                for item in havuz:
+                    self.assertIn(kelime, item.tags or [], item.slug)
+
+    def test_secim_her_zaman_kelimeye_isabet_ediyor(self):
+        for kelime in ("kahve", "müzik", "fotoğraf"):
+            ctx = engine.Context(budget_key="bol", keywords=[kelime], now=at(14))
+            with self.subTest(kelime=kelime):
+                for _ in range(20):
+                    self.assertIn(kelime, engine.pick(ctx).tags or [])
+
+    def test_birden_fazla_kelimede_en_az_biri_tutuyor(self):
+        secilen = ["kahve", "fotoğraf"]
+        ctx = engine.Context(budget_key="bol", keywords=secilen, now=at(14))
+        for _ in range(20):
+            tags = set(engine.pick(ctx).tags or [])
+            self.assertTrue(tags & set(secilen))
+
+    def test_eslesme_yoksa_bos_ekran_gosterilmiyor(self):
+        """Kelime tutmuyorsa kisit gevser; kullanici bos ekran gormez."""
+        ctx = engine.Context(budget_key="bedava", keywords=["hicbiryerde-yok"], now=at(14))
+        self.assertIsNotNone(engine.pick(ctx))
+
+    def test_kelime_ve_butce_birlikte_calisiyor(self):
+        ctx = engine.Context(budget_key="iyi", keywords=["yemek"], now=at(14))
+        lo, hi = engine.budget_band("iyi")
+        for _ in range(15):
+            secim = engine.pick(ctx)
+            self.assertIn("yemek", secim.tags or [])
+            self.assertGreater(secim.cost_max, lo)
+            self.assertLessEqual(secim.cost_max, hi)

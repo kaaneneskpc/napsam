@@ -2485,5 +2485,375 @@
    "ucuz"
   ],
   "night_unsafe_solo": false
+ },
+ {
+  "slug": "yeme-kahve-ve-tatli",
+  "title": "Bir kahve, bir tatlı ısmarla",
+  "hook": "Acelesi olmayan tek kişilik küçük bir tören.",
+  "steps": [
+   "Oturacak yeri olan bir kahveciye gir, paket alma.",
+   "Yanına bir tatlı söyle, ikisini de yavaş bitir.",
+   "Telefonu masaya koyma; pencereden dışarıyı izle."
+  ],
+  "fallback": "Bütçe tutmuyorsa ya da yer kapalıysa: Evde kahveni yap, en sevdiğin bardağa koy, oturarak iç.",
+  "category": "yeme_icme",
+  "cost_min": 150,
+  "cost_max": 400,
+  "cost_note": "tek kişilik",
+  "duration_min": 40,
+  "duration_max": 70,
+  "companions": [
+   "solo",
+   "couple",
+   "friends"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "kahveci",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "kahve",
+   "sakin",
+   "kısa sürsün"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "kultur-tiyatro-bileti",
+  "title": "Tiyatro bileti al ve git",
+  "hook": "Ekranda değil, önünde canlı oynansın.",
+  "steps": [
+   "Yakındaki bir sahnenin bu haftaki oyununa bak.",
+   "En uygun koltuktan tek bilet al, oyunu seçmekte çok oyalanma.",
+   "Telefonu tamamen kapat, perde kapanana kadar kalk."
+  ],
+  "fallback": "Sahne yoksa ya da bilet bulunmuyorsa: Ödüllü bir tiyatro kaydını evde, ışıkları kısıp baştan sona izle.",
+  "category": "kultur",
+  "cost_min": 500,
+  "cost_max": 900,
+  "cost_note": "tek bilet",
+  "duration_min": 120,
+  "duration_max": 180,
+  "companions": [
+   "solo",
+   "couple",
+   "friends"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "tiyatro",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "yeni bir şey",
+   "gece",
+   "öğrenmek"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "kultur-konser-bileti",
+  "title": "Küçük bir konsere bilet al",
+  "hook": "Büyük salon değil, sesin yakından geldiği bir yer olsun.",
+  "steps": [
+   "Yakındaki küçük bir sahnenin bu haftaki programına bak.",
+   "Tanımadığın bir isim seç; bildiğin birini aramaktan vazgeç.",
+   "Konser boyunca video çekme, sadece dinle."
+  ],
+  "fallback": "Konser yoksa: Hiç dinlemediğin bir albümü baştan sona, kulaklıkla ve başka bir şey yapmadan dinle.",
+  "category": "kultur",
+  "cost_min": 600,
+  "cost_max": 1500,
+  "cost_note": "tek bilet",
+  "duration_min": 120,
+  "duration_max": 200,
+  "companions": [
+   "solo",
+   "couple",
+   "friends"
+  ],
+  "energy": "medium",
+  "place": "mekanli",
+  "venue_type": "konser salonu",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "müzik",
+   "gece",
+   "yeni bir şey",
+   "arkadaşımla"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yeme-doyasiya-aksam-yemegi",
+  "title": "Sevdiğinle dışarıda akşam yemeği",
+  "hook": "Hesabı bölüşmeyi konuşmadan oturulan bir akşam olsun.",
+  "steps": [
+   "Daha önce gitmediğiniz bir yer seçin, yorumlara çok bakmayın.",
+   "Masada ikiniz de telefonu çantaya koyun.",
+   "Tatlıyı atlamayın, acele etmeden kalkın."
+  ],
+  "fallback": "Bütçe ya da yer uygun değilse: Evde iki kişilik tek bir yemek pişirin, masayı düzgün kurun.",
+  "category": "yeme_icme",
+  "cost_min": 700,
+  "cost_max": 1400,
+  "cost_note": "iki kişilik",
+  "duration_min": 90,
+  "duration_max": 150,
+  "companions": [
+   "couple",
+   "friends",
+   "family"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "lokanta",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "yemek",
+   "gece",
+   "arkadaşımla"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "ogrenme-gunluk-atolye",
+  "title": "Tek günlük bir atölyeye katıl",
+  "hook": "Bir günde bitip elinde bir şey bırakan türden olsun.",
+  "steps": [
+   "Yakında açılan seramik, ahşap, yemek ya da fotoğraf atölyelerine bak.",
+   "Kontenjanı bugün olan ilkine yazıl, karşılaştırmayı bırak.",
+   "Bitirdiğin şeyi eve getir, bir yere koy."
+  ],
+  "fallback": "Atölye bulunmazsa: Aynı beceriyi tek videoyla evde dene, malzemeyi en yakın marketten al.",
+  "category": "ogrenme",
+  "cost_min": 600,
+  "cost_max": 1500,
+  "cost_note": "tek katılım",
+  "duration_min": 150,
+  "duration_max": 300,
+  "companions": [
+   "solo",
+   "couple",
+   "friends"
+  ],
+  "energy": "medium",
+  "place": "mekanli",
+  "venue_type": "atölye",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "öğrenmek",
+   "ellerimi kullanayım",
+   "yeni bir şey"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "hareket-havuza-git",
+  "title": "Havuza ya da termale git",
+  "hook": "Suya girmek bedeni bir saatte sıfırlar.",
+  "steps": [
+   "Yakındaki kapalı havuz veya termal tesisin seans saatine bak.",
+   "Mayo, terlik ve havlunu al, yola çık.",
+   "En az kırk dakika suda kal; telefonu dolapta bırak."
+  ],
+  "fallback": "Tesis yoksa ya da pahalıysa: Evde uzun ve sıcak bir duş al, sonra yarım saat hiçbir şey yapmadan uzan.",
+  "category": "hareket",
+  "cost_min": 500,
+  "cost_max": 1200,
+  "cost_note": "tek seans",
+  "duration_min": 90,
+  "duration_max": 180,
+  "companions": [
+   "solo",
+   "couple",
+   "friends",
+   "family"
+  ],
+  "energy": "medium",
+  "place": "mekanli",
+  "venue_type": "havuz",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "mayo",
+   "havlu"
+  ],
+  "theme_tags": [],
+  "tags": [
+   "hareket",
+   "sakin",
+   "yeni bir şey"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "sosyal-arkadaslari-yemege-cikar",
+  "title": "Arkadaşlarını yemeğe çıkar",
+  "hook": "Bu sefer hesabı bölüşmeyi teklif etme.",
+  "steps": [
+   "Üç kişiye tek bir saat yaz, oylama açma.",
+   "Oturulabilecek bir yer seç, rezervasyonu sen yap.",
+   "Hesap geldiğinde tartışma çıkarmadan sen öde."
+  ],
+  "fallback": "Kimse gelemezse ya da bütçe tutmazsa: Aynı üç kişiyi eve çağır, yemeği sen yap.",
+  "category": "sosyal",
+  "cost_min": 1600,
+  "cost_max": 3000,
+  "cost_note": "üç-dört kişi",
+  "duration_min": 120,
+  "duration_max": 210,
+  "companions": [
+   "friends",
+   "family"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "lokanta",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "arkadaşımla",
+   "yemek",
+   "dışarı",
+   "gece"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-bir-gece-uzaklas",
+  "title": "Bir geceliğine uzaklaş",
+  "hook": "Bir gece bile olsa başka bir yerde uyanmak yeter.",
+  "steps": [
+   "Toplu taşımayla iki saat uzaklıktaki küçük bir yerleşimi seç.",
+   "Tek gecelik en sade konaklamayı ayırt, plan yapma.",
+   "Sabah erken kalk, yürüyerek dolaş, akşam dön."
+  ],
+  "fallback": "Gidemiyorsan: Cumartesi sabahı gün doğumunda kalk, bütün günü evin dışında geçir.",
+  "category": "doga",
+  "cost_min": 1800,
+  "cost_max": 4000,
+  "cost_note": "tek kişi, bir gece",
+  "duration_min": 600,
+  "duration_max": 1440,
+  "companions": [
+   "solo",
+   "couple",
+   "friends"
+  ],
+  "energy": "medium",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "yuru"
+  ],
+  "tags": [
+   "dışarı",
+   "yeni bir şey",
+   "sakin",
+   "kalabalık olmasın"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "uretme-enstruman-al",
+  "title": "Bir enstrüman al, dersini ayarla",
+  "hook": "En ucuz modeli al; pahalısını hak edene kadar bekle.",
+  "steps": [
+   "Uzun süredir aklında olan enstrümanın başlangıç seviyesini al.",
+   "Aynı gün tek bir ders ayarla, tarihi ertelemeden.",
+   "Eve gelince ilk sesini çıkar, kutusuna geri koyma."
+  ],
+  "fallback": "Bütçe yetmezse: İkinci el bak ya da bir tanıdıktan ödünç al, ilk dersi videodan yap.",
+  "category": "uretme",
+  "cost_min": 2500,
+  "cost_max": 6000,
+  "cost_note": "başlangıç seti",
+  "duration_min": 120,
+  "duration_max": 240,
+  "companions": [
+   "solo"
+  ],
+  "energy": "medium",
+  "place": "mekanli",
+  "venue_type": "müzik mağazası",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "müzik",
+   "öğrenmek",
+   "yeni bir şey",
+   "ellerimi kullanayım"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "ogrenme-kursa-yazil",
+  "title": "Aylık bir kursa yazıl",
+  "hook": "Tek seferlik heves değil, takvime giren bir şey olsun.",
+  "steps": [
+   "Bir aydır aklından çıkmayan konuyu seç: dil, yüzme, çizim, dans.",
+   "Yakındaki bir kursun bu ayki grubuna bugün kayıt ol.",
+   "İlk dersin saatini takvime yaz ve alarm kur."
+  ],
+  "fallback": "Kurs yoksa ya da bütçe tutmazsa: Aynı konuda ücretsiz bir çevrimiçi programa yazıl, haftalık saatini takvime koy.",
+  "category": "ogrenme",
+  "cost_min": 1500,
+  "cost_max": 4000,
+  "cost_note": "aylık",
+  "duration_min": 60,
+  "duration_max": 120,
+  "companions": [
+   "solo"
+  ],
+  "energy": "medium",
+  "place": "mekanli",
+  "venue_type": "kurs merkezi",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "öğrenmek",
+   "yeni bir şey"
+  ],
+  "night_unsafe_solo": false
  }
 ]

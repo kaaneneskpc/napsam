@@ -42,6 +42,8 @@ class AnonIdentityMiddleware:
             is_new = True
 
         request.anon_id = anon_id
+        # Cerez yeniyse bu kimlige ait profil OLAMAZ; arama bile yapma.
+        request.anon_is_new = is_new
         # request.anon_profile'a DOKUNULMADIKCA sorgu calismaz.
         request.anon_profile = SimpleLazyObject(lambda: _resolve_profile(request))
 

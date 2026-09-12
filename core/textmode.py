@@ -97,9 +97,9 @@ def parse_budget(text: str, tiers: list) -> str | None:
 
     if m := re.search(r"(\d+)\s*(tl|lira|₺)", text):
         amount = int(m.group(1))
-        from core.engine import current_wage
+        from core import config
 
-        wage = current_wage()
+        wage = config.current_wage()
         for tier in tiers:
             top = tier.amount_max(wage)
             if top is None or amount <= top:
@@ -145,13 +145,13 @@ def parse(text: str) -> dict:
     Donen sozlukte yalnizca METINDEN GERCEKTEN CIKARILABILEN alanlar bulunur;
     tahmin edilemeyen alanlar hic konmaz ki motor varsayilanlarini kullansin.
     """
-    from core.models import BudgetTier
+    from core import config
 
     normalized = _normalize(text)
     if not normalized:
         return {}
 
-    tiers = list(BudgetTier.objects.filter(is_active=True).order_by("order"))
+    tiers = config.budget_tiers()
 
     result: dict = {}
     if (budget := parse_budget(normalized, tiers)) is not None:

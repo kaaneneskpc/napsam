@@ -114,17 +114,22 @@ WSGI_APPLICATION = "napsam.wsgi.application"
 DATABASE_URL = os.environ.get("DATABASE_URL", "").strip()
 
 if DATABASE_URL:
+    # Baglanti kurmak pahali: olculen degerler (Turkiye -> Frankfurt havuzu)
+    # yeni baglanti + sorgu ~579 ms, acik baglantida ayni sorgu ~69 ms.
+    # pgbouncer'in transaction modunda coğullanan sey SUNUCU baglantilaridir;
+    # istemcinin baglantiyi acik tutmasi beklenen kullanimdir. Bu yuzden
+    # kalici baglanti aciktir ve bayat baglantilara karsi saglik denetimi var.
     DATABASES = {
         "default": dj_database_url.parse(
             DATABASE_URL,
-            # Supabase transaction pooler (pgbouncer) baglantiyi her islemden
-            # sonra havuza iade eder; kalici baglanti tutulamaz.
-            conn_max_age=0,
+            conn_max_age=int(os.environ.get("DJANGO_CONN_MAX_AGE", "600")),
+            conn_health_checks=True,
             ssl_require=True,
         )
     }
-    # pgbouncer transaction modunda prepared statement'lar bozulur; psycopg3'un
-    # otomatik hazirlamasini kapat.
+    # Transaction modunda GEREKLI olan iki ayar: psycopg3 bes calistirmadan
+    # sonra prepared statement'a gecer ve sunucu tarafi imlecler oturuma
+    # bagimlidir; ikisi de havuzda kirilir.
     DATABASES["default"].setdefault("OPTIONS", {})
     DATABASES["default"]["OPTIONS"]["prepare_threshold"] = None
     DATABASES["default"]["DISABLE_SERVER_SIDE_CURSORS"] = True
@@ -171,6 +176,21 @@ STORAGES = {
             else "whitenoise.storage.CompressedManifestStaticFilesStorage"
         )
     },
+}
+
+# --------------------------------------------------------------------------
+# Onbellek
+# --------------------------------------------------------------------------
+# Surec ici onbellek. Sunucusuz ortamda her ornek kendi kopyasini tutar;
+# paylasimli bir Redis'e gerek yok cunku onbellekteki her sey yavas degisen
+# ve kullaniciya ozel OLMAYAN yapilandirma (asgari ucret, butce kademeleri,
+# haftalik tema). Kullanici verisi onbelleklenmez.
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "napsam-config",
+        "TIMEOUT": 300,
+    }
 }
 
 # --------------------------------------------------------------------------

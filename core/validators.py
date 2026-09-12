@@ -87,7 +87,12 @@ def _kelimeler(metin: str) -> set[str]:
 
 # Blok listeleri de ayni bicimde katlanir ki iki taraf ayni dilde konussun.
 _IL_ADLARI_F = {fold(x) for x in IL_ADLARI}
-_YASAKLI_YER_F = {fold(x) for x in YASAKLI_YER_TERIMLERI}
+
+# Tek kelimelik terimler TAM KELIME olarak aranir; alt-dize aramasi
+# "konaklama" icinde "konak", "bebeginle" icinde "bebek" bulup yanlis alarm
+# veriyordu. Cok kelimeli terimler ise ifade olduklari icin alt-dize kalir.
+_YASAKLI_YER_KELIME_F = {fold(x) for x in YASAKLI_YER_TERIMLERI if " " not in x}
+_YASAKLI_YER_IFADE_F = {fold(x) for x in YASAKLI_YER_TERIMLERI if " " in x}
 _YASAKLI_ICERIK_F = {fold(x) for x in YASAKLI_ICERIK}
 _YASAKLI_TON_F = {fold(x) for x in YASAKLI_TON}
 
@@ -113,9 +118,11 @@ def check_location_independence(data: dict) -> list[str]:
     hatalar = []
     for il in sorted(_IL_ADLARI_F & kelimeler):
         hatalar.append(f"il adı geçiyor: '{il}'")
-    for terim in sorted(_YASAKLI_YER_F):
-        if terim in katlanmis:
-            hatalar.append(f"yere bağımlı terim: '{terim}'")
+    for terim in sorted(_YASAKLI_YER_KELIME_F & kelimeler):
+        hatalar.append(f"yere bağımlı terim: '{terim}'")
+    for ifade in sorted(_YASAKLI_YER_IFADE_F):
+        if ifade in katlanmis:
+            hatalar.append(f"yere bağımlı ifade: '{ifade}'")
     return hatalar
 
 
