@@ -218,8 +218,22 @@ istersen bu kilidi gevşetmen ve gerçek policy'ler yazman gerekir.
 ### 5. Dağıt
 
 ```bash
-vercel deploy
+npx vercel@latest login
+npx vercel@latest link --yes --project napsam
+npx vercel@latest deploy --prod --yes
 ```
+
+Canlı: **https://napsam.vercel.app**
+
+Ortam değişkenleri CLI ile yazılır, değerler kabuğa basılmaz:
+
+```bash
+printf '%s' "$DEGER" | npx vercel@latest env add DEGISKEN_ADI production
+```
+
+`.vercelignore`, `.env` ve `db.sqlite3` gibi dosyaların pakete girmesini
+engeller — bu dosya olmadan CLI `.gitignore`'a bakar, ona güvenmek yerine
+sırları açıkça dışarıda bırakmak daha güvenli.
 
 ---
 

@@ -22,3 +22,5 @@ media/
 .DS_Store
 .idea/
 .vscode/
+.vercel
+.env*
