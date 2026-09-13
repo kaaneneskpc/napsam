@@ -14,6 +14,7 @@ Son iki adim ve tema YUMUSAK PUANdir (siralamayi etkiler, elemez).
 
 from __future__ import annotations
 
+import math
 import random
 from dataclasses import dataclass, field, replace
 from datetime import datetime, timedelta
@@ -323,18 +324,27 @@ def _relax(ctx: Context) -> Context | None:
 
 
 # Puani en iyiye yakin adaylar arasindan kac tanesinin ornekleneceği.
-# Olculdu: 58 adaylik bedava havuzda 80 cekilis ->
-#   top_n=5  : 13 farkli oneri, secimlerin %94'u haftalik temali
-#   top_n=15 : 42 farkli oneri, %46 temali
-#   top_n=25 : 45 farkli oneri, %26 temali
-# Kelime isabeti her degerde %100 kaldi; cunku hassasiyeti saglayan sey bu
-# kapak degil, kelime ve butce bandinin SERT filtre olmasi. Kapak yalnizca
-# cesitliligi kirpiyordu. 15, temanin editoryal etkisini korurken havuzun
-# buyuk kismini erisilebilir birakiyor.
-DEFAULT_TOP_N = 15
+#
+# Kapak HAVUZLA OLCEKLENIR. Sabit bir sayi, havuz buyudukce cesitliligi bogar:
+#   sabit 15 -> 58 adaylik havuzda kapak %26'ydi; 138'de %11'e dustu ve
+#   150 cekiliste yalnizca 39/138 farkli oneri, %81 tema payi kaldi.
+# Olculdu, 138 adaylik bedava havuz, 150 cekilis:
+#   havuzun %25'i -> 79 farkli, %39 temali
+#   havuzun %35'i -> 87 farkli, %39 temali
+#   havuzun %50'si -> 91 farkli, %20 temali (tema neredeyse hissedilmiyor)
+# Kelime isabeti her stratejide %100 kaldi; hassasiyeti bu kapak degil,
+# kelime ve butce bandinin sert filtre olmasi sagliyor. %30, eski olculen
+# davranisi (~%26) her havuz boyunda korur. Kucuk havuzlarda taban 15.
+TOP_N_FRACTION = 0.30
+TOP_N_MIN = 15
 
 
-def pick(ctx: Context, profile=None, *, top_n: int = DEFAULT_TOP_N) -> Suggestion | None:
+def sample_size(pool_size: int) -> int:
+    """Bir havuz icin ornekleme kapagi: en az TOP_N_MIN, en az havuzun %30'u."""
+    return max(TOP_N_MIN, math.ceil(pool_size * TOP_N_FRACTION))
+
+
+def pick(ctx: Context, profile=None, *, top_n: int | None = None) -> Suggestion | None:
     """Baglama en uygun TEK oneriyi dondurur (Sadelik Anayasasi kural 4)."""
     theme = active_theme()
 
@@ -364,7 +374,8 @@ def pick(ctx: Context, profile=None, *, top_n: int = DEFAULT_TOP_N) -> Suggestio
             )
             best = scored[0][0]
             yakin = [s for puan, s in scored if best - puan <= NEAR_SCORE]
-            return random.choice(yakin[:top_n])
+            kapak = top_n if top_n is not None else sample_size(len(pool))
+            return random.choice(yakin[:kapak])
         current = _relax(current)
 
     # Son care: havuzdaki herhangi bir bedava oneri. Bos ekran gosterme.

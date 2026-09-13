@@ -494,3 +494,29 @@ class TemplateRenderTests(TestCase):
             html.index('id="napsam"'), html.index('id="refine-toggle"'),
             "birincil eylem filtrenin altında kalmış",
         )
+
+
+class SampleSizeTests(TestCase):
+    """
+    Ornekleme kapagi havuzla olceklenmeli.
+
+    Regresyon: sabit top_n=15, 58 adaylik havuzda kapagin %26'siydi. Icerik
+    138 bedava adaya cikinca oran %11'e dustu; 150 cekiliste yalnizca 39
+    farkli oneri gorunuyor, secimlerin %81'i haftalik temali oneriye
+    sikisiyordu. Havuz 500'e buyurken ayni hata tekrar etmesin.
+    """
+
+    def test_kucuk_havuzda_taban_korunuyor(self):
+        for n in (1, 10, 30):
+            with self.subTest(havuz=n):
+                self.assertEqual(engine.sample_size(n), engine.TOP_N_MIN)
+
+    def test_buyuk_havuzda_kapak_havuzla_buyuyor(self):
+        for n in (100, 300, 500):
+            with self.subTest(havuz=n):
+                self.assertGreaterEqual(engine.sample_size(n), n * engine.TOP_N_FRACTION)
+        self.assertGreater(engine.sample_size(500), engine.TOP_N_MIN)
+
+    def test_oran_temayi_yok_etmeyecek_kadar_dar(self):
+        """%50'de tema payi %20'ye iniyordu; oran bunun altinda kalmali."""
+        self.assertLess(engine.TOP_N_FRACTION, 0.5)

@@ -11029,5 +11029,969 @@
    "sakin"
   ],
   "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-gunes-batarken-bak",
+  "title": "Güneş batarken batıya bak",
+  "hook": "Günün son yarım saati en yumuşak ışığı veriyor.",
+  "steps": [
+   "Batı tarafı açık bir nokta bul, gün batımından yirmi dakika önce var.",
+   "Güneş ufka değene kadar telefonu cebinde tut.",
+   "Kaybolduktan sonra beş dakika daha kal, renkler asıl o zaman değişir."
+  ],
+  "fallback": "Batıyı gören bir yer yoksa: Pencereden karşı binalara vuran ışığın rengini izle.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 25,
+  "duration_max": 45,
+  "companions": [
+   "solo",
+   "couple",
+   "friends"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "dışarı",
+   "sakin",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-kompost-baslat",
+  "title": "Mutfak artıklarından kompost başlat",
+  "hook": "Çöpe giden kabuklar birkaç ayda toprağa dönüyor.",
+  "steps": [
+   "Kapaklı bir kova ya da büyük bir saksı ayır, dibine delik aç.",
+   "Sebze kabuğu, kahve telvesi ve kuru yaprağı kat kat yerleştir.",
+   "Haftada bir karıştır; et ve yağlı artık koyma."
+  ],
+  "fallback": "Yer yoksa: Artıkları ayrı bir poşette biriktir, bir bahçeye ya da kompost noktasına bırak.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 50,
+  "companions": [
+   "solo",
+   "couple",
+   "family"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "kova"
+  ],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "evde",
+   "ellerimi kullanayım",
+   "yeni bir şey",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-karinca-yolunu-izle",
+  "title": "Bir karınca yolunu sonuna izle",
+  "hook": "Yere eğilince bambaşka bir şehir görüyorsun.",
+  "steps": [
+   "Parkta ya da kaldırım kenarında bir karınca sırası bul.",
+   "Yuvasına ya da yükü taşıdığı yere varana kadar takip et.",
+   "Yola küçük bir kırıntı bırak, ne kadar sürede fark ettiklerini say."
+  ],
+  "fallback": "Karınca bulamazsan: Bir çiçeğin başında beş dakika bekle, kaç arı ya da böcek uğradığını say.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 20,
+  "duration_max": 40,
+  "companions": [
+   "solo",
+   "kids",
+   "family"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "dışarı",
+   "sakin",
+   "kısa sürsün",
+   "öğrenmek",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-ruzgar-gulu-yap",
+  "title": "Kağıttan rüzgâr gülü yap",
+  "hook": "Rüzgârın nereden estiğini bir çubuğun ucunda görmek hoşuna gidecek.",
+  "steps": [
+   "Kare bir kağıdın dört köşesinden ortaya doğru kes.",
+   "Uçları ortada bir raptiyeyle bir kalemin ucuna tuttur.",
+   "Pencereden ya da balkondan dışarı uzat, hangi yönden döndüğüne bak."
+  ],
+  "fallback": "Raptiye yoksa: Bir ipin ucuna hafif bir kağıt şerit bağla, rüzgâr yönünü onunla izle.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 15,
+  "duration_max": 30,
+  "companions": [
+   "solo",
+   "kids",
+   "family"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "kağıt",
+   "raptiye"
+  ],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "evde",
+   "ellerimi kullanayım",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-sisten-kus-yemligi",
+  "title": "Pet şişeden kuş yemliği as",
+  "hook": "Pencerene her gün uğrayan küçük misafirlerin olur.",
+  "steps": [
+   "Boş bir pet şişenin iki yanına karşılıklı delik açıp içinden tahta kaşık geçir.",
+   "Şişeye kuş yemi ya da tuzsuz çekirdek doldur.",
+   "Kedilerin ulaşamayacağı bir dala ya da balkon demirine as."
+  ],
+  "fallback": "Şişeyle uğraşmak istemiyorsan: Balkon kenarına sığ bir kapta temiz su bırak, kuşlar ona da gelir.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 60,
+  "cost_note": "kuş yemi",
+  "duration_min": 20,
+  "duration_max": 35,
+  "companions": [
+   "solo",
+   "kids",
+   "family"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "pet şişe",
+   "kuş yemi"
+  ],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "evde",
+   "ellerimi kullanayım",
+   "yeni bir şey",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-sabah-seslerini-kaydet",
+  "title": "Sabahın seslerini kaydet",
+  "hook": "Kuş, rüzgâr, uzaktan geçen bir motor; sabahın sesi her yerde farklıdır.",
+  "steps": [
+   "Gün doğumuna yakın pencereyi aç ya da kapının önüne çık.",
+   "Telefonun ses kaydını başlat, beş dakika hiç konuşmadan bekle.",
+   "Akşam kaydı dinle, kaç farklı ses ayırt edebildiğini say."
+  ],
+  "fallback": "Erken kalkamazsan: Aynı kaydı akşam karanlığında yap, sabahla karşılaştırmak için sakla.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 15,
+  "duration_max": 30,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "sakin",
+   "kısa sürsün",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-ayi-bir-hafta-izle",
+  "title": "Ayı bir hafta boyunca takip et",
+  "hook": "Her akşam aynı saatte bakınca ayın gözünün önünde değiştiğini görüyorsun.",
+  "steps": [
+   "Her akşam aynı saatte pencereden ya da balkondan aya bak.",
+   "Bir defterin köşesine gördüğün şekli küçükçe çiz.",
+   "Yedinci akşam çizimleri yan yana koy."
+  ],
+  "fallback": "Gökyüzü kapalıysa: O akşamın kutusuna bulut çiz, ertesi akşam kaldığın yerden devam et.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 10,
+  "duration_max": 15,
+  "companions": [
+   "solo",
+   "kids",
+   "family"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "defter"
+  ],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "gece",
+   "sakin",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-golge-saati-kur",
+  "title": "Güneşle bir gölge saati kur",
+  "hook": "Saatten önce insanlar zamanı gölgeye bakarak ölçüyordu.",
+  "steps": [
+   "Güneş alan bir toprağa ya da büyük bir saksıya düz bir çubuk dik.",
+   "Her saat başı gölgenin ucuna küçük bir taş koy.",
+   "Akşam taşların çizdiği yaya bakıp yanlarına saatleri yaz."
+  ],
+  "fallback": "Güneş yoksa: Masada bir kalemi dikip el feneriyle yay çizerek aynı deneyi yap.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 60,
+  "companions": [
+   "solo",
+   "kids",
+   "family"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "çubuk"
+  ],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "dışarı",
+   "öğrenmek",
+   "ellerimi kullanayım",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-yabani-cicek-adlari",
+  "title": "Beş yabani çiçeğin adını öğren",
+  "hook": "Ot sandığın şeylerin çoğunun bir adı var.",
+  "steps": [
+   "Yol kenarında ya da parkta birbirinden farklı beş çiçek bul.",
+   "Koparmadan ve tatmadan fotoğrafını çek, bir bitki tanıma uygulamasıyla adını bul.",
+   "Adları bir kağıda yaz, yarın aynı yoldan geçerken tekrar et."
+  ],
+  "fallback": "Çiçek bulamazsan: Beş farklı yaprak türünün adını aynı yolla öğren.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 50,
+  "companions": [
+   "solo",
+   "kids",
+   "family"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [
+   3,
+   4,
+   5,
+   6
+  ],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "öğrenmek",
+   "fotoğraf",
+   "yürümek",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-ucurtma-yap-ucur",
+  "title": "Kendi uçurtmanı yap ve uçur",
+  "hook": "Rüzgârlı bir gün evde geçmesin.",
+  "steps": [
+   "İki ince çubuğu artı şeklinde bağla, üstüne naylon ya da kağıt ger.",
+   "Kuyruğa kağıt şeritler ekle, ucuna uzun bir ip bağla.",
+   "Ağaç ve elektrik hattından uzak, açık bir alanda rüzgâra karşı koş."
+  ],
+  "fallback": "Rüzgâr yoksa: Kağıttan planör katlayın, açık alanda kimin daha uzağa attığını yarışın.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 50,
+  "cost_note": "ip ve naylon",
+  "duration_min": 60,
+  "duration_max": 120,
+  "companions": [
+   "kids",
+   "family",
+   "friends"
+  ],
+  "energy": "high",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [
+   3,
+   4,
+   5,
+   9,
+   10
+  ],
+  "cultural_tags": [],
+  "required_items": [
+   "çubuk",
+   "ip"
+  ],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "dışarı",
+   "hareket",
+   "ellerimi kullanayım",
+   "arkadaşımla",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-konusmadan-birlikte-yuru",
+  "title": "Yarım saat konuşmadan birlikte yürü",
+  "hook": "Yan yana ama sessiz yürümek sanıldığından çok şey anlatıyor.",
+  "steps": [
+   "Yola çıkmadan önce yanındakiyle kuralı konuşun.",
+   "Ağaçlı bir güzergahta yarım saat hiç konuşmadan yürüyün.",
+   "Bitince ikiniz de fark ettiğiniz tek bir şeyi söyleyin."
+  ],
+  "fallback": "Tek başınaysan: Aynı yürüyüşü kulaklıksız yap ve adımlarını say.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 45,
+  "companions": [
+   "couple",
+   "friends",
+   "family"
+  ],
+  "energy": "medium",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "yuru",
+   "ekransiz"
+  ],
+  "tags": [
+   "dışarı",
+   "yürümek",
+   "sakin",
+   "arkadaşımla",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-ayni-agaci-her-hafta",
+  "title": "Aynı ağacı her hafta fotoğrafla",
+  "hook": "Bir mevsim sonra kareleri yan yana koyunca değişim şaşırtıyor.",
+  "steps": [
+   "Evine yakın, her gün önünden geçtiğin tek bir ağaç seç.",
+   "Hep aynı noktadan ve aynı açıdan bir kare çek.",
+   "Fotoğrafları ayrı bir albümde biriktir, her hafta bir tane ekle."
+  ],
+  "fallback": "Yakında ağaç yoksa: Pencereden görünen manzarayı aynı açıdan her hafta çek.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 10,
+  "duration_max": 15,
+  "companions": [
+   "solo",
+   "kids"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "fotoğraf",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-cocukla-topraktan-sekil",
+  "title": "Çocukla topraktan şekil yap",
+  "hook": "Elleri kirlenen çocuk ekranı aramıyor.",
+  "steps": [
+   "Parkın ya da bahçenin toprak bir köşesini bul, yanına biraz su al.",
+   "Çamurdan hayvan, ev ya da yol yapın; kural koymayın.",
+   "Bitince fotoğrafını çekip elleri birlikte yıkayın."
+  ],
+  "fallback": "Toprak yoksa: Evde un, tuz ve suyla oyun hamuru yapıp aynı şekilleri deneyin.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 60,
+  "companions": [
+   "kids",
+   "family"
+  ],
+  "energy": "medium",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "elini_kullan",
+   "ekransiz"
+  ],
+  "tags": [
+   "dışarı",
+   "ellerimi kullanayım",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-yagmur-suyuyla-sula",
+  "title": "Yağmur suyuyla çiçekleri sula",
+  "hook": "Gökten gelen su bitkilerin en sevdiği içecek.",
+  "steps": [
+   "Yağmur başlamadan balkona ya da pencere önüne geniş bir kap koy.",
+   "Biriken suyu kapaklı bir şişeye aktar.",
+   "Ertesi gün saksılarını bu suyla sula."
+  ],
+  "fallback": "Yağmur yağmıyorsa: Musluk suyunu bir gece açık kapta beklet, sabah saksılara onu ver.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 10,
+  "duration_max": 20,
+  "companions": [
+   "solo",
+   "kids",
+   "family"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "evde",
+   "ellerimi kullanayım",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-havayi-gokyuzunden-tahmin",
+  "title": "Yarının havasını gökyüzünden tahmin et",
+  "hook": "Bulutları okumayı öğrenen hava durumuna daha az bakıyor.",
+  "steps": [
+   "Temel bulut türlerini anlatan kısa bir kaynaktan beşini öğren.",
+   "Akşamüstü dışarı çık, gördüğün bulutlara bakıp yarın için bir tahmin yaz.",
+   "Ertesi gün tahminini gerçek havayla karşılaştır."
+  ],
+  "fallback": "Gökyüzü tamamen açıksa: Rüzgârın yönünü ve sıcaklığı not al, tahmini onunla yap.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 15,
+  "duration_max": 25,
+  "companions": [
+   "solo",
+   "kids",
+   "family"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "öğrenmek",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-kis-gunesinde-otur",
+  "title": "Kış güneşinde yarım saat otur",
+  "hook": "Soğuk bir günde güneşin sıcağını yüzünde hissetmek iyi geliyor.",
+  "steps": [
+   "Öğle saatinde rüzgâr almayan, güneşli bir köşe bul.",
+   "Montunu giy, yarım saat telefonu çıkarmadan otur.",
+   "Kalkmadan önce termosundaki çayı bitir."
+  ],
+  "fallback": "Güneş yoksa: Evin en çok ışık alan penceresinin önüne sandalye çek, aynı süreyi orada geçir.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 25,
+  "duration_max": 40,
+  "companions": [
+   "solo",
+   "couple"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [
+   11,
+   12,
+   1,
+   2
+  ],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "dışarı",
+   "sakin",
+   "tek başıma",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-sokak-agacina-su-tasi",
+  "title": "Kuruyan bir sokak ağacına su taşı",
+  "hook": "Yazın en çok susayan canlılar kaldırımdaki ağaçlar.",
+  "steps": [
+   "Mahallende dibi kurumuş bir sokak ağacı ya da genç fidan belirle.",
+   "İki büyük şişeye su doldurup akşamüstü dibine yavaşça dök.",
+   "Haftada iki kez aynı ağaca uğra."
+  ],
+  "fallback": "Su taşıyamıyorsan: Balkonuna sığ bir kap su koy; arılar ve kuşlar da faydalanır.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 15,
+  "duration_max": 30,
+  "companions": [
+   "solo",
+   "kids",
+   "family"
+  ],
+  "energy": "medium",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [
+   6,
+   7,
+   8,
+   9
+  ],
+  "cultural_tags": [],
+  "required_items": [
+   "şişe"
+  ],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "hareket",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-tas-topla-boya",
+  "title": "Yuvarlak taş topla, üstünü boya",
+  "hook": "Parkta bulduğun bir taş bir haftalık masa süsüne dönüşüyor.",
+  "steps": [
+   "Yürürken avuç içi büyüklüğünde, düz ve pürüzsüz birkaç taş topla.",
+   "Eve gelince yıkayıp kurut, üstüne bir desen ya da yüz çiz.",
+   "Birini bulduğun yere geri bırak, bir başkası bulsun."
+  ],
+  "fallback": "Boya yoksa: Kalıcı kalemle çiz, o da yeterince dayanır.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 60,
+  "companions": [
+   "solo",
+   "kids",
+   "family"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "dışarı",
+   "ellerimi kullanayım",
+   "yeni bir şey",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-meyve-agaclarini-bul",
+  "title": "Mahallendeki meyve ağaçlarını bul",
+  "hook": "Her gün geçtiğin sokakta bir dut ya da incir ağacı olabilir.",
+  "steps": [
+   "Mahalleni yavaş yürü, gördüğün her meyve ağacını not al.",
+   "Her birinin hangi ayda meyve verdiğini öğrenip listeye yaz.",
+   "Kamuya açık olanlardan birinin zamanı gelince meyvesine birlikte bakın."
+  ],
+  "fallback": "Meyve ağacı yoksa: Sokağındaki ağaç türlerini say, en çok hangisinden olduğunu bul.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 40,
+  "duration_max": 70,
+  "companions": [
+   "solo",
+   "couple",
+   "kids",
+   "family"
+  ],
+  "energy": "medium",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "yuru"
+  ],
+  "tags": [
+   "dışarı",
+   "yürümek",
+   "öğrenmek",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-bes-farkli-koku",
+  "title": "Yürürken beş farklı koku yakala",
+  "hook": "Burnunu kullanınca aynı sokak bambaşka geliyor.",
+  "steps": [
+   "Bildiğin bir güzergahta yavaş yürü, gözünü değil burnunu çalıştır.",
+   "Çiçek, fırın, toprak, yaprak; birbirinden farklı beş koku yakala.",
+   "Her birini nerede aldığını kısa bir notla yaz."
+  ],
+  "fallback": "Dışarı çıkamıyorsan: Mutfaktaki beş baharatı gözün kapalı koklayıp tanımaya çalış.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 25,
+  "duration_max": 40,
+  "companions": [
+   "solo",
+   "couple",
+   "kids"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "yuru",
+   "ekransiz"
+  ],
+  "tags": [
+   "dışarı",
+   "yürümek",
+   "sakin",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-dal-celikle-cogalt",
+  "title": "Bir bitkiyi dal parçasından çoğalt",
+  "hook": "Küçük bir dal birkaç haftada yeni bir saksıya dönüşüyor.",
+  "steps": [
+   "Evdeki ya da bir komşudaki sağlıklı bir bitkiden bir dal parçası iste.",
+   "Alt yapraklarını temizleyip bir bardak suya koy, ışık alan yere bırak.",
+   "Kök verince küçük bir saksıya dik."
+  ],
+  "fallback": "Uygun bitki yoksa: Bir havucun kesilmiş ucunu sığ suya koy, filizlenmesini izle.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 15,
+  "duration_max": 25,
+  "companions": [
+   "solo",
+   "kids",
+   "family"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "bardak"
+  ],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "evde",
+   "ellerimi kullanayım",
+   "yeni bir şey",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-karda-ilk-iz",
+  "title": "Karlı sabahta ilk izi sen bırak",
+  "hook": "Kimsenin basmadığı kar, sabahın erken saatine ait.",
+  "steps": [
+   "Kar yağdığı gece alarmı erkene kur.",
+   "Kimse çıkmadan en yakın açık alana git, yavaş yürü.",
+   "Dönerken kendi izlerinin fotoğrafını çek."
+  ],
+  "fallback": "Kar yağmadıysa: Kırağılı bir sabah erken çık, çimlerin üstündeki beyazlığı izle.",
+  "category": "doga",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 50,
+  "companions": [
+   "solo",
+   "couple",
+   "kids"
+  ],
+  "energy": "medium",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [
+   12,
+   1,
+   2
+  ],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "yuru"
+  ],
+  "tags": [
+   "dışarı",
+   "yürümek",
+   "sakin",
+   "fotoğraf",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "doga-tahtadan-kus-evi",
+  "title": "Tahtadan bir kuş evi çak",
+  "hook": "Bir öğleden sonra çakılan kutu yıllarca kullanılıyor.",
+  "steps": [
+   "Hazır bir kuş evi planı bul, tahtayı ölçüye göre kestir.",
+   "Parçaları çivi ya da vidayla birleştir, giriş deliğini plandaki boyda aç.",
+   "Kedilerin ulaşamayacağı bir ağaca ya da duvara as."
+  ],
+  "fallback": "Tahta işine girişmek istemiyorsan: Hazır bir kuş evi al ve bugün as.",
+  "category": "doga",
+  "cost_min": 150,
+  "cost_max": 400,
+  "cost_note": "tahta ve çivi",
+  "duration_min": 90,
+  "duration_max": 150,
+  "companions": [
+   "solo",
+   "kids",
+   "family"
+  ],
+  "energy": "medium",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "tahta",
+   "çivi"
+  ],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "evde",
+   "ellerimi kullanayım",
+   "yeni bir şey"
+  ],
+  "night_unsafe_solo": false
  }
 ]
