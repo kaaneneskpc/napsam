@@ -17456,5 +17456,1023 @@
    "arkadaşımla"
   ],
   "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-apartman-merdivenini-supur",
+  "title": "Apartmanın merdivenini bir kat süpür",
+  "hook": "Kimsenin sırası olmayan işi bir kez sen yapınca bina değişiyor.",
+  "steps": [
+   "Süpürge ve faraşı al, kendi katından bir alt kata kadar süpür.",
+   "Pencere kenarlarındaki tozu ve reklam kağıtlarını topla.",
+   "Kimseye söyleme, bir sonraki hafta başka bir kata geç."
+  ],
+  "fallback": "Apartmanda yaşamıyorsan: Kapının önünü ve kaldırımın bir parçasını aynı şekilde süpür.",
+  "category": "iyilik",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 15,
+  "duration_max": 30,
+  "companions": [
+   "solo"
+  ],
+  "energy": "medium",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "süpürge"
+  ],
+  "theme_tags": [],
+  "tags": [
+   "hareket",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-komsu-cocugunun-odevi",
+  "title": "Komşu çocuğunun ödevine yardım et",
+  "hook": "Evde kimsenin anlatamadığı bir konuyu sen yarım saatte açabilirsin.",
+  "steps": [
+   "Ödevde zorlanan bir komşu ya da akraba çocuğu olup olmadığını ailesine sor.",
+   "Ailesinin de bulunduğu bir odada yarım saat birlikte çalışın.",
+   "Cevabı sen söyleme; nasıl bulacağını göster."
+  ],
+  "fallback": "Yakında çocuk yoksa: Tanıdığın bir öğrenciye aynı konuda anlatım yapan iyi bir kaynak bulup gönder.",
+  "category": "iyilik",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 50,
+  "companions": [
+   "solo",
+   "kids",
+   "family"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [
+   9,
+   10,
+   11,
+   12,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "öğrenmek",
+   "sakin",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-ozgecmisini-duzelt",
+  "title": "İş arayan tanıdığın özgeçmişini düzelt",
+  "hook": "Başkasının gözüyle okunmuş bir özgeçmiş, çoğu zaman görüşmeye kapı açıyor.",
+  "steps": [
+   "İş arayan bir tanıdığından özgeçmişini iste.",
+   "Yazım hatalarını, gereksiz satırları ve eksik bilgileri işaretle.",
+   "Önerilerini kısa bir notla gönder, yeniden yazmasını teklif et."
+  ],
+  "fallback": "İş arayan bir tanıdığın yoksa: Kendi özgeçmişini güncelleyip bir arkadaşına aynı dikkatle okut.",
+  "category": "iyilik",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 60,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "evde",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-apartman-paylasim-rafi",
+  "title": "Apartman girişine paylaşım rafı kur",
+  "hook": "Bir kutu dolusu kitap ve oyuncak, merdivende yeni sahiplerini buluyor.",
+  "steps": [
+   "Yöneticiden izin alıp girişe küçük bir raf ya da sağlam bir kutu koy.",
+   "İlk rafı kendi kitap ve oyuncaklarınla doldur.",
+   "Üstüne kısa bir not as: al, bırak, düzenli tut."
+  ],
+  "fallback": "İzin çıkmazsa: Aynı şeyleri apartmanın mesaj grubunda paylaş, isteyen kapından alsın.",
+  "category": "iyilik",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 60,
+  "companions": [
+   "solo",
+   "family",
+   "kids"
+  ],
+  "energy": "medium",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "kutu"
+  ],
+  "theme_tags": [
+   "duzen"
+  ],
+  "tags": [
+   "yeni bir şey",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-komsu-tatildeyken-cicek",
+  "title": "Komşu tatildeyken çiçeklerine bak",
+  "hook": "Tatile giden birine en çok huzur veren teklif, evde bir şeyin kurumayacağını bilmek.",
+  "steps": [
+   "Tatile çıkacak bir komşuya ya da tanıdığa çiçeklerini sulamayı teklif et.",
+   "Hangi bitkinin ne sıklıkla su istediğini bir kağıda yazdır.",
+   "Suladığın günleri kısaca mesajla bildir."
+  ],
+  "fallback": "Tatile giden kimse yoksa: Bir komşunun uzun süre boş kalacak evine göz kulak olmayı teklif et.",
+  "category": "iyilik",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 10,
+  "duration_max": 20,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [
+   6,
+   7,
+   8,
+   9
+  ],
+  "cultural_tags": [
+   "bayram"
+  ],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-arizayi-belediyeye-bildir",
+  "title": "Mahalledeki bir arızayı belediyeye bildir",
+  "hook": "Herkesin şikâyet ettiği bozuk lamba, kimse bildirmediği için yanmıyor.",
+  "steps": [
+   "Mahallende bozuk bir sokak lambası, çukur ya da kırık bir bank bul.",
+   "Fotoğrafını çekip yerini not al.",
+   "Belediyenin çağrı merkezine ya da başvuru sayfasına bugün bildir."
+  ],
+  "fallback": "Arıza bulamazsan: Taşan bir çöp konteynerini ya da tıkalı bir yağış ızgarasını bildir.",
+  "category": "iyilik",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 15,
+  "duration_max": 30,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "kısa sürsün",
+   "fotoğraf",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-yabanciya-iltifat",
+  "title": "Bir yabancıya içtenlikle iltifat et",
+  "hook": "Bir cümle, tanımadığın birinin bütün gününü değiştirebilir.",
+  "steps": [
+   "Gün içinde gerçekten beğendiğin bir şeyi fark et: bir hizmeti, bir çabayı, bir tavrı.",
+   "Karşındakine kısa ve somut bir cümleyle söyle.",
+   "Karşılık bekleme, yoluna devam et."
+  ],
+  "fallback": "Yüz yüze zor geliyorsa: Aynı cümleyi bir müşteri hizmetleri görevlisine konuşmanın sonunda söyle.",
+  "category": "iyilik",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 2,
+  "duration_max": 10,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "kısa sürsün",
+   "yeni bir şey",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-gorevliye-cay-gotur",
+  "title": "Sokağı süpüren görevliye çay götür",
+  "hook": "Her sabah önünden geçtiğin kişiye bir kez sıcak bir şey uzatmak yeter.",
+  "steps": [
+   "Soğuk bir sabah bir termos ya da karton kapta çay hazırla.",
+   "Sokağında çalışan temizlik görevlisine uzat.",
+   "Adını sor ve bir dahaki sefere adıyla selam ver."
+  ],
+  "fallback": "Görevliyle karşılaşamazsan: Kapına gelen kuryeye ya da postacıya aynı ikramı yap.",
+  "category": "iyilik",
+  "cost_min": 0,
+  "cost_max": 80,
+  "cost_note": "çay ve kap",
+  "duration_min": 10,
+  "duration_max": 20,
+  "companions": [
+   "solo",
+   "kids"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [
+   10,
+   11,
+   12,
+   1,
+   2,
+   3
+  ],
+  "cultural_tags": [],
+  "required_items": [
+   "termos"
+  ],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "kahve",
+   "kısa sürsün"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-kirik-oyuncagi-tamir",
+  "title": "Çocuğun kırık oyuncağını tamir et",
+  "hook": "Atılmak üzere olan bir oyuncağın tamir edilmesi, çocuğa hediyeden fazlasını anlatıyor.",
+  "steps": [
+   "Evde ya da yakınlarında kırık bir oyuncak olup olmadığını sor.",
+   "Çocukla birlikte oturup yapıştır, vidala ya da dik.",
+   "Tamir ederken ona da bir iş ver, bitince ilk o oynasın."
+  ],
+  "fallback": "Tamir edilemeyecek kadar bozuksa: Parçalarından çocukla birlikte yeni bir şey tasarlayın.",
+  "category": "iyilik",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 20,
+  "duration_max": 45,
+  "companions": [
+   "kids",
+   "family"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "yapıştırıcı"
+  ],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "evde",
+   "ellerimi kullanayım",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-battaniyeleri-hayvanlara",
+  "title": "Eski battaniyeleri hayvanlara bağışla",
+  "hook": "Dolapta sararan bir battaniye, bir barınakta kışın en çok aranan şey.",
+  "steps": [
+   "Kullanmadığın battaniye, havlu ve yastık kılıflarını ayır, yıka.",
+   "Yakındaki bir hayvan barınağına ya da hayvan derneğine ihtiyaçlarını sor.",
+   "Poşetleyip bugün teslim et."
+  ],
+  "fallback": "Barınak uzaksa: Battaniyeyi kesip sokak kedileri için bir kutunun içine ser.",
+  "category": "iyilik",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 40,
+  "duration_max": 80,
+  "companions": [
+   "solo",
+   "family",
+   "kids"
+  ],
+  "energy": "medium",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [
+   10,
+   11,
+   12,
+   1,
+   2
+  ],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "duzen"
+  ],
+  "tags": [
+   "dışarı",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-hasta-tanidigi-ziyaret",
+  "title": "Hasta bir tanıdığını ziyaret et",
+  "hook": "Geçmiş olsun demek için hastalığın bitmesini beklemek gerekmiyor.",
+  "steps": [
+   "Rahatsız olduğunu duyduğun bir tanıdığı ya da komşuyu ara, müsait olduğu saati sor.",
+   "Yanında meyve ya da evde yaptığın bir çorba götür.",
+   "Yarım saatten fazla kalma, yorulmasına izin verme."
+  ],
+  "fallback": "Ziyaret uygun değilse: Telefonla ara, işine yarayacak bir alışverişi ya da ihtiyacı üstlenmeyi teklif et.",
+  "category": "iyilik",
+  "cost_min": 50,
+  "cost_max": 150,
+  "cost_note": "meyve",
+  "duration_min": 40,
+  "duration_max": 90,
+  "companions": [
+   "solo",
+   "family"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "sakin"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-kucuge-ilk-kitap",
+  "title": "Küçük birine ilk kitabını hediye et",
+  "hook": "İlk kitap, çocukların yıllarca sakladığı hediyelerden biri.",
+  "steps": [
+   "Çevrendeki okumaya yeni başlamış ya da başlamak üzere olan bir çocuğu düşün.",
+   "Yaşına uygun, resimli ve kısa bir kitap seç.",
+   "İlk sayfasına adını ve tarihi yazıp ver."
+  ],
+  "fallback": "Kitap almak istemiyorsan: Evdeki çocuk kitaplarından sağlam olanını temizleyip aynı notla hediye et.",
+  "category": "iyilik",
+  "cost_min": 80,
+  "cost_max": 150,
+  "cost_note": "tek kitap",
+  "duration_min": 30,
+  "duration_max": 60,
+  "companions": [
+   "solo",
+   "family"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "kitapçı",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [
+   "bayram"
+  ],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "öğrenmek",
+   "yeni bir şey"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-ogrenci-kartina-bakiye",
+  "title": "Öğrenci kartına sessizce bakiye yükle",
+  "hook": "Ay sonunda kartında bakiye kalmayan öğrenci için birkaç biniş bir hafta demek.",
+  "steps": [
+   "Tanıdığın bir öğrenciye ulaşım kartı numarasını ya da kartını sor.",
+   "Bir yükleme noktasından birkaç binişlik bakiye yükle.",
+   "Kimseye söyleme; öğrenciye sadece kartın dolu olduğunu haber ver."
+  ],
+  "fallback": "Tanıdığın öğrenci yoksa: Bir okulun öğrenci işlerine ya da muhtarlığa ihtiyaç olup olmadığını sor.",
+  "category": "iyilik",
+  "cost_min": 80,
+  "cost_max": 150,
+  "cost_note": "bakiye",
+  "duration_min": 15,
+  "duration_max": 30,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [
+   "ay_sonu"
+  ],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "kısa sürsün",
+   "yeni bir şey"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "ufak-beyaz-esya-altini-supur",
+  "title": "Beyaz eşyaların altını süpür",
+  "hook": "Makinelerin altındaki toz yıllardır kimseye görünmüyor.",
+  "steps": [
+   "Buzdolabı ve çamaşır makinesinin fişini çek, dikkatle hafifçe öne çek.",
+   "Arkasını ve altını süpürgeyle ya da nemli bezle temizle.",
+   "Yerine iterken hortum ve kabloların ezilmediğinden emin ol."
+  ],
+  "fallback": "Tek başına çekemiyorsan: Süpürgenin ince başlığıyla ulaşabildiğin kadarını temizle.",
+  "category": "ufak_isler",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 20,
+  "duration_max": 40,
+  "companions": [
+   "solo",
+   "couple"
+  ],
+  "energy": "medium",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "duzen"
+  ],
+  "tags": [
+   "evde",
+   "hareket",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "ufak-camasir-makinesi-filtresi",
+  "title": "Çamaşır makinesinin filtresini temizle",
+  "hook": "Kötü koku ve yavaş boşaltmanın sebebi çoğu zaman o küçük kapağın arkasında.",
+  "steps": [
+   "Makinenin önündeki küçük kapağı aç, altına bir tepsi ve bez koy.",
+   "Filtreyi yavaşça çevirerek çıkar, suyun akmasını bekle.",
+   "Birikenleri temizleyip filtreyi sıkıca geri tak."
+  ],
+  "fallback": "Filtreye ulaşamıyorsan: Deterjan gözünü çıkarıp sıcak suyla fırçala.",
+  "category": "ufak_isler",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 15,
+  "duration_max": 30,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "duzen"
+  ],
+  "tags": [
+   "evde",
+   "kısa sürsün",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "ufak-saatleri-ayarla",
+  "title": "Evdeki saatleri tek tek ayarla",
+  "hook": "Fırındaki saat hâlâ geçen yılın elektrik kesintisinden kalma.",
+  "steps": [
+   "Duvar saati, fırın, mikrodalga ve arabadaki saati sırayla dolaş.",
+   "Hepsini telefonundaki saate göre doğru ayarla.",
+   "Pili bitmek üzere olanların pilini not al."
+  ],
+  "fallback": "Ayarlamayı bilmediğin bir cihaz varsa: Modelini yazıp kısa bir anlatım bul ve sadece onu hallet.",
+  "category": "ufak_isler",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 10,
+  "duration_max": 20,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "duzen"
+  ],
+  "tags": [
+   "evde",
+   "kısa sürsün",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "ufak-garanti-belgeleri-zarf",
+  "title": "Garanti belgelerini bir zarfta topla",
+  "hook": "Cihaz bozulduğunda garanti belgesini aramak, tamirden daha uzun sürüyor.",
+  "steps": [
+   "Evdeki cihazların garanti belgelerini ve faturalarını bir araya getir.",
+   "Süresi dolmuş olanları ayır, geçerli olanları tek bir zarfa koy.",
+   "Zarfın üstüne cihazların listesini ve garanti bitiş tarihlerini yaz."
+  ],
+  "fallback": "Belgeler kayıpsa: Cihazların fotoğrafını ve seri numarasını çekip tek bir klasörde topla.",
+  "category": "ufak_isler",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 20,
+  "duration_max": 40,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "zarf"
+  ],
+  "theme_tags": [
+   "duzen"
+  ],
+  "tags": [
+   "evde",
+   "kısa sürsün",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "ufak-rehberi-birlestir",
+  "title": "Rehberdeki tekrar eden kişileri birleştir",
+  "hook": "Aynı kişinin üç ayrı kaydı, doğru numarayı ararken vakit kaybettiriyor.",
+  "steps": [
+   "Telefon rehberini açıp çift görünen kişileri bul.",
+   "Aynı kişiye ait kayıtları birleştir, eski numaraları sil.",
+   "Tanımadığın ya da artık görüşmediğin kayıtları temizle."
+  ],
+  "fallback": "Rehber çok kalabalıksa: Bugün sadece A'dan E'ye kadar olan harfleri düzenle.",
+  "category": "ufak_isler",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 15,
+  "duration_max": 30,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "duzen"
+  ],
+  "tags": [
+   "evde",
+   "kısa sürsün",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "ufak-on-uygulama-sil",
+  "title": "Telefondan on uygulama sil",
+  "hook": "Bir yıldır açmadığın uygulamalar hem yer hem dikkat kaplıyor.",
+  "steps": [
+   "Telefonundaki uygulamaları son kullanım tarihine göre sırala.",
+   "Bir aydır açmadığın on tanesini tek tek sil.",
+   "Kalanları ana ekranda ikinci sayfaya taşı, ilk sayfada sadece dört tane bırak."
+  ],
+  "fallback": "Silmeye kıyamıyorsan: Önce bildirimlerini kapat, bir hafta sonra yine açmadıysan sil.",
+  "category": "ufak_isler",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 10,
+  "duration_max": 20,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "ekransiz",
+   "duzen"
+  ],
+  "tags": [
+   "evde",
+   "kısa sürsün",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "ufak-perlator-kirec",
+  "title": "Musluğun perlatörünü kireçten arındır",
+  "hook": "Suyu dağıtarak akıtan musluğun ucunda küçük bir kireç kütlesi var.",
+  "steps": [
+   "Musluğun ucundaki perlatörü elinle ya da bezle sararak çevirip çıkar.",
+   "Bir kapta sirkeyle ya da kireç çözücüyle bir saat beklet.",
+   "Eski bir diş fırçasıyla fırçala, durulayıp yerine tak."
+  ],
+  "fallback": "Perlatör çıkmıyorsa: Musluğun ucunu sirkeli bir poşetin içine batırıp lastikle bağla, bir saat beklet.",
+  "category": "ufak_isler",
+  "cost_min": 0,
+  "cost_max": 60,
+  "cost_note": "kireç çözücü",
+  "duration_min": 15,
+  "duration_max": 30,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "sirke"
+  ],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "evde",
+   "ellerimi kullanayım",
+   "kısa sürsün"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "ufak-yavas-akan-lavabo",
+  "title": "Yavaş akan lavaboyu aç",
+  "hook": "Tıkanmaya dönüşmeden önce yavaş akan gideri açmak beş dakika.",
+  "steps": [
+   "Giderin kapağını çıkarıp görünen saç ve kiri eldivenle temizle.",
+   "Gidere yarım bardak karbonat dök, üstüne bir bardak sirke ekle ve on beş dakika bekle.",
+   "Sıcak suyla durula; farklı kimyasal açıcılarla asla karıştırma."
+  ],
+  "fallback": "Hâlâ akmıyorsa: Lavabonun altındaki sifonun altına kova koyup elle aç ve temizle.",
+  "category": "ufak_isler",
+  "cost_min": 0,
+  "cost_max": 80,
+  "cost_note": "karbonat ve sirke",
+  "duration_min": 20,
+  "duration_max": 40,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "karbonat",
+   "sirke",
+   "eldiven"
+  ],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "evde",
+   "ellerimi kullanayım",
+   "kısa sürsün"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "ufak-iade-paketini-gonder",
+  "title": "Bekleyen iade paketini gönder",
+  "hook": "Kapının yanında haftalardır bekleyen kutu, iade süresini sessizce dolduruyor.",
+  "steps": [
+   "İade süresinin dolmadığını ve iade kodunu kontrol et.",
+   "Ürünü kutusuna koyup etiketi yapıştır.",
+   "Bugün en yakın kargo şubesine ya da teslim noktasına bırak."
+  ],
+  "fallback": "Süre dolduysa: Ürünü ihtiyacı olan birine ver ya da ikinci el olarak satışa koy.",
+  "category": "ufak_isler",
+  "cost_min": 0,
+  "cost_max": 80,
+  "cost_note": "kargo",
+  "duration_min": 20,
+  "duration_max": 40,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "kargo şubesi",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "duzen"
+  ],
+  "tags": [
+   "dışarı",
+   "kısa sürsün"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "ufak-oduncu-sahibine-ver",
+  "title": "Ödünç aldığını sahibine geri ver",
+  "hook": "Rafta duran başkasının kitabı, her baktığında aklına bir borç düşürüyor.",
+  "steps": [
+   "Evde başkasından ödünç alıp geri vermediğin şeyleri ara: kitap, kap, alet.",
+   "Sahiplerine mesaj at ve bugün götürebileceğini söyle.",
+   "Geri verirken küçük bir teşekkür ekle."
+  ],
+  "fallback": "Sahibine bugün ulaşamıyorsan: Eşyayı bir poşete koyup üstüne adını yaz, kapının yanına bırak.",
+  "category": "ufak_isler",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 15,
+  "duration_max": 40,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "duzen"
+  ],
+  "tags": [
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "ufak-kapi-kollarini-sikistir",
+  "title": "Sallanan kapı kollarını sıkıştır",
+  "hook": "Her gün tuttuğun gevşek kol bir tornavidayla beş dakikada düzeliyor.",
+  "steps": [
+   "Evdeki kapı ve dolap kollarını tek tek çevirip sallananları bul.",
+   "Uygun tornavidayla vidaları sık, fazla zorlayıp yuvasını bozma.",
+   "Vidası kayıp olanları not al, bir sonraki hırdavat alışverişine yaz."
+  ],
+  "fallback": "Tornavida yoksa: Sallanan kolları bir listeye yaz, bir komşudan tornavida ödünç iste.",
+  "category": "ufak_isler",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 10,
+  "duration_max": 20,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "tornavida"
+  ],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "evde",
+   "ellerimi kullanayım",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "ufak-sarj-girisini-temizle",
+  "title": "Telefonun şarj girişini temizle",
+  "hook": "Şarj olmuyor sandığın telefonun girişinde çoğu zaman sadece cep tozu var.",
+  "steps": [
+   "Telefonu kapat ve iyi bir ışık altında şarj girişine bak.",
+   "Tahta bir kürdanla içteki tozu nazikçe dışarı doğru kazı; metal bir şey sokma.",
+   "Telefonu açıp kabloyu tak, sıkıca oturduğunu kontrol et."
+  ],
+  "fallback": "Kürdan yoksa: Girişe yakından hafifçe üfle, sonra kabloyu birkaç kez takıp çıkar.",
+  "category": "ufak_isler",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 5,
+  "duration_max": 10,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "kürdan"
+  ],
+  "theme_tags": [],
+  "tags": [
+   "evde",
+   "kısa sürsün",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "ufak-priz-koruyucu-tak",
+  "title": "Prizlere çocuk koruyucusu tak",
+  "hook": "Çocuğun göz hizasındaki her priz, bir koruyucu kapakla kapanıyor.",
+  "steps": [
+   "Evde çocuğun erişebileceği yükseklikteki prizleri say.",
+   "Gerekli sayıda priz koruyucu kapak al.",
+   "Hepsini tak ve kullanılan prizlerin fişlerini gevşek olmaması için kontrol et."
+  ],
+  "fallback": "Koruyucu alamıyorsan: Açıktaki prizlerin önüne bugün mobilya ya da kutu yerleştir.",
+  "category": "ufak_isler",
+  "cost_min": 60,
+  "cost_max": 150,
+  "cost_note": "koruyucu kapaklar",
+  "duration_min": 15,
+  "duration_max": 30,
+  "companions": [
+   "family",
+   "kids"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "priz koruyucu"
+  ],
+  "theme_tags": [],
+  "tags": [
+   "evde",
+   "kısa sürsün"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "ufak-davlumbaz-yagini-sok",
+  "title": "Davlumbazın yağını sök",
+  "hook": "Mutfaktaki ağır kokunun kaynağı davlumbazın metal süzgecinde birikiyor.",
+  "steps": [
+   "Ocağı ve davlumbazı kapat, fişini çek.",
+   "Metal süzgeci çıkar, sıcak su ve bulaşık deterjanlı bir kapta yarım saat beklet.",
+   "Fırçalayıp durula, tamamen kuruduktan sonra yerine tak."
+  ],
+  "fallback": "Süzgeç çıkmıyorsa: Deterjanlı sıcak bir bezle yerindeyken silebildiğin kadar temizle.",
+  "category": "ufak_isler",
+  "cost_min": 0,
+  "cost_max": 80,
+  "cost_note": "yağ çözücü",
+  "duration_min": 30,
+  "duration_max": 60,
+  "companions": [
+   "solo",
+   "couple"
+  ],
+  "energy": "medium",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "deterjan"
+  ],
+  "theme_tags": [
+   "duzen"
+  ],
+  "tags": [
+   "evde",
+   "ellerimi kullanayım"
+  ],
+  "night_unsafe_solo": false
  }
 ]
