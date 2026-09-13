@@ -9513,5 +9513,1521 @@
    "ucuz"
   ],
   "night_unsafe_solo": false
+ },
+ {
+  "slug": "yeme-simit-cay-sabah",
+  "title": "Simit ve çayla sabaha başla",
+  "hook": "Beş dakikalık bir kahvaltı da oturarak yenir.",
+  "steps": [
+   "Sabah fırından ya da simitçiden taze bir simit al.",
+   "Yanına çay al, yürürken değil bir banka oturarak ye.",
+   "Simidin son lokmasına kadar telefonu çıkarma."
+  ],
+  "fallback": "Simitçi yoksa: Evde ekmeği kızart, üstüne peynir koy ve pencere önünde otur.",
+  "category": "yeme_icme",
+  "cost_min": 30,
+  "cost_max": 100,
+  "cost_note": "simit ve çay",
+  "duration_min": 15,
+  "duration_max": 30,
+  "companions": [
+   "solo",
+   "friends"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "yemek",
+   "kısa sürsün",
+   "ucuz",
+   "sakin"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yeme-durumcu-dene",
+  "title": "Mahallenin dürümcüsünü dene",
+  "hook": "Tabelası yıpranmış yerlerin çoğu en iyisini yapıyor.",
+  "steps": [
+   "Yakında daha önce hiç girmediğin bir dürümcü seç.",
+   "Ustaya en çok ne satıldığını sor, onu iste.",
+   "Paket yaptırma, tezgâhın önünde sıcakken ye."
+  ],
+  "fallback": "Bütçe tutmazsa ya da açık yer yoksa: Evde lavaşa elindeki malzemeleri sarıp tavada ısıt.",
+  "category": "yeme_icme",
+  "cost_min": 150,
+  "cost_max": 300,
+  "cost_note": "tek porsiyon",
+  "duration_min": 20,
+  "duration_max": 40,
+  "companions": [
+   "solo",
+   "friends"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "dürümcü",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "yemek",
+   "yeni bir şey",
+   "kısa sürsün"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yeme-pazarda-meyve-tat",
+  "title": "Pazarda beş çeşit meyve tat",
+  "hook": "Tezgâhtakiler tattırmaktan hiç çekinmiyor.",
+  "steps": [
+   "Pazarın meyve sırasına git, beş farklı tezgâhtan birer tadım iste.",
+   "En beğendiğin ikisinden yarımşar kilo al.",
+   "Eve gelince yıkayıp bir tabağa dilimle, masada ye."
+  ],
+  "fallback": "Pazar kurulmuyorsa: Manavdan hiç almadığın bir meyve seç ve tadına bak.",
+  "category": "yeme_icme",
+  "cost_min": 60,
+  "cost_max": 150,
+  "cost_note": "meyve",
+  "duration_min": 30,
+  "duration_max": 60,
+  "companions": [
+   "solo",
+   "couple",
+   "family",
+   "kids"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [],
+  "cultural_tags": [
+   "pazar_gunu"
+  ],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "yemek",
+   "yeni bir şey",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yeme-kisin-boza",
+  "title": "Kışın bir kase boza iç",
+  "hook": "Tarçınlı ve leblebili bozanın mevsimi kısa.",
+  "steps": [
+   "Akşam üstü boza satan bir yer bul.",
+   "Üstüne tarçın ve leblebi iste.",
+   "Oturarak, yavaş yavaş iç."
+  ],
+  "fallback": "Boza bulamazsan: Evde bir fincan sıcak sütü tarçın ve balla karıştır.",
+  "category": "yeme_icme",
+  "cost_min": 40,
+  "cost_max": 120,
+  "cost_note": "bir kase",
+  "duration_min": 20,
+  "duration_max": 40,
+  "companions": [
+   "solo",
+   "couple",
+   "friends",
+   "family"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "bozacı",
+  "weather_need": "any",
+  "seasonality": [
+   11,
+   12,
+   1,
+   2
+  ],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "yemek",
+   "gece",
+   "kısa sürsün"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yeme-sicak-salep",
+  "title": "Soğuk akşamda sıcak salep iç",
+  "hook": "Elini ısıtan bir fincan akşamı yumuşatıyor.",
+  "steps": [
+   "Salep satan bir kahveci ya da pastane bul.",
+   "Üstüne bol tarçın serptir.",
+   "Cam kenarına oturup soğumasını beklemeden iç."
+  ],
+  "fallback": "Dışarı çıkamıyorsan: Hazır salebi evde sütle pişir, aynı tarçını serp.",
+  "category": "yeme_icme",
+  "cost_min": 60,
+  "cost_max": 150,
+  "cost_note": "bir fincan",
+  "duration_min": 20,
+  "duration_max": 40,
+  "companions": [
+   "solo",
+   "couple",
+   "friends"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "pastane",
+  "weather_need": "any",
+  "seasonality": [
+   11,
+   12,
+   1,
+   2
+  ],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "kahve",
+   "sakin",
+   "kısa sürsün",
+   "gece"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yeme-firin-onunde-lahmacun",
+  "title": "Lahmacunu fırının önünde ye",
+  "hook": "Fırından çıkıp üç dakika içinde yenmesi gereken bir şey.",
+  "steps": [
+   "Odun fırını olan bir lahmacuncu seç.",
+   "İki lahmacunla ayran söyle, paket yaptırma.",
+   "İçine maydanoz ve limonu bol koy, rulo yapıp ye."
+  ],
+  "fallback": "Açık yer yoksa: Evde ince lavaşa kıyma harcı sürüp tavada pişir.",
+  "category": "yeme_icme",
+  "cost_min": 150,
+  "cost_max": 350,
+  "cost_note": "tek kişilik",
+  "duration_min": 25,
+  "duration_max": 45,
+  "companions": [
+   "solo",
+   "couple",
+   "friends"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "lahmacuncu",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "yemek",
+   "kısa sürsün"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yeme-sac-gozleme",
+  "title": "Sacda gözleme yapan yer bul",
+  "hook": "Hamuru gözünün önünde açılan yemeğin tadı farklı oluyor.",
+  "steps": [
+   "Sacda gözleme yapan bir yer ya da pazar tezgâhı bul.",
+   "Ustanın hamuru nasıl açtığını izle.",
+   "Peynirli ve patatesli birer tane söyleyip paylaş."
+  ],
+  "fallback": "Bulamazsan: Evde yufkaya peynir koyup tavada kızart, ayranla ye.",
+  "category": "yeme_icme",
+  "cost_min": 150,
+  "cost_max": 300,
+  "cost_note": "iki kişilik",
+  "duration_min": 30,
+  "duration_max": 50,
+  "companions": [
+   "couple",
+   "friends",
+   "family"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "gözlemeci",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "yemek",
+   "yeni bir şey"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yeme-dondurmaci-iki-top",
+  "title": "Dondurmacıda iki farklı top seç",
+  "hook": "Hep aynı tadı istemek bu kez yasak.",
+  "steps": [
+   "Bir dondurmacıya gir, hiç denemediğin iki tat seç.",
+   "Külahta değil kâsede al, yavaş ye.",
+   "Hangisini bir daha alacağına karar ver."
+  ],
+  "fallback": "Dondurmacı yoksa ya da mevsim değilse: Markette hiç almadığın bir tatlı çeşidi dene.",
+  "category": "yeme_icme",
+  "cost_min": 60,
+  "cost_max": 150,
+  "cost_note": "iki top",
+  "duration_min": 15,
+  "duration_max": 30,
+  "companions": [
+   "solo",
+   "couple",
+   "friends",
+   "kids",
+   "family"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "dondurmacı",
+  "weather_need": "any",
+  "seasonality": [
+   5,
+   6,
+   7,
+   8,
+   9
+  ],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "yemek",
+   "kısa sürsün",
+   "yeni bir şey"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yeme-kitapla-kahveci",
+  "title": "Kahveciye kitapla git, bir saat kal",
+  "hook": "Evde okunamayan kitap başka bir masada okunuyor.",
+  "steps": [
+   "Yanına yarım kalmış bir kitap al, telefonu sessize koy.",
+   "Pencere kenarında bir masa seç, tek içecek söyle.",
+   "Bir saat dolmadan kalkma."
+  ],
+  "fallback": "Kahveci kalabalıksa: Parkta bir banka otur, aynı bir saati orada doldur.",
+  "category": "yeme_icme",
+  "cost_min": 150,
+  "cost_max": 300,
+  "cost_note": "içecek",
+  "duration_min": 60,
+  "duration_max": 90,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "kahveci",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "kahve",
+   "sakin",
+   "tek başıma",
+   "öğrenmek"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yeme-lokum-komsuya",
+  "title": "Lokum alıp komşuna götür",
+  "hook": "Sebepsiz bir ikram en çok hatırlananı oluyor.",
+  "steps": [
+   "Bir şekerciden küçük bir kutu lokum al.",
+   "Uzun zamandır uğramadığın bir komşunun kapısını çal.",
+   "Kutuyu verip bir çay içimlik otur."
+  ],
+  "fallback": "Komşuna uğrayamıyorsan: Lokumu iş yerindeki ya da apartmandaki birine bırak.",
+  "category": "yeme_icme",
+  "cost_min": 100,
+  "cost_max": 150,
+  "cost_note": "küçük kutu",
+  "duration_min": 20,
+  "duration_max": 40,
+  "companions": [
+   "solo",
+   "couple"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "şekerci",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [
+   "bayram"
+  ],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "kısa sürsün"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yeme-taze-portakal-suyu",
+  "title": "Tezgâhtan taze portakal suyu iç",
+  "hook": "Önünde sıkılan meyvenin suyu şişedekine benzemiyor.",
+  "steps": [
+   "Taze meyve suyu sıkan bir büfe ya da tezgâh bul.",
+   "Portakala biraz nar ya da greyfurt kattır.",
+   "Ayakta hemen iç, bekletme."
+  ],
+  "fallback": "Tezgâh yoksa: Evde iki portakal sık, sabah ilk iş olarak iç.",
+  "category": "yeme_icme",
+  "cost_min": 40,
+  "cost_max": 120,
+  "cost_note": "büyük boy",
+  "duration_min": 10,
+  "duration_max": 20,
+  "companions": [
+   "solo",
+   "couple",
+   "kids"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "büfe",
+  "weather_need": "any",
+  "seasonality": [
+   11,
+   12,
+   1,
+   2,
+   3
+  ],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "kısa sürsün",
+   "yemek"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "mutfak-manti-hamuru",
+  "title": "Evde mantı hamuru aç",
+  "hook": "Yavaş bir iş ama sofraya çıkınca her şeye değiyor.",
+  "steps": [
+   "Hamuru yoğur, yarım saat dinlendir, bu arada iç harcını hazırla.",
+   "İnce aç, küçük kareler kes, her birine nohut kadar iç koy.",
+   "Kapat, haşla, üstüne sarımsaklı yoğurt ve kızgın tereyağı gezdir."
+  ],
+  "fallback": "Vaktin azsa: Hazır yufkayı kare kesip aynı içle kapat, fırında pişir.",
+  "category": "mutfak",
+  "cost_min": 150,
+  "cost_max": 350,
+  "cost_note": "malzeme",
+  "duration_min": 90,
+  "duration_max": 150,
+  "companions": [
+   "couple",
+   "family",
+   "friends"
+  ],
+  "energy": "medium",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "un",
+   "kıyma"
+  ],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "evde",
+   "yemek",
+   "ellerimi kullanayım",
+   "arkadaşımla"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "mutfak-yaprak-sarma",
+  "title": "Bir tencere yaprak sarma sar",
+  "hook": "Sararken konuşulanlar tencerede pişenden kıymetli.",
+  "steps": [
+   "Asma yaprağını haşla, pirinçli iç harcını hazırla.",
+   "Yaprakları ince ve sıkı sar, tencereye yan yana diz.",
+   "Üstüne ters bir tabak kapatıp kısık ateşte pişir."
+  ],
+  "fallback": "Yaprak bulamazsan: Aynı içi biberlere doldurup pişir.",
+  "category": "mutfak",
+  "cost_min": 150,
+  "cost_max": 350,
+  "cost_note": "malzeme",
+  "duration_min": 90,
+  "duration_max": 150,
+  "companions": [
+   "couple",
+   "family"
+  ],
+  "energy": "medium",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "asma yaprağı",
+   "pirinç"
+  ],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "evde",
+   "yemek",
+   "ellerimi kullanayım",
+   "sakin"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "mutfak-pizza-hamurdan",
+  "title": "Pizzayı hamurundan kendin yap",
+  "hook": "Hazır hamurla evde yapılan arasında bir akşamlık fark var.",
+  "steps": [
+   "Un, su, maya ve tuzla hamuru yoğur, bir saat mayalandır.",
+   "İnce aç, üstüne domates sosu ve elindekileri diz.",
+   "Fırının en yüksek ısısında, alt rafta pişir."
+  ],
+  "fallback": "Maya yoksa: Lavaşın üstüne malzemeyi koyup tavada kapağı kapalı pişir.",
+  "category": "mutfak",
+  "cost_min": 150,
+  "cost_max": 350,
+  "cost_note": "malzeme",
+  "duration_min": 90,
+  "duration_max": 120,
+  "companions": [
+   "solo",
+   "couple",
+   "family",
+   "friends",
+   "kids"
+  ],
+  "energy": "medium",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "un",
+   "maya"
+  ],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "evde",
+   "yemek",
+   "ellerimi kullanayım",
+   "arkadaşımla"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "mutfak-kurabiye-tepsisi",
+  "title": "Bir tepsi kurabiye pişir",
+  "hook": "Evin kokusu yarım saatte değişiyor.",
+  "steps": [
+   "Tereyağı, un, şeker ve yumurtayla basit bir hamur yoğur.",
+   "Ceviz büyüklüğünde yuvarla, tepsiye aralıklı diz.",
+   "Kenarları kızarınca çıkar, yarısını birine ayır."
+  ],
+  "fallback": "Fırının yoksa: Aynı hamuru tavada kapağı kapalı, kısık ateşte pişir.",
+  "category": "mutfak",
+  "cost_min": 150,
+  "cost_max": 300,
+  "cost_note": "malzeme",
+  "duration_min": 50,
+  "duration_max": 80,
+  "companions": [
+   "solo",
+   "couple",
+   "family",
+   "kids"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "tereyağı",
+   "un"
+  ],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "evde",
+   "yemek",
+   "ellerimi kullanayım",
+   "yeni bir şey"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "mutfak-eksi-maya",
+  "title": "Ekşi maya başlat ve besle",
+  "hook": "Bir kavanoz un ve su bir hafta sonra ekmek oluyor.",
+  "steps": [
+   "Temiz bir kavanoza eşit ölçüde tam buğday unu ve ılık su koy.",
+   "Üstünü örtüp oda sıcaklığında beklet.",
+   "Her gün yarısını atıp aynı ölçüde un ve su ekle."
+  ],
+  "fallback": "Bir hafta beklemek istemiyorsan: Hazır mayayla tek günlük köy ekmeği yap.",
+  "category": "mutfak",
+  "cost_min": 20,
+  "cost_max": 80,
+  "cost_note": "un",
+  "duration_min": 10,
+  "duration_max": 20,
+  "companions": [
+   "solo",
+   "couple"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "tam buğday unu",
+   "kavanoz"
+  ],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "evde",
+   "yemek",
+   "ellerimi kullanayım",
+   "kısa sürsün",
+   "yeni bir şey"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "mutfak-patlican-kozle",
+  "title": "Közlenmiş patlıcandan meze yap",
+  "hook": "Ocağın alevinde közlenen patlıcan sofrayı değiştiriyor.",
+  "steps": [
+   "Patlıcanları doğrudan ocak alevinde çevirerek közle.",
+   "Kabuğunu soy, yoğurt, sarımsak ve zeytinyağıyla ez.",
+   "Üstüne pul biber serpip ekmekle sofraya koy."
+  ],
+  "fallback": "Ocağın elektrikliyse: Patlıcanları fırında en yüksek ısıda közle.",
+  "category": "mutfak",
+  "cost_min": 60,
+  "cost_max": 150,
+  "cost_note": "malzeme",
+  "duration_min": 30,
+  "duration_max": 50,
+  "companions": [
+   "solo",
+   "couple",
+   "family"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [
+   6,
+   7,
+   8,
+   9
+  ],
+  "cultural_tags": [],
+  "required_items": [
+   "patlıcan",
+   "yoğurt"
+  ],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "evde",
+   "yemek",
+   "ellerimi kullanayım",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "mutfak-hafta-yemek-hazirla",
+  "title": "Haftanın yemeğini bir günde hazırla",
+  "hook": "Pazar günü iki saat, hafta içi beş akşam kazandırıyor.",
+  "steps": [
+   "Beş akşamlık basit bir menü yaz, alışveriş listesini ona göre çıkar.",
+   "Aynı anda iki tencere ve bir fırın tepsisi hazırla.",
+   "Porsiyonlayıp kaplara koy, üstlerine günlerini yaz."
+  ],
+  "fallback": "İki saatin yoksa: Sadece bir tencere yemek ve bir kap salata hazırla, üç akşamı kurtar.",
+  "category": "mutfak",
+  "cost_min": 300,
+  "cost_max": 500,
+  "cost_note": "haftalık malzeme",
+  "duration_min": 120,
+  "duration_max": 180,
+  "companions": [
+   "solo",
+   "couple",
+   "family"
+  ],
+  "energy": "medium",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [
+   "pazar_gunu"
+  ],
+  "required_items": [],
+  "theme_tags": [
+   "duzen"
+  ],
+  "tags": [
+   "evde",
+   "yemek",
+   "ellerimi kullanayım"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "mutfak-bulgur-pilavi",
+  "title": "Bulgur pilavını tane tane pişir",
+  "hook": "Lapa olmayan bir pilavın sırrı suyun ölçüsünde.",
+  "steps": [
+   "Soğan ve biberi yağda kavur, bulguru ekleyip iki dakika çevir.",
+   "Bir ölçü bulgura bir buçuk ölçü sıcak su koy.",
+   "Suyunu çekince ocağı kapat, kapağın altına bez koyup demlendir."
+  ],
+  "fallback": "Bulgur yoksa: Aynı ölçü ve demleme usulünü pirinçle dene.",
+  "category": "mutfak",
+  "cost_min": 40,
+  "cost_max": 100,
+  "cost_note": "malzeme",
+  "duration_min": 30,
+  "duration_max": 45,
+  "companions": [
+   "solo",
+   "couple",
+   "family"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "bulgur"
+  ],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "evde",
+   "yemek",
+   "ucuz",
+   "ellerimi kullanayım"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-kedi-kulubesi",
+  "title": "Sokak kedilerine kışlık kulübe yap",
+  "hook": "Bir köpük kutu ve battaniye soğuk bir geceyi değiştiriyor.",
+  "steps": [
+   "Köpük bir kutu al, yan tarafına kedi girebilecek kadar delik aç.",
+   "İçine eski bir battaniye ya da kuru saman ser.",
+   "Rüzgâr almayan, yağmur geçirmeyen bir köşeye yerleştir."
+  ],
+  "fallback": "Köpük kutu bulamazsan: Karton kutuyu naylonla sarıp aynı şekilde hazırla.",
+  "category": "iyilik",
+  "cost_min": 150,
+  "cost_max": 400,
+  "cost_note": "kutu ve battaniye",
+  "duration_min": 40,
+  "duration_max": 80,
+  "companions": [
+   "solo",
+   "family",
+   "kids"
+  ],
+  "energy": "medium",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [
+   11,
+   12,
+   1,
+   2
+  ],
+  "cultural_tags": [],
+  "required_items": [
+   "köpük kutu",
+   "battaniye"
+  ],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "dışarı",
+   "ellerimi kullanayım",
+   "yeni bir şey"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-sebepsiz-cicek",
+  "title": "Sebepsiz yere birine çiçek al",
+  "hook": "Özel bir gün beklemeden gelen çiçek daha çok hatırlanıyor.",
+  "steps": [
+   "Bir çiçekçiden küçük, mevsimlik bir demet al.",
+   "Evdekine, iş arkadaşına ya da komşuna ver.",
+   "Neden aldığını açıklamaya çalışma."
+  ],
+  "fallback": "Çiçekçi yoksa: Saksıdaki bir bitkiden fide ayırıp güzel bir kavanozla hediye et.",
+  "category": "iyilik",
+  "cost_min": 80,
+  "cost_max": 150,
+  "cost_note": "küçük demet",
+  "duration_min": 20,
+  "duration_max": 40,
+  "companions": [
+   "solo",
+   "couple"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "çiçekçi",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "kısa sürsün",
+   "yeni bir şey"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-huzurevinde-sohbet",
+  "title": "Huzurevinde bir saat sohbet et",
+  "hook": "Orada birinin anlattıklarını dinleyecek birini bekleyen çok kişi var.",
+  "steps": [
+   "Yakındaki bir huzurevini arayıp ziyaret saatlerini ve kurallarını öğren.",
+   "Yanına kolonya ya da küçük bir ikram al.",
+   "Kimseyi acele ettirmeden sohbet et, çok soru sorma."
+  ],
+  "fallback": "Ziyaret kabul edilmiyorsa: Aile büyüklerinden birini arayıp aynı bir saati telefonda geçir.",
+  "category": "iyilik",
+  "cost_min": 50,
+  "cost_max": 150,
+  "cost_note": "ikram",
+  "duration_min": 60,
+  "duration_max": 120,
+  "companions": [
+   "solo",
+   "friends",
+   "family"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "huzurevi",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [
+   "bayram"
+  ],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "sakin",
+   "yeni bir şey"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-kuryeye-ikram",
+  "title": "Kapına gelen kuryeye ikram et",
+  "hook": "Gün boyu merdiven çıkan birine bir şişe su yetiyor.",
+  "steps": [
+   "Kapıda soğuk bir su ya da küçük bir atıştırmalık hazır tut.",
+   "Teslimat geldiğinde uzat, teşekkür et.",
+   "Uygulamada iyi bir puan ve kısa bir not bırak."
+  ],
+  "fallback": "Bugün teslimat yoksa: Apartman görevlisine ya da temizlik görevlisine aynı ikramı yap.",
+  "category": "iyilik",
+  "cost_min": 20,
+  "cost_max": 80,
+  "cost_note": "ikram",
+  "duration_min": 5,
+  "duration_max": 10,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "evde",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-fatura-sessizce",
+  "title": "Birinin faturasını sessizce öde",
+  "hook": "Askıda fatura uygulaması tanımadığın bir evin ışığını yakıyor.",
+  "steps": [
+   "Belediyenin ya da kurumun askıda fatura sayfasını aç.",
+   "Bütçene uyan bir faturayı seç ve öde.",
+   "Kimseye söyleme, ekran görüntüsü paylaşma."
+  ],
+  "fallback": "Uygulama yoksa: Muhtarlığa ihtiyaç sahibi bir aileyi sor, market alışverişi yap.",
+  "category": "iyilik",
+  "cost_min": 150,
+  "cost_max": 500,
+  "cost_note": "tek fatura",
+  "duration_min": 10,
+  "duration_max": 20,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [
+   "ramazan"
+  ],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "evde",
+   "kısa sürsün",
+   "tek başıma"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-koy-okuluna-kitap",
+  "title": "Bir köy okuluna kitap gönder",
+  "hook": "Kütüphanesi olmayan bir sınıf için on kitap bir raf demek.",
+  "steps": [
+   "Kitap ihtiyacı olan bir okulu öğretmen gruplarından ya da derneklerden bul.",
+   "Yaş grubuna uygun on çocuk kitabı seç.",
+   "Kargoyla gönder, içine öğretmene kısa bir not koy."
+  ],
+  "fallback": "Okula ulaşamazsan: Kitapları yakındaki bir okulun kütüphanesine teslim et.",
+  "category": "iyilik",
+  "cost_min": 250,
+  "cost_max": 500,
+  "cost_note": "kitap ve kargo",
+  "duration_min": 40,
+  "duration_max": 80,
+  "companions": [
+   "solo",
+   "couple",
+   "family"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [
+   9,
+   10
+  ],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "öğrenmek",
+   "dışarı"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-cocuklara-top",
+  "title": "Mahalledeki çocuklara top al",
+  "hook": "Sokakta oynayan çocukların patlamış topu bir haftayı bitiriyor.",
+  "steps": [
+   "Sağlam bir futbol ya da voleybol topu al.",
+   "Parkta ya da sokakta oynayan çocuklara ver.",
+   "Bir maç izle, istenirse bir el sen de oyna."
+  ],
+  "fallback": "Çocuk yoksa: Topu yakındaki bir okulun beden eğitimi öğretmenine bırak.",
+  "category": "iyilik",
+  "cost_min": 150,
+  "cost_max": 400,
+  "cost_note": "top",
+  "duration_min": 20,
+  "duration_max": 60,
+  "companions": [
+   "solo",
+   "friends"
+  ],
+  "energy": "medium",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "hareket",
+   "kısa sürsün"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-hayir-yemegi",
+  "title": "Hayır için yemek pişirip dağıt",
+  "hook": "Büyük bir tencere birkaç evin akşamını kurtarıyor.",
+  "steps": [
+   "Mercimek, pilav ya da kuru fasulye gibi bol pişen bir yemek seç.",
+   "Kapaklı kaplara porsiyonla.",
+   "İhtiyacı olduğunu bildiğin kapılara ya da muhtarlığa bırak."
+  ],
+  "fallback": "Pişirecek vaktin yoksa: Aynı tutarla fırından ekmek alıp dağıt.",
+  "category": "iyilik",
+  "cost_min": 250,
+  "cost_max": 500,
+  "cost_note": "malzeme ve kap",
+  "duration_min": 90,
+  "duration_max": 150,
+  "companions": [
+   "solo",
+   "family"
+  ],
+  "energy": "medium",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [
+   "ramazan"
+  ],
+  "required_items": [],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "evde",
+   "yemek",
+   "ellerimi kullanayım"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "iyilik-buyugun-telefonu",
+  "title": "Bir büyüğünün telefonunu düzenle",
+  "hook": "Yazısı büyümüş bir ekran onun gününü kolaylaştırıyor.",
+  "steps": [
+   "Yazı boyutunu büyüt, önemli numaraları hızlı aramaya ekle.",
+   "Görüntülü aramayı ve fotoğraf göndermeyi bir kez birlikte dene.",
+   "Kısa adımları bir kağıda yazıp telefonun yanına bırak."
+  ],
+  "fallback": "Yanında değilsen: Görüntülü aramada ekranı tarif ederek aynı ayarları yaptır.",
+  "category": "iyilik",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 60,
+  "companions": [
+   "family"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [
+   "bayram"
+  ],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "evde",
+   "öğrenmek",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "kultur-acik-hava-konseri",
+  "title": "Açık hava konserine git",
+  "hook": "Yazın belediye sahnelerindeki konserlerin çoğu ücretsiz.",
+  "steps": [
+   "Belediyenin bu haftaki etkinlik takvimine bak.",
+   "Yanına minder ve su al, erken gidip yer tut.",
+   "Tanımadığın bir grubu da sonuna kadar dinle."
+  ],
+  "fallback": "Konser yoksa: Sokak müzisyenlerinin çaldığı bir yere git, şapkalarına bir şey bırak.",
+  "category": "kultur",
+  "cost_min": 0,
+  "cost_max": 150,
+  "cost_note": "ulaşım",
+  "duration_min": 90,
+  "duration_max": 150,
+  "companions": [
+   "solo",
+   "couple",
+   "friends",
+   "family"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [
+   6,
+   7,
+   8,
+   9
+  ],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "müzik",
+   "gece",
+   "arkadaşımla"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "kultur-yeni-roman-sec",
+  "title": "Kitapçıdan yeni bir roman seç",
+  "hook": "Yorum okumadan seçilen kitap sürpriz yapıyor.",
+  "steps": [
+   "Bir kitapçıya gir, hiç bilmediğin bir yazarın rafına git.",
+   "Kapağına ve ilk sayfasına bakarak seç, yoruma bakma.",
+   "Aynı akşam ilk bölümü bitir."
+  ],
+  "fallback": "Kitapçı yoksa: E-kitap mağazasında aynı kuralla, ilk sayfaya bakarak seç.",
+  "category": "kultur",
+  "cost_min": 200,
+  "cost_max": 450,
+  "cost_note": "tek kitap",
+  "duration_min": 40,
+  "duration_max": 90,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "kitapçı",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "öğrenmek",
+   "sakin",
+   "tek başıma",
+   "yeni bir şey"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-bowling-iki-oyun",
+  "title": "Bowling salonunda iki oyun oyna",
+  "hook": "Kimse iyi oynamadığında en eğlenceli hâlini alıyor.",
+  "steps": [
+   "Yakındaki bir bowling salonunda hafta içi uygun saati seç.",
+   "Ayakkabı kirala, iki oyunluk şerit tut.",
+   "Kaybeden taraf bir sonraki içecekleri alsın."
+  ],
+  "fallback": "Salon yoksa: Evde su şişelerini diz, yumuşak bir topla koridor bowlingi yap.",
+  "category": "oyun",
+  "cost_min": 300,
+  "cost_max": 500,
+  "cost_note": "kişi başı",
+  "duration_min": 60,
+  "duration_max": 100,
+  "companions": [
+   "couple",
+   "friends",
+   "family"
+  ],
+  "energy": "medium",
+  "place": "mekanli",
+  "venue_type": "bowling salonu",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "arkadaşımla",
+   "hareket",
+   "gece"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-kacis-odasi",
+  "title": "Kaçış odasına ekip kur",
+  "hook": "Bir saat boyunca herkes telefonu unutuyor.",
+  "steps": [
+   "Üç dört kişilik bir ekip topla, başlangıç seviyesi bir oda seç.",
+   "Rezervasyonu bu hafta için yap.",
+   "Çıkınca hangi ipucunda takıldığınızı konuşun."
+  ],
+  "fallback": "Kaçış odası yoksa ya da bütçe tutmazsa: Evde birbirinize ipucu hazırlayıp hazine avı kurun.",
+  "category": "oyun",
+  "cost_min": 350,
+  "cost_max": 500,
+  "cost_note": "kişi başı",
+  "duration_min": 60,
+  "duration_max": 100,
+  "companions": [
+   "friends",
+   "family"
+  ],
+  "energy": "medium",
+  "place": "mekanli",
+  "venue_type": "kaçış odası",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "arkadaşımla",
+   "yeni bir şey",
+   "gece"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "uretme-kartpostal-gonder",
+  "title": "Kartpostal al, yazıp postala",
+  "hook": "Posta kutusunda fatura dışında bir şey bulmak nadir.",
+  "steps": [
+   "Bir kırtasiyeden iki kartpostal ve pul al.",
+   "Uzakta yaşayan iki kişiye birkaç satır yaz.",
+   "Postaneye ya da posta kutusuna bugün at."
+  ],
+  "fallback": "Postaneye gidemiyorsan: Kartları yaz, çantana koy, ilk fırsatta at.",
+  "category": "uretme",
+  "cost_min": 50,
+  "cost_max": 150,
+  "cost_note": "kart ve pul",
+  "duration_min": 20,
+  "duration_max": 40,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "kısa sürsün",
+   "ellerimi kullanayım",
+   "sakin"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "uretme-tisort-boya",
+  "title": "Düz tişörtü kumaş boyasıyla boya",
+  "hook": "Dolaptaki sade bir parça tek akşamda sana ait oluyor.",
+  "steps": [
+   "Düz renkli bir tişört ve iki kumaş boyası al.",
+   "İçine karton koy, basit bir desen çiz ve boya.",
+   "Kuruduktan sonra tersinden ütüle, boyayı sabitle."
+  ],
+  "fallback": "Boya yoksa: Eski bir tişörtü kesip çanta ya da temizlik bezine çevir.",
+  "category": "uretme",
+  "cost_min": 150,
+  "cost_max": 400,
+  "cost_note": "tişört ve boya",
+  "duration_min": 60,
+  "duration_max": 120,
+  "companions": [
+   "solo",
+   "kids",
+   "friends"
+  ],
+  "energy": "medium",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "tişört",
+   "kumaş boyası"
+  ],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "evde",
+   "ellerimi kullanayım",
+   "yeni bir şey"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "bakim-kese-sabun",
+  "title": "Kese ve sabunla uzun banyo yap",
+  "hook": "Hamama gidemediğin gün evde de keselenir.",
+  "steps": [
+   "Bir kese ve zeytinyağlı sabun al.",
+   "Sıcak suyla on dakika ısın, sonra her yeri keseleyip durula.",
+   "Çıkınca nemlendir ve bir süre uzan."
+  ],
+  "fallback": "Kese yoksa: Sert bir sünger ve sıcak suyla aynı adımları yap.",
+  "category": "kendine_bakim",
+  "cost_min": 80,
+  "cost_max": 150,
+  "cost_note": "kese ve sabun",
+  "duration_min": 40,
+  "duration_max": 60,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "kese"
+  ],
+  "theme_tags": [],
+  "tags": [
+   "evde",
+   "sakin",
+   "tek başıma"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "ufak-ayakkabi-tabani",
+  "title": "Eskiyen ayakkabının tabanını yaptır",
+  "hook": "Sevdiğin ayakkabıyı atmadan önce bir ustaya göster.",
+  "steps": [
+   "Tabanı aşınmış ya da dikişi açılmış çifti seç.",
+   "Ayakkabı tamircisine götür, fiyatı önceden sor.",
+   "Teslim tarihini takvime yaz."
+  ],
+  "fallback": "Tamirci yoksa: Tabanlığını değiştir, açılan dikişi evde güçlü iplikle kapat.",
+  "category": "ufak_isler",
+  "cost_min": 100,
+  "cost_max": 150,
+  "cost_note": "tamir",
+  "duration_min": 20,
+  "duration_max": 40,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "ayakkabı tamircisi",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "duzen"
+  ],
+  "tags": [
+   "dışarı",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "ufak-terziye-tadilat",
+  "title": "Bekleyen tadilatları terziye götür",
+  "hook": "Dolapta paça, fermuar ve düğme bekleyen parçalar birikiyor.",
+  "steps": [
+   "Tadilat bekleyen her şeyi tek bir poşete topla.",
+   "Terziye götür, hepsini tek seferde anlat.",
+   "Alış gününü not al."
+  ],
+  "fallback": "Terzi uzaksa: Düğme ve söküğü evde dik, sadece fermuarı terziye bırak.",
+  "category": "ufak_isler",
+  "cost_min": 150,
+  "cost_max": 400,
+  "cost_note": "tadilat",
+  "duration_min": 20,
+  "duration_max": 40,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "terzi",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "duzen"
+  ],
+  "tags": [
+   "dışarı",
+   "kısa sürsün"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "ev-masaya-canli-bitki",
+  "title": "Çalışma masana canlı bir bitki al",
+  "hook": "Gözünün önünde büyüyen bir şey masayı yumuşatıyor.",
+  "steps": [
+   "Az ışık isteyen, bakımı kolay bir bitki seç.",
+   "Masanın pencereye en yakın köşesine koy.",
+   "Sulama gününü telefonuna haftalık hatırlatıcı olarak kur."
+  ],
+  "fallback": "Bitki almak istemiyorsan: Bir kavanoza su koyup içine bir sarmaşık dalı yerleştir.",
+  "category": "ev_ici",
+  "cost_min": 80,
+  "cost_max": 150,
+  "cost_note": "küçük bitki",
+  "duration_min": 20,
+  "duration_max": 40,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "çiçekçi",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "sakin",
+   "kısa sürsün",
+   "yeni bir şey"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "sosyal-kahvalti-sofrasi",
+  "title": "Evde arkadaşlarla kahvaltı sofrası kur",
+  "hook": "Uzun pazar kahvaltısı en az iki kişiyle anlam kazanıyor.",
+  "steps": [
+   "Cumartesiden iki arkadaşını pazar sabahına çağır.",
+   "Herkes bir şey getirsin, sen çay ve yumurtayı üstlen.",
+   "Masadan kalkma saatini kimse söylemesin."
+  ],
+  "fallback": "Kimse gelemezse: Aynı sofrayı ev halkıyla kur, telefonlar masaya gelmesin.",
+  "category": "sosyal",
+  "cost_min": 250,
+  "cost_max": 500,
+  "cost_note": "sofra",
+  "duration_min": 90,
+  "duration_max": 180,
+  "companions": [
+   "friends",
+   "family",
+   "couple"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [
+   "pazar_gunu"
+  ],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "evde",
+   "yemek",
+   "arkadaşımla",
+   "sakin"
+  ],
+  "night_unsafe_solo": false
  }
 ]
