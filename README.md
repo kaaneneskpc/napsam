@@ -1,203 +1,137 @@
-# NAPSAM
+<div align="center">
 
-> "Ne yapsam ya?" diye takılan insana, tek dokunuşla, bütçesine uyan,
-> **şu an ve bulunduğu yerde** yapabileceği tek bir somut fikir veren uygulama.
+# napsam.
 
-Başarı tanımı: kullanıcı açar, 10 saniyede fikri alır, **uygulamayı kapatır**
-ve o şeyi yapar. Bu üründe uzun oturum bir başarı değil, bir hatadır.
+### “Ne yapsam ya?” diyene tek dokunuşla tek bir somut fikir.
+
+Bütçene uyan, **şu an ve bulunduğun yerde** yapabileceğin tek bir eylem.<br>
+Sonsuz liste yok, kaydırma yok, kararsızlık yok.
+
+[![Canlı](https://img.shields.io/badge/canl%C4%B1-napsam.vercel.app-e8744f?style=for-the-badge)](https://napsam.vercel.app)
+
+![Python](https://img.shields.io/badge/Python-3.13-3776AB?logo=python&logoColor=white)
+![Django](https://img.shields.io/badge/Django-5.2-092E20?logo=django&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-Postgres-3FCF8E?logo=supabase&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-deploy-000000?logo=vercel&logoColor=white)
+![Tests](https://img.shields.io/badge/test-116-4c1)
+
+</div>
+
+<p align="center">
+  <img src="docs/screenshots/desktop.png" alt="NAPSAM masaüstü görünümü" width="68%">
+  &nbsp;
+  <img src="docs/screenshots/mobile.png" alt="NAPSAM mobil görünümü" width="24%">
+</p>
 
 ---
 
-## Hızlı başlangıç
+## Fikir
+
+Çoğu uygulama seni ekranda tutmak için tasarlanır. NAPSAM tam tersini hedefler:
+
+> Uygulamayı açarsın, **10 saniyede** fikri alırsın, **uygulamayı kapatırsın** ve o şeyi yaparsın.
+
+Bu üründe uzun oturum bir başarı değil, bir hatadır.
+
+## Nasıl çalışır?
+
+1. **Bütçeni seç:** Bedava · Az · Orta · İyi · Bol
+2. İstersen **bir kelime seç ya da yaz** (kahve, dışarı, arkadaşımla…). Bu adım tamamen isteğe bağlı.
+3. **NAPSAM?** butonuna bas. Karşına tek bir kart çıkar: ne yapacağın, 2-3 adımda nasıl yapacağın ve plan tutmazsa alternatifi.
+
+Beğenmezsen **Başka fikir**, beğenirsen **Kaydet** ya da **Tamam, yapıyorum**.
+
+## Öne çıkanlar
+
+| | |
+|---|---|
+| 📍 **Konum bağımsız** | Her öneri Türkiye'nin her yerinde yapılabilir. Şehir, semt ya da işletme adı geçen öneri havuza giremez. |
+| 💸 **Enflasyona dayanıklı bütçe** | Kademeler TL olarak değil, net asgari ücrete oranla saklanır. Asgari ücret değişince tek bir ayar güncellenir. |
+| 🎯 **Seçimine sadık** | Seçtiğin kelime ve bütçe gerçekten uygulanır. Hiçbir şey eşleşmezse filtre kademeli gevşer, boş ekran görmezsin. |
+| 🧠 **AI isteğe bağlı** | Gemini katmanı tek bir ortam değişkeniyle açılıp kapanır. Kapalıyken uygulama eksiksiz çalışır. |
+| 🔒 **Gizlilik önce** | Üyelik yok, konum izni yok. Sadece gezinen ziyaretçi için veritabanına tek satır yazılmaz. |
+| 📱 **Mobil uyumlu** | Açık/koyu tema, telefonda da taşmayan düzen. |
+
+## Mimari
+
+```mermaid
+flowchart LR
+    U([Kullanıcı]) -->|bütçe + isteğe bağlı kelime| V[Django view]
+    V --> M{Mod}
+    M -->|kelime seçimi| E[Öneri motoru]
+    M -->|serbest metin| K{Gemini açık<br/>ve kota içinde mi?}
+    K -->|evet| G[Gemini] --> D[Doğrulayıcı]
+    D -->|geçti| C
+    D -->|reddedildi| E
+    K -->|hayır / hata| T[textmode.py<br/>metin → bağlam] --> E
+    E -->|sert filtre → puan → örnekleme| C[[Tek öneri kartı]]
+    E <--> DB[(Supabase Postgres<br/>500 öneri)]
+```
+
+**Öneri motoru** (`core/engine.py`) üç adımda çalışır:
+
+- **Sert filtreler:** bütçe tavanı ve bandı, günün saati ve gece güvenliği, hava, süre, kiminle, enerji, mekân, mevsim, seçilen kelime.
+- **Yumuşak puanlama:** kalan adaylar bağlama göre sıralanır.
+- **Çeşitlilik:** en iyilere yakın adaylar arasından, havuz büyüklüğüyle orantılı bir örneklemden rastgele seçim yapılır. Son görülen öneriler tekrar gelmez.
+
+## Teknolojiler
+
+| Katman | Seçim |
+|---|---|
+| Backend | Python 3.13, Django 5.2 |
+| Veritabanı | Supabase Postgres (transaction pooler, psycopg 3) |
+| Frontend | Sade HTML, CSS ve JavaScript. Framework ve build adımı yok. |
+| AI (opsiyonel) | Google Gemini, günlük üç katmanlı kota ile |
+| Yayın | Vercel (Django zero-config), statik dosyalar WhiteNoise ile |
+
+## Proje yapısı
+
+```
+napsam/                 Django ayarları, URL'ler, WSGI
+core/
+  engine.py             öneri motoru: filtre, puan, örnekleme
+  validators.py         içerik denetimi (konum, ton, biçim, yakın tekrar)
+  ai.py                 Gemini katmanı ve kota koruması
+  textmode.py           serbest metin → bağlam (AI olmadan da çalışır)
+  chips.py              günün saatine göre değişen kelime seti
+  middleware.py         çerez tabanlı anonim kimlik
+  fixtures/
+    suggestions.json    500 elle yazılmış, etiketli öneri
+  management/commands/
+    seed.py             içeriği denetleyip veritabanına yazar
+  tests/                116 test
+templates/              ana sayfa, kaydedilenler, gizlilik
+static/                 css, js, favicon
+```
+
+## Yerelde çalıştırma
 
 ```bash
+git clone https://github.com/kaaneneskpc/napsam.git
+cd napsam
+
 uv venv --python 3.13
 uv pip install -r requirements.txt
-cp .env.example .env          # DJANGO_SECRET_KEY üret, DEBUG=True yap
+cp .env.example .env
+
 .venv/bin/python manage.py migrate
 .venv/bin/python manage.py seed
 .venv/bin/python manage.py runserver
 ```
 
-`DATABASE_URL` boşsa lokalde SQLite kullanılır — hızlı geliştirme için yeterli.
+`DATABASE_URL` boş bırakılırsa SQLite kullanılır. Hızlı geliştirme için bu yeterli.
 
-Gizli anahtar üretmek için:
+### Ortam değişkenleri
 
-```bash
-python -c "from django.core.management.utils import get_random_secret_key as k; print(k())"
-```
-
----
-
-## Mimari
-
-```
-Katman 1 — SEED HAVUZU            trafiğin ~%85'i
-  core/fixtures/suggestions.json  500 elle yazılmış, tam etiketli öneri
-  core/engine.py                  filtreleme + puanlama
-  Sıfır maliyet, sıfır halüsinasyon, internet gerektirmez.
-
-Katman 2 — AI (Gemini)            yalnızca serbest metin ("Yaz") modu
-  core/ai.py                      anahtar sadece sunucuda
-  İmza tabanlı önbellek (7 gün) + günlük kota (5 çağrı)
-  Her başarısızlıkta sessizce Katman 1'e düşer.
-```
-
-AI bir süstür, çekirdek değil. `GEMINI_API_KEY` tanımsızken uygulama
-eksiksiz çalışır.
-
-### AI katmanını açma / kapama
-
-Katman tek bir ortam değişkenine bağlıdır; kod değişikliği gerekmez.
-
-```bash
-# Kapat (uygulama seed havuzuyla tam çalışmaya devam eder)
-npx vercel@latest env rm GEMINI_API_KEY production --yes
-
-# Sonradan aç
-printf '%s' "ANAHTAR" | npx vercel@latest env add GEMINI_API_KEY production
-npx vercel@latest deploy --prod --yes
-```
-
-`/healthz/` ucundaki `aiEnabled` alanı o an hangi modda olduğunu söyler.
-Kapalıyken "Yaz" modu, seed havuzunda anahtar kelime eşleştirmesi yapan
-`core/textmode.py` ile çalışır — yani metin girişi hiçbir zaman ölü bir
-özellik olmaz.
-
-### AI maliyet koruması
-
-API anahtarı proje sahibinin, çağrıyı yapan ise ziyaretçidir. Bu yüzden üç
-ayrı günlük tavan var ve **en dar olanı** geçerlidir:
-
-| Kapsam | Varsayılan | Neden |
-|---|---|---|
-| `global` | 200/gün | **Asıl koruma.** Kaç kişi ne yaparsa yapsın maliyeti üstten kilitler. |
-| `ip:<özet>` | 15/gün | Tek bir kaynağın tavanı tek başına tüketmesini zorlaştırır. |
-| `anon:<uuid>` | 5/gün | Normal kullanıcıda devreye giren en nazik sınır. |
-
-İkisi de `RemoteConfig` üzerinden, panelden değiştirilebilir — kod dağıtımı
-gerekmez (`ai_daily_global_limit`, `ai_daily_ip_limit`).
-
-Ölçülen maliyet: çağrı başına 922 girdi + 270 çıktı token. `flash-lite`
-ücretli fiyatlarıyla ~$0.00095. Global tavan 200 iken günlük üst sınır
-~$0.19.
-
-Çerez tabanlı sayaç **tek başına koruma değildir** — çerez silinebilir.
-Global tavan bu yüzden var. IP, `X-Forwarded-For`'un ilk girdisinden değil
-platformun kendi başlığından okunur; ilk girdi istemci tarafından
-uydurulabilir.
-
-En güçlü koruma uygulamada değil Google tarafındadır: **AI Studio'da
-faturalandırma kapalıysa** kota bitince `429` döner ve hiçbir ücret
-tahakkuk etmez. Kod 429'u zaten sessizce yutup seed havuzuna düşer.
-
-### Dosya haritası
-
-| Dosya | İş |
+| Değişken | Açıklama |
 |---|---|
-| `core/models.py` | Veri modeli. Şehir/ilçe alanı **bilinçli olarak yok**. |
-| `core/engine.py` | Öneri motoru: sert filtreler + yumuşak puanlama. |
-| `core/validators.py` | İçerik denetimi. Konum bağımsızlığı burada zorlanır. |
-| `core/ai.py` | Gemini katmanı ve çıktı son-denetimi. |
-| `core/textmode.py` | Serbest metin → bağlam (AI olmadan da çalışır). |
-| `core/chips.py` | Kelime seti; günün saatine göre değişir. |
-| `core/middleware.py` | Anonim kimlik. Veritabanına yazmaz. |
-| `static/css/napsam.css` | Tasarım jetonları, iki tema. |
+| `DJANGO_SECRET_KEY` | Üretimde zorunlu. Tanımsızsa uygulama açılmaz. |
+| `DJANGO_DEBUG` | Yerelde `True`, üretimde `False` |
+| `DATABASE_URL` | Supabase transaction pooler dizesi (port 6543) |
+| `GEMINI_API_KEY` | Opsiyonel. Boşsa AI katmanı kapalı. |
+| `GEMINI_MODEL` | Varsayılan `gemini-3.5-flash-lite` |
 
----
-
-## İki temel kısıt
-
-### 1. Konum bağımsızlığı
-
-Bir öneri Türkiye'nin **her yerinde** yapılabilir olmak zorundadır.
-Şehir, ilçe, semt, cadde veya işletme ismi geçen öneri havuza **giremez**.
-
-| ❌ | ✅ |
-|---|---|
-| "Kadıköy sahilinde yürü" | "En yakın su kenarına yürü" |
-| "Vapura bin" | "Toplu taşımada son durağa kadar git" |
-| "Ankara Kalesi'ne çık" | "Bulunduğun yerin en yüksek noktasına çık" |
-
-Bu kural `core/validators.py` tarafından hem seed içeriğine hem de AI
-çıktısına uygulanır. Denetim **Türkçe büyük/küçük harf tuzağına** karşı
-metni ASCII'ye katlayarak yapar: `"İ".lower()` Python'da `i` + birleşik
-nokta üretir, `"I".lower()` ise `ı` değil `i` verir. İkisi de blok
-listesini sessizce delerdi.
-
-### 1b. Kullanıcının açık sinyali gevşetilmez
-
-İki kural motoru yönetir:
-
-- **Seçilen kelime sert filtredir.** "kahve" seçildiyse yalnızca o etikete
-  sahip öneriler havuza girer. Hiçbiri tutmazsa kısıt düşer ve kullanıcı boş
-  ekran yerine alakasız olmayan bir kart görür.
-- **Bütçe kademesi bir tercihtir, sadece tavan değil.** "İyi" seçildiyse
-  501-1.500 TL bandındaki öneriler varsa yalnızca onlar gösterilir; o bantta
-  hiç öneri yoksa filtre kendiliğinden geri çekilir. Tavan her koşulda sert
-  kalır — bütçe asla aşılmaz.
-
-Bu ikisi başlangıçta yumuşak puandı ve ölçüldüğünde kırıktı: "Bol" seçen
-kullanıcıya %82 oranında bedava öneri, "kahve" seçene %25 isabet dönüyordu.
-Regresyon testleri `BudgetIntentTests` ve `KeywordIntentTests` altında.
-
-### 2. Bütçe tutarları koda gömülü değil
-
-Enflasyonla 6 ayda eskidiği için kademeler **net asgari ücrete endeksli
-oranlar** olarak saklanır (`BudgetTier.ratio_min/ratio_max`) ve tutar
-çalışma anında hesaplanır.
-
-Asgari ücret değiştiğinde tek satır güncellemek yeter — kod dağıtımı gerekmez:
-
-```
-/yonetim/ → Uzaktan ayarlar → net_minimum_wage
-```
-
----
-
-## İçerik ekleme
-
-Öneriler `core/fixtures/suggestions.json` içinde. Ekledikten sonra:
-
-```bash
-.venv/bin/python manage.py seed --check   # yazmaz, sadece denetler
-.venv/bin/python manage.py seed
-```
-
-Her öneri şu kuralları geçmek zorundadır:
-
-- `title` ≤ 6 kelime, emir kipi
-- `hook` tek cümle
-- `steps` 2 veya 3 madde
-- `fallback` **zorunlu** — "plan tutmazsa ne yapılır?" cevapsız kalamaz
-- `place: mekanli` ise `venue_type` dolu, işletme ismi **yok**
-- şehir/ilçe/işletme ismi yok, koçvari dil yok, İngilizce devşirme yok
-- `seasonality` yalnızca 1-12 arası ay numarası; etiket yazılırsa öneri
-  havuzda görünür ama hiç gösterilmez
-- `companions` "friends" içeriyorsa "arkadaşımla" etiketi zorunlu; çip
-  etikete bakar, eksik etiket öneriyi o seçimden gizler
-- başlığı mevcut bir başlığa %72'den fazla benzeyen ya da ilk adımı
-  birebir aynı olan öneri reddedilir (yakın tekrar tespiti)
-
-### Havuz dağılımı
-
-Bütçe kademeleri, "bedava varsayılan" ilkesine göre dengelendi:
-
-| Kademe | Öneri |
-|---|---|
-| Bedava | 250 |
-| Az (~1-150 TL) | 100 |
-| Orta (~150-500 TL) | 75 |
-| İyi (~500-1.500 TL) | 45 |
-| Bol (1.500 TL+) | 30 |
-
-14 kategorinin her birinde 31 ile 42 arasında öneri var. Yeni içerik
-eklerken kategori yerine kullanıcının doğrudan seçebildiği **kelime ×
-kademe** kombinasyonlarındaki boşluklara bakmak daha isabetli sonuç verir.
-
-Kural ihlali olan hiçbir şey yazılmaz; komut hata verip çıkar.
-
----
+Gizli değerler yalnızca `.env` dosyasında ve Vercel ortam değişkenlerinde durur, repoya girmez.
 
 ## Test
 
@@ -205,138 +139,113 @@ Kural ihlali olan hiçbir şey yazılmaz; komut hata verip çıkar.
 .venv/bin/python manage.py test core
 ```
 
-116 test. Hiçbiri ağa çıkmaz (AI çağrıları taklit edilir).
+116 testin hiçbiri ağa çıkmaz, AI çağrıları taklit edilir. Testler içerik kurallarını da kilitler: havuzdaki bir öneri konum bağımsızlığı denetimini geçemezse test kırılır.
 
-Testler içerik kurallarını da kilitler: seed havuzundaki bir öneri konum
-bağımsızlık testini geçmiyorsa test kırılır.
+## İçerik
 
----
+Öneriler `core/fixtures/suggestions.json` dosyasında durur. Bütçe dağılımı "önce bedava" ilkesine göre dengelenmiştir:
 
-## Dağıtım (Vercel + Supabase)
+| Kademe | Aralık | Öneri |
+|---|---|---|
+| Bedava | 0 TL | 250 |
+| Az | ~1-150 TL | 100 |
+| Orta | ~150-500 TL | 75 |
+| İyi | ~500-1.500 TL | 45 |
+| Bol | 1.500 TL+ | 30 |
 
-Vercel, Django'yu `manage.py` üzerinden otomatik algılar; `WSGI_APPLICATION`
-ayarından giriş noktasını bulur ve `STATIC_ROOT` tanımlıysa `collectstatic`
-komutunu **kendisi çalıştırır**. Ayrı bir `api/index.py` sarmalayıcısı
-gerekmez.
+14 kategorinin her birinde 31 ile 42 arasında öneri var.
 
-### 1. Şema
-
-Şema Supabase projesine **zaten uygulandı** (`napsam`, `oihloudoojbxeobxlwhp`).
-`django_migrations` kayıtları da yazıldığı için `migrate` komutu tekrar
-çalıştırıldığında hiçbir şeyi yeniden uygulamaz.
-
-### 2. Bağlantı dizesi
-
-Supabase şifreyi yalnızca proje oluşturulurken bir kez gösterir. Elinde
-yoksa yenile:
-
-```
-Project Settings → Database → Reset database password
-```
-
-Sonra `.env` içindeki `DATABASE_URL` satırına yapıştır ve seed verisini yükle:
+Yeni öneri eklerken önce denetleyip sonra yaz:
 
 ```bash
-.venv/bin/python manage.py migrate      # no-op olmalı
+.venv/bin/python manage.py seed --check   # yazmaz, sadece denetler
 .venv/bin/python manage.py seed
 ```
 
-**Hangi bağlantı nerede:**
+Her öneri şu kurallardan geçmek zorundadır:
 
-| Kullanım | Havuz | Port |
-|---|---|---|
-| `migrate` / `seed` (lokalden) | Session pooler | 5432 |
-| Vercel çalışma anı | Transaction pooler | **6543** |
+- Başlık en fazla 6 kelime, emir kipinde
+- Kanca tek cümle, adımlar 2 veya 3 madde
+- "Olmazsa alternatifi" zorunlu
+- Şehir, ilçe ya da işletme adı yok; koçvari dil yok
+- Arkadaşla yapılabilen önerilerde "arkadaşımla" etiketi zorunlu
+- Mevcut bir başlığa %72'den fazla benzeyen ya da ilk adımı birebir aynı olan öneri reddedilir
 
-Session pooler tam bir oturum verir; şema işlemleri için doğru olan odur.
-Transaction pooler her işlemden sonra bağlantıyı havuza iade eder — sunucusuz
-için gerekli, DDL için uygun değil.
+Kural ihlali olan hiçbir şey yazılmaz; komut hata verip çıkar.
 
-> `settings.py` transaction pooler'ı bilir: `CONN_MAX_AGE=0`,
-> `DISABLE_SERVER_SIDE_CURSORS=True` ve psycopg'nin otomatik prepared
-> statement'ları kapalı (`prepare_threshold=None`). Bunlar olmadan pgbouncer
-> transaction modunda sorgular kırılır.
+<details>
+<summary><b>Konum denetiminin Türkçe harf tuzağı</b></summary>
 
-> **Seed'i her zaman session pooler (5432) ile çalıştır.** `.env` Vercel ile
-> aynı transaction pooler'ı (6543) gösterse bile, uzun yazma işlemleri o
-> havuzda kırılgan. Ölçülen olay: 6543 üzerinden seed işlemin ortasında
-> "idle in transaction / ClientRead" durumunda dakikalarca asılı kaldı; aynı
-> iş 5432 üzerinden 29 sn'de bitti. Portu yalnızca o komut için değiştirmek:
->
-> ```bash
-> DATABASE_URL=$(python -c "import pathlib,re;u=next(l.split('=',1)[1] for l in pathlib.Path('.env').read_text().splitlines() if l.startswith('DATABASE_URL='));print(re.sub(r':(\d+)/',':5432/',u,count=1))") .venv/bin/python manage.py seed
-> ```
->
-> `settings.py` ayrıca `connect_timeout=10` ve TCP keepalive ayarlar: havuz
-> adresi birden fazla IP'ye çözülüyor, biri yanıt vermezse bağlantı eskiden
-> dakikalarca bekliyordu; kopan bir bağlantı da hata vermek yerine asılı
-> kalıyordu.
+<br>
 
-### 3. Veri erişimi: yalnızca Django
+Denetim metni ASCII'ye katlayarak yapılır. Python'da `"İ".lower()` bir `i` ile birleşik nokta üretir, `"I".lower()` ise `ı` değil `i` verir. İkisi de basit bir blok listesini sessizce delerdi.
 
-`public` şemasındaki tüm tablolarda RLS açık ve **hiç policy yok**; ayrıca
-`anon` ve `authenticated` rollerinin yetkileri geri alındı. Yani tablolar
-PostgREST üzerinden (anon anahtarıyla) dışarıya tamamen kapalı.
+Tek kelimelik yasaklı terimler tam kelime olarak aranır, böylece bir semt adı başka bir kelimenin içinde geçtiği için yanlışlıkla eşleşmez.
 
-Django `postgres` rolüyle, yani tablo sahibi olarak bağlandığı için RLS'i
-varsayılan olarak baypas eder; uygulama bundan etkilenmez.
+</details>
 
-Bu bilinçli bir karar: Supabase burada saf Postgres olarak kullanılıyor,
-BaaS olarak değil. İleride Supabase istemci kütüphanelerini kullanmak
-istersen bu kilidi gevşetmen ve gerçek policy'ler yazman gerekir.
-
-### 4. Vercel ortam değişkenleri
-
-| Değişken | Değer |
-|---|---|
-| `DJANGO_SECRET_KEY` | Yeni üretilmiş, lokalden **farklı** |
-| `DJANGO_DEBUG` | `False` |
-| `DATABASE_URL` | Supabase transaction pooler dizesi |
-| `GEMINI_API_KEY` | (opsiyonel) boşsa AI katmanı kapalı |
-| `GEMINI_MODEL` | `gemini-3.5-flash-lite` |
-
-`ALLOWED_HOSTS` elle ayarlanmaz; `VERCEL_URL` ve `*.vercel.app` otomatik eklenir.
-
-### 5. Dağıt
+## Yayın (Vercel + Supabase)
 
 ```bash
-npx vercel@latest login
 npx vercel@latest link --yes --project napsam
 npx vercel@latest deploy --prod --yes
 ```
 
-Canlı: **https://napsam.vercel.app**
+Vercel, Django'yu `manage.py` üzerinden otomatik algılar ve `collectstatic` komutunu kendisi çalıştırır.
 
-Ortam değişkenleri CLI ile yazılır, değerler kabuğa basılmaz:
+- **Seed işlemini session pooler (5432) ile çalıştır.** Uzun yazma işlemleri transaction pooler'da (6543) yarıda asılı kalabiliyor.
+- Supabase `public` şemasındaki tüm tablolarda RLS açık ve policy yok; `anon` ve `authenticated` rollerinin yetkileri geri alındı. Veriye yalnızca Django erişir.
+
+<details>
+<summary><b>AI katmanını açma / kapama ve maliyet koruması</b></summary>
+
+<br>
 
 ```bash
-printf '%s' "$DEGER" | npx vercel@latest env add DEGISKEN_ADI production
+# Kapat: uygulama seed havuzuyla tam çalışmaya devam eder
+npx vercel@latest env rm GEMINI_API_KEY production --yes
+
+# Aç
+printf '%s' "ANAHTAR" | npx vercel@latest env add GEMINI_API_KEY production
+npx vercel@latest deploy --prod --yes
 ```
 
-`.vercelignore`, `.env` ve `db.sqlite3` gibi dosyaların pakete girmesini
-engeller — bu dosya olmadan CLI `.gitignore`'a bakar, ona güvenmek yerine
-sırları açıkça dışarıda bırakmak daha güvenli.
+`/healthz/` ucundaki `aiEnabled` alanı o anki durumu gösterir.
 
----
+API anahtarı proje sahibinin, çağrıyı yapan ise ziyaretçidir. Bu yüzden üç ayrı günlük tavan var ve en dar olanı geçerlidir:
+
+| Kapsam | Varsayılan | Amaç |
+|---|---|---|
+| `global` | 200/gün | Kaç kişi kullanırsa kullansın maliyeti üstten kilitler |
+| `ip` | 15/gün | Tek bir kaynağın tavanı tek başına tüketmesini zorlaştırır |
+| `anon` | 5/gün | Normal kullanıcı için nazik sınır |
+
+Tavanlar yönetim panelinden değiştirilebilir. IP, istemcinin uydurabileceği `X-Forwarded-For` ilk girdisinden değil, platformun kendi başlığından okunur.
+
+En güçlü koruma Google tarafındadır: AI Studio'da faturalandırma kapalıysa kota bitince `429` döner ve ücret oluşmaz. Uygulama bu durumda sessizce seed havuzuna düşer.
+
+</details>
 
 ## Bilinçli olarak yapılmayanlar
 
 Bunlar eksik değil, karar:
 
-- Onboarding, hoş geldin ekranı, tanıtım slaytı
-- Zorunlu üyelik (uygulama anonim çalışır)
-- Keşfet / haber akışı — sonsuz kaydırma bu ürünün tam karşıtı
-- Streak, rozet, seviye, puan, günlük giriş ödülü
-- İstatistik paneli, tema mağazası
+- Onboarding, tanıtım slaytı, zorunlu üyelik
+- Keşfet akışı ya da sonsuz kaydırma
+- Streak, rozet, puan, günlük giriş ödülü
 - Konum izni ve konum saklama
-
----
 
 ## Gizlilik
 
-- Ana ekranı açıp çıkan bir ziyaretçi için **tek bir veritabanı satırı bile
-  yazılmaz**. Bu bir test tarafından kilitlenmiştir.
-- Kayıt ancak kaydet / geç / yapıyorum eylemlerinde oluşur.
-- Çerezde yalnızca rastgele bir UUID vardır; kim olduğunu söylemez.
-- Konum hiçbir aşamada istenmez, gönderilmez, saklanmaz — AI'ya giden
-  bağlamda da yoktur.
+- Ana ekranı açıp çıkan ziyaretçi için veritabanına **tek satır bile yazılmaz**. Bu bir testle kilitlidir.
+- Kayıt yalnızca kaydet, geç ya da yapıyorum eylemlerinde oluşur.
+- Çerezde sadece rastgele bir UUID vardır, kim olduğunu söylemez.
+- Konum hiçbir aşamada istenmez, gönderilmez, saklanmaz.
+
+---
+
+<div align="center">
+
+**[napsam.vercel.app](https://napsam.vercel.app)** · [@kaaneneskpc](https://github.com/kaaneneskpc)
+
+</div>
