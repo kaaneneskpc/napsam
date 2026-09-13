@@ -186,12 +186,14 @@ Tek kelimelik yasaklı terimler tam kelime olarak aranır, böylece bir semt ad�
 
 ## Yayın (Vercel + Supabase)
 
+Vercel projesi bu repoya bağlı: **`main` dalına yapılan her push otomatik olarak production'a deploy edilir.** Vercel, Django'yu `manage.py` üzerinden algılar ve `collectstatic` komutunu kendisi çalıştırır.
+
+Elle deploy gerekirse:
+
 ```bash
 npx vercel@latest link --yes --project napsam
 npx vercel@latest deploy --prod --yes
 ```
-
-Vercel, Django'yu `manage.py` üzerinden otomatik algılar ve `collectstatic` komutunu kendisi çalıştırır.
 
 - **Seed işlemini session pooler (5432) ile çalıştır.** Uzun yazma işlemleri transaction pooler'da (6543) yarıda asılı kalabiliyor.
 - Supabase `public` şemasındaki tüm tablolarda RLS açık ve policy yok; `anon` ve `authenticated` rollerinin yetkileri geri alındı. Veriye yalnızca Django erişir.
