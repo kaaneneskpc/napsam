@@ -33,7 +33,7 @@ python -c "from django.core.management.utils import get_random_secret_key as k; 
 
 ```
 Katman 1 — SEED HAVUZU            trafiğin ~%85'i
-  core/fixtures/suggestions.json  74 elle yazılmış, tam etiketli öneri
+  core/fixtures/suggestions.json  500 elle yazılmış, tam etiketli öneri
   core/engine.py                  filtreleme + puanlama
   Sıfır maliyet, sıfır halüsinasyon, internet gerektirmez.
 
@@ -172,6 +172,28 @@ Her öneri şu kuralları geçmek zorundadır:
 - `fallback` **zorunlu** — "plan tutmazsa ne yapılır?" cevapsız kalamaz
 - `place: mekanli` ise `venue_type` dolu, işletme ismi **yok**
 - şehir/ilçe/işletme ismi yok, koçvari dil yok, İngilizce devşirme yok
+- `seasonality` yalnızca 1-12 arası ay numarası; etiket yazılırsa öneri
+  havuzda görünür ama hiç gösterilmez
+- `companions` "friends" içeriyorsa "arkadaşımla" etiketi zorunlu; çip
+  etikete bakar, eksik etiket öneriyi o seçimden gizler
+- başlığı mevcut bir başlığa %72'den fazla benzeyen ya da ilk adımı
+  birebir aynı olan öneri reddedilir (yakın tekrar tespiti)
+
+### Havuz dağılımı
+
+Bütçe kademeleri, "bedava varsayılan" ilkesine göre dengelendi:
+
+| Kademe | Öneri |
+|---|---|
+| Bedava | 250 |
+| Az (~1-150 TL) | 100 |
+| Orta (~150-500 TL) | 75 |
+| İyi (~500-1.500 TL) | 45 |
+| Bol (1.500 TL+) | 30 |
+
+14 kategorinin her birinde 31 ile 42 arasında öneri var. Yeni içerik
+eklerken kategori yerine kullanıcının doğrudan seçebildiği **kelime ×
+kademe** kombinasyonlarındaki boşluklara bakmak daha isabetli sonuç verir.
 
 Kural ihlali olan hiçbir şey yazılmaz; komut hata verip çıkar.
 
@@ -183,7 +205,7 @@ Kural ihlali olan hiçbir şey yazılmaz; komut hata verip çıkar.
 .venv/bin/python manage.py test core
 ```
 
-95 test. Hiçbiri ağa çıkmaz (AI çağrıları taklit edilir).
+116 test. Hiçbiri ağa çıkmaz (AI çağrıları taklit edilir).
 
 Testler içerik kurallarını da kilitler: seed havuzundaki bir öneri konum
 bağımsızlık testini geçmiyorsa test kırılır.
