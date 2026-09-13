@@ -14549,5 +14549,844 @@
    "ucuz"
   ],
   "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-yirmi-soruda-bul",
+  "title": "Yirmi soruda aklındakini bul",
+  "hook": "Hiçbir malzeme istemeyen en eski tahmin oyunu.",
+  "steps": [
+   "Biri aklından bir nesne, hayvan ya da kişi tutsun.",
+   "Diğerleri sadece evet ya da hayır cevaplı sorular sorsun.",
+   "Yirmi soruda bulan bir sonraki turu tutsun."
+  ],
+  "fallback": "Tek başınaysan: Aynı oyunu mesajla bir arkadaşınla oynayın, sorular günün içine yayılsın.",
+  "category": "oyun",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 15,
+  "duration_max": 40,
+  "companions": [
+   "couple",
+   "friends",
+   "family",
+   "kids"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "arkadaşımla",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-yasak-kelime-kartlari",
+  "title": "Yasak kelime kartları hazırla",
+  "hook": "Kendi yazdığınız kartlar hazır oyundan daha çok güldürüyor.",
+  "steps": [
+   "Kağıtları kartlara kes, her birine bir kelime ve söylenmesi yasak üç kelime yaz.",
+   "İki takıma ayrılın, bir dakikada kelimeyi yasakları söylemeden anlatın.",
+   "Kartları bir zarfa koyup bir sonraki oyun gecesine saklayın."
+  ],
+  "fallback": "Kart kesmek istemiyorsanız: Kelimeleri telefona yazıp sırayla gösterin, aynı kuralla oynayın.",
+  "category": "oyun",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 40,
+  "duration_max": 80,
+  "companions": [
+   "friends",
+   "family",
+   "couple"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "kağıt",
+   "kalem",
+   "makas"
+  ],
+  "theme_tags": [
+   "elini_kullan",
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "arkadaşımla",
+   "ellerimi kullanayım",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-sirayla-hikaye-uydur",
+  "title": "Sırayla bir hikâye uydurun",
+  "hook": "Her cümle bir öncekini bozunca hikâye kimsenin beklemediği yere gidiyor.",
+  "steps": [
+   "Biri hikâyenin ilk cümlesini söylesin.",
+   "Sırayla herkes tek bir cümle eklesin, kimse geri dönmesin.",
+   "On turdan sonra en son kişi hikâyeyi bağlasın."
+  ],
+  "fallback": "Tek başınaysan: Aynı oyunu bir kağıtta oyna, her cümleden sonra bir sayfa çevir ve yazdığını okumadan devam et.",
+  "category": "oyun",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 15,
+  "duration_max": 30,
+  "companions": [
+   "friends",
+   "family",
+   "kids",
+   "couple"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "arkadaşımla",
+   "kısa sürsün",
+   "ucuz",
+   "gece"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-pet-sise-bowlingi",
+  "title": "Pet şişelerle ev bowlingi kur",
+  "hook": "On boş şişe ve bir top koridoru bowling salonuna çeviriyor.",
+  "steps": [
+   "On pet şişenin dibine biraz su koy, üçgen şeklinde diz.",
+   "Koridorun sonundan yumuşak bir topla sırayla at.",
+   "Her oyuncuya iki atış hakkı verin, puanı kağıda yazın."
+  ],
+  "fallback": "Şişe yoksa: Plastik bardakları üst üste dizip aynı oyunu oynayın.",
+  "category": "oyun",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 20,
+  "duration_max": 45,
+  "companions": [
+   "kids",
+   "family",
+   "friends"
+  ],
+  "energy": "medium",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "pet şişe",
+   "top"
+  ],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "hareket",
+   "arkadaşımla",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-kagit-ucaklari-uzaga-at",
+  "title": "Kağıt uçakları en uzağa at",
+  "hook": "Bir A4 kağıdının ne kadar uçabileceği katlayana göre değişiyor.",
+  "steps": [
+   "Herkes kendi katlama yöntemiyle bir kağıt uçak yapsın.",
+   "Aynı çizgiden sırayla atın, düştüğü yeri işaretleyin.",
+   "En kısa gideni yeniden katlayıp bir tur daha atın."
+  ],
+  "fallback": "Yer darsa: Uçakları bir kovanın içine isabet ettirme yarışına çevirin.",
+  "category": "oyun",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 20,
+  "duration_max": 40,
+  "companions": [
+   "kids",
+   "family",
+   "friends"
+  ],
+  "energy": "medium",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "kağıt"
+  ],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "evde",
+   "ellerimi kullanayım",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-balonla-voleybol",
+  "title": "Balonla voleybol oyna",
+  "hook": "Yere değmemesi gereken bir balon, salonda yarım saatlik bir maç demek.",
+  "steps": [
+   "Bir balonu şişir, salonun ortasına bir ip ya da kanepe sırtı ağ olsun.",
+   "Balonu yere düşürmeden karşıya geçirin.",
+   "Düşüren taraf karşıya bir puan versin, on beşte bitirin."
+  ],
+  "fallback": "Balon yoksa: Buruşturulmuş bir kağıt topu kullanın, sadece tek elle vurmak serbest olsun.",
+  "category": "oyun",
+  "cost_min": 0,
+  "cost_max": 30,
+  "cost_note": "balon",
+  "duration_min": 20,
+  "duration_max": 40,
+  "companions": [
+   "kids",
+   "family",
+   "friends",
+   "couple"
+  ],
+  "energy": "high",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "balon"
+  ],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "hareket",
+   "arkadaşımla",
+   "kısa sürsün"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-bes-tas-ogren",
+  "title": "Anneannenin beş taş oyununu dene",
+  "hook": "Beş küçük taş, anneanne çocukluğunun en sevilen oyunu.",
+  "steps": [
+   "Avuç içine sığan, birbirine yakın boyda beş düz taş topla.",
+   "Bir taşı havaya atıp yerdekilerden birini alma turuyla başla.",
+   "Birer, ikişer, üçer toplama turlarını sırayla dene."
+  ],
+  "fallback": "Taş bulamazsan: Beş şişe kapağı ya da düğmeyle aynı oyunu oyna.",
+  "category": "oyun",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 20,
+  "duration_max": 45,
+  "companions": [
+   "solo",
+   "kids",
+   "family",
+   "friends"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "elini_kullan",
+   "ekransiz"
+  ],
+  "tags": [
+   "ellerimi kullanayım",
+   "yeni bir şey",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-mendil-kapmaca",
+  "title": "Mendil kapmaca oynayın",
+  "hook": "Ortadaki mendili kapmak için beklemek koşmaktan heyecanlı.",
+  "steps": [
+   "İki takıma ayrılın, herkese bir numara verin.",
+   "Ortaya bir mendil koyun, bir numara söyleyin.",
+   "Mendili kapıp kendi çizgisine yakalanmadan dönen puan alsın."
+  ],
+  "fallback": "Kişi azsa: İki kişi karşılıklı oynayın, numara yerine bir kelimeyle başlayın.",
+  "category": "oyun",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 20,
+  "duration_max": 45,
+  "companions": [
+   "kids",
+   "friends",
+   "family"
+  ],
+  "energy": "high",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [],
+  "cultural_tags": [
+   "bayram"
+  ],
+  "required_items": [
+   "mendil"
+  ],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "dışarı",
+   "hareket",
+   "arkadaşımla",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-evde-bilgi-yarismasi",
+  "title": "Evde bilgi yarışması sun",
+  "hook": "Sunucu olmak, yarışmacı olmaktan çok daha keyifli.",
+  "steps": [
+   "Farklı konulardan on beş soru ve cevaplarını bir kağıda yaz.",
+   "Ev halkını ikişerli takımlara ayır, her doğruya bir puan ver.",
+   "Son soruyu iki puan yap, sonucu son ana kadar belirsiz tut."
+  ],
+  "fallback": "Soru hazırlayacak vaktin yoksa: Herkes kendi hakkında birer soru sorsun, diğerleri cevabı tahmin etsin.",
+  "category": "oyun",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 60,
+  "companions": [
+   "family",
+   "friends",
+   "kids"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "kağıt",
+   "kalem"
+  ],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "arkadaşımla",
+   "öğrenmek",
+   "ucuz",
+   "gece"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-masada-kagit-futbolu",
+  "title": "Masada kağıttan futbol oyna",
+  "hook": "Katlanmış bir üçgen kağıt, sınıfın en eski maçı.",
+  "steps": [
+   "Bir kağıdı küçük sıkı bir üçgen olacak şekilde katla.",
+   "Masanın iki ucunda sırayla parmakla fiske vurarak ilerletin.",
+   "Masanın kenarından taşırmadan çıkaran gol atmış olsun."
+  ],
+  "fallback": "Masa yoksa: Yere iki kitapla kale kurup bir şişe kapağıyla aynı oyunu oynayın.",
+  "category": "oyun",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 15,
+  "duration_max": 30,
+  "companions": [
+   "friends",
+   "kids",
+   "couple",
+   "family"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "kağıt"
+  ],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "arkadaşımla",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-cizerek-anlatma",
+  "title": "Çizerek anlatma oyunu oyna",
+  "hook": "Kötü çizim, oyunu daha da eğlenceli yapıyor.",
+  "steps": [
+   "Kağıtlara kelimeler yazıp katlayın, bir kaba koyun.",
+   "Sırayla bir kağıt çekin, kelimeyi konuşmadan ve harf yazmadan çizin.",
+   "Bir dakikada bulan takım puan alsın."
+  ],
+  "fallback": "Kağıt yoksa: Aynı oyunu telefonun not uygulamasında parmakla çizerek oynayın.",
+  "category": "oyun",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 60,
+  "companions": [
+   "friends",
+   "family",
+   "kids",
+   "couple"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "kağıt",
+   "kalem"
+  ],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "arkadaşımla",
+   "ellerimi kullanayım",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-kartondan-tangram",
+  "title": "Kartondan tangram kes, şekil kur",
+  "hook": "Yedi parçayla yüzlerce şekil kurulabiliyor.",
+  "steps": [
+   "Kare bir kartonu tangram şablonuna göre yedi parçaya kes.",
+   "İnternetten ya da kitaptan bir şekil seç, parçaların hepsini kullanarak kurmaya çalış.",
+   "Kurduğun şekli kendin uydur, karşındakine çözdür."
+  ],
+  "fallback": "Karton yoksa: Kalın bir kağıt katlayıp aynı yedi parçayı çıkar.",
+  "category": "oyun",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 60,
+  "companions": [
+   "solo",
+   "kids",
+   "family"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "karton",
+   "makas"
+  ],
+  "theme_tags": [
+   "elini_kullan",
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "ellerimi kullanayım",
+   "öğrenmek",
+   "sakin",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-kagida-dokuz-tas",
+  "title": "Kağıda dokuz taş çizip oyna",
+  "hook": "Binlerce yıllık bir strateji oyunu için bir kağıt ve on sekiz düğme yeter.",
+  "steps": [
+   "Kağıda iç içe üç kare çizip kenarların ortalarını birleştir.",
+   "İki oyuncu dokuzar düğme ya da fasulyeyi sırayla köşelere koysun.",
+   "Üçünü yan yana dizen, rakibinin bir taşını alsın."
+  ],
+  "fallback": "Düğme yoksa: İki farklı renk kalemle köşeleri boyayarak oynayın, taşı kaldırmak yerine üstünü çizin.",
+  "category": "oyun",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 20,
+  "duration_max": 45,
+  "companions": [
+   "couple",
+   "friends",
+   "family",
+   "kids"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "kağıt",
+   "düğme"
+  ],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "arkadaşımla",
+   "öğrenmek",
+   "sakin",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-sarkiyi-uc-notadan-bil",
+  "title": "Şarkıyı ilk üç notadan bil",
+  "hook": "Herkesin ezbere bildiğini sandığı şarkılar üç notada tanınmıyor.",
+  "steps": [
+   "Biri telefonda bir şarkı açıp sadece ilk birkaç saniyesini çalsın.",
+   "İlk doğru tahmin eden puan alsın, sıra ona geçsin.",
+   "Her tur farklı bir döneme ya da türe ayrılsın."
+  ],
+  "fallback": "Müzik açamıyorsanız: Şarkıları mırıldanarak ya da ıslıkla çalın, kural aynı.",
+  "category": "oyun",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 20,
+  "duration_max": 45,
+  "companions": [
+   "friends",
+   "family",
+   "couple"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "evde",
+   "müzik",
+   "arkadaşımla",
+   "ucuz",
+   "gece"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-kagittan-hafiza-kartlari",
+  "title": "Kağıttan hafıza kartları yap",
+  "hook": "Kendi çizdiğiniz kartlarla oynamak çocuğa hem oyun hem uğraş.",
+  "steps": [
+   "Aynı boyda yirmi kart kes, çiftler hâlinde aynı resmi çiz.",
+   "Kartları ters çevirip karıştır, sıra halinde diz.",
+   "Sırayla ikişer kart aç, eşleşeni bulan kartları alsın."
+  ],
+  "fallback": "Kart kesmek zorsa: Evdeki iskambil destesinden eşleşen çiftleri ayırıp aynı oyunu oyna.",
+  "category": "oyun",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 60,
+  "companions": [
+   "kids",
+   "family"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "karton",
+   "kalem"
+  ],
+  "theme_tags": [
+   "elini_kullan",
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "ellerimi kullanayım",
+   "sakin",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-gercek-kartlarla-pasyans",
+  "title": "Gerçek kartlarla pasyans aç",
+  "hook": "Telefondaki sürümünü bıraktığında kartları elle dağıtmak başka bir sakinlik.",
+  "steps": [
+   "Bir iskambil destesini karıştır, klasik pasyans düzenini kur.",
+   "Telefonu başka odaya koy, bir oyunu sonuna kadar oyna.",
+   "Açamazsan yeniden dağıt; üç denemede bırak."
+  ],
+  "fallback": "Desten yoksa: Kağıda sayılar yazıp küçük kartlar kes ve basit bir sıralama sabrı oyna.",
+  "category": "oyun",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 20,
+  "duration_max": 45,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "iskambil"
+  ],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "sakin",
+   "tek başıma",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-zarlarla-sayi-oyunu",
+  "title": "Zarlarla bir sayı oyunu öğren",
+  "hook": "Tavla zarı, tavlasız da bir akşamı dolduruyor.",
+  "steps": [
+   "Tavladaki iki zarı al, sırayla atıp toplamı yazın.",
+   "Ellide ya da tam yüzde durmak zorunda olan bir kural seçin.",
+   "Aşan oyuncu turu kaybetsin, beş tur oynayın."
+  ],
+  "fallback": "Zar yoksa: Kağıtlara bir ile altı arası sayı yazıp bir kaptan çekin.",
+  "category": "oyun",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 15,
+  "duration_max": 35,
+  "companions": [
+   "couple",
+   "friends",
+   "family",
+   "kids"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "zar"
+  ],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "arkadaşımla",
+   "kısa sürsün",
+   "öğrenmek",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-karton-kutudan-labirent",
+  "title": "Karton kutudan labirent yap",
+  "hook": "Bir ayakkabı kutusu ve birkaç pipet, bir öğleden sonralık uğraş.",
+  "steps": [
+   "Bir ayakkabı kutusunun kapağına pipet ya da karton şeritleri yapıştırıp yollar kur.",
+   "Bir girişi ve bir çıkışı işaretle, çıkmaz sokaklar ekle.",
+   "İçine küçük bir boncuk ya da düğme koy, eğerek çıkışa ulaştır."
+  ],
+  "fallback": "Kutu yoksa: Kağıda bir labirent çiz ve karşındakine çözdür.",
+  "category": "oyun",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 40,
+  "duration_max": 80,
+  "companions": [
+   "kids",
+   "family",
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "ayakkabı kutusu",
+   "yapıştırıcı"
+  ],
+  "theme_tags": [
+   "elini_kullan",
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "ellerimi kullanayım",
+   "yeni bir şey",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-kitaplarla-mini-golf",
+  "title": "Kitaplarla ev içi mini golf kur",
+  "hook": "Koridor, kitaplar ve bir süpürge sapı dokuz delikli bir parkur oluyor.",
+  "steps": [
+   "Kitapları ve yastıkları kullanarak koridorda dar geçitler kur.",
+   "Her geçidin sonuna bir kupa yatır, delik o olsun.",
+   "Topu süpürge sapıyla ittirin, kaç vuruşta girdiğini sayın."
+  ],
+  "fallback": "Koridor dar ise: Masanın üstünde kalemle ve bir şişe kapağıyla küçük bir parkur kurun.",
+  "category": "oyun",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 60,
+  "companions": [
+   "kids",
+   "family",
+   "friends"
+  ],
+  "energy": "medium",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "top"
+  ],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "hareket",
+   "arkadaşımla",
+   "yeni bir şey",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "oyun-yastiklardan-kale",
+  "title": "Odada yastıklardan kale kur",
+  "hook": "Çarşaf ve sandalyeyle kurulan kale, çocukların en uzun oynadığı yer.",
+  "steps": [
+   "İki sandalyeyi aralıklı koyup üstüne bir çarşaf ger.",
+   "Yastık ve battaniyelerle içini döşe, bir el feneri koy.",
+   "İçeride bir kitap okuyun ya da bir hikâye anlatın."
+  ],
+  "fallback": "Yer darsa: Masanın altını bir örtüyle kapatıp aynı kaleyi orada kurun.",
+  "category": "oyun",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 90,
+  "companions": [
+   "kids",
+   "family"
+  ],
+  "energy": "medium",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "çarşaf",
+   "yastık"
+  ],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "ellerimi kullanayım",
+   "gece",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
  }
 ]
