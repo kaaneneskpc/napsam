@@ -11993,5 +11993,932 @@
    "yeni bir şey"
   ],
   "night_unsafe_solo": false
+ },
+ {
+  "slug": "yakin-mahalle-haritasi-ciz",
+  "title": "Mahallenin haritasını elle çiz",
+  "hook": "Yürüyerek çizdiğin harita, telefondakinden daha iyi aklında kalıyor.",
+  "steps": [
+   "Evden çık, çevrendeki sokakları yarım saat boyunca dolaş.",
+   "Dönünce bir kağıda hafızandan sokakları, dükkanları ve parkı çiz.",
+   "Sonra gerçek haritayla karşılaştır, neyi yanlış hatırladığına bak."
+  ],
+  "fallback": "Dışarı çıkamıyorsan: Evden işe ya da okula giden yolunu hafızandan çiz.",
+  "category": "disari_yakin",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 45,
+  "duration_max": 75,
+  "companions": [
+   "solo",
+   "kids",
+   "family"
+  ],
+  "energy": "medium",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "kağıt",
+   "kalem"
+  ],
+  "theme_tags": [
+   "yuru"
+  ],
+  "tags": [
+   "dışarı",
+   "yürümek",
+   "öğrenmek",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yakin-parkin-gitmedigin-kosesi",
+  "title": "Bildiğin parkın gitmediğin köşesine git",
+  "hook": "Her gün aynı yoldan geçtiğin parkın bir tarafını hiç görmedin.",
+  "steps": [
+   "En sık gittiğin parkı ya da yeşil alanı düşün.",
+   "Bu kez hiç kullanmadığın girişten gir, ters yönde yürü.",
+   "Daha önce fark etmediğin tek bir şeyi bulana kadar dönme."
+  ],
+  "fallback": "Park yoksa: Sitenin ya da okulun arka tarafını aynı kuralla dolaş.",
+  "category": "disari_yakin",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 50,
+  "companions": [
+   "solo",
+   "couple",
+   "kids"
+  ],
+  "energy": "medium",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "yuru"
+  ],
+  "tags": [
+   "dışarı",
+   "yürümek",
+   "yeni bir şey",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yakin-is-cikisi-yuruyerek-don",
+  "title": "İş çıkışı eve yürüyerek dön",
+  "hook": "Günü masadan kalkar kalkmaz değil, yolda bırakırsın.",
+  "steps": [
+   "Mesai bitince toplu taşıma yerine yürüyerek dönmeye karar ver.",
+   "Yol çok uzunsa yarısını taşıtla git, kalanını yürü.",
+   "Eve girmeden önce kapının önünde bir dakika dur, sonra gir."
+  ],
+  "fallback": "Hava ya da yol uygun değilse: Eve varınca çantayı bırakıp sokağın sonuna kadar yürü ve dön.",
+  "category": "disari_yakin",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 70,
+  "companions": [
+   "solo"
+  ],
+  "energy": "medium",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "yuru"
+  ],
+  "tags": [
+   "dışarı",
+   "yürümek",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yakin-yeni-acilan-yere-gir",
+  "title": "Mahallede yeni açılan bir yere gir",
+  "hook": "Önünden geçip de hiç girmediğin yeni dükkan seni bekliyor.",
+  "steps": [
+   "Mahallende son aylarda açılmış bir dükkan ya da atölye bul.",
+   "İçeri gir, ne sattıklarını ya da yaptıklarını sor.",
+   "Beğendiysen küçük bir şey al; almasan da iyi dilek dile."
+  ],
+  "fallback": "Yeni bir yer yoksa: En uzun zamandır açık olan esnafa uğrayıp kaç yıldır orada olduğunu sor.",
+  "category": "disari_yakin",
+  "cost_min": 0,
+  "cost_max": 150,
+  "cost_note": "küçük alışveriş",
+  "duration_min": 20,
+  "duration_max": 40,
+  "companions": [
+   "solo",
+   "couple"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "yeni bir şey",
+   "kısa sürsün"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yakin-muhtarlik-ilan-panosu",
+  "title": "Muhtarlığın ilan panosunu oku",
+  "hook": "Mahallende neler olup bittiği o panoda yazıyor.",
+  "steps": [
+   "Muhtarlığa ya da mahalledeki duyuru panosuna yürü.",
+   "İlanların hepsini tek tek oku; kurs, kermes, kayıp, satılık.",
+   "İlgini çeken bir etkinliği ya da ihtiyacı not al."
+  ],
+  "fallback": "Pano yoksa: Apartmanın ya da sitenin duyuru panosunu oku, yöneticiye bir soru sor.",
+  "category": "disari_yakin",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 15,
+  "duration_max": 30,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "kısa sürsün",
+   "yeni bir şey",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yakin-isiklar-yanarken-carsi",
+  "title": "Işıklar yanarken çarşıya çık",
+  "hook": "Aynı cadde akşam ışıkları yanınca başka bir yere dönüşüyor.",
+  "steps": [
+   "Hava kararmaya başlarken en canlı caddeye ya da çarşıya git.",
+   "Dükkan ışıklarının tek tek yandığı saatte yavaşça yürü.",
+   "Kalabalık seyrelmeden eve dön."
+  ],
+  "fallback": "Çarşı uzaksa: Balkondan ya da pencereden sokak lambalarının yanışını izle.",
+  "category": "disari_yakin",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 50,
+  "companions": [
+   "solo",
+   "couple",
+   "friends"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "yuru"
+  ],
+  "tags": [
+   "dışarı",
+   "yürümek",
+   "gece",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yakin-postayla-kartpostal",
+  "title": "Birine postayla kartpostal gönder",
+  "hook": "Posta kutusunda mektup bulmak artık neredeyse kimsenin başına gelmiyor.",
+  "steps": [
+   "Bir kartpostal al, arkasına üç dört cümle yaz.",
+   "Adresini bildiğin birine pul yapıştırıp postaneden gönder.",
+   "Gönderdiğini söyleme, sürpriz olsun."
+  ],
+  "fallback": "Postaneye gidemiyorsan: Aynı kısa notu elle yazıp fotoğrafını o kişiye yolla.",
+  "category": "disari_yakin",
+  "cost_min": 30,
+  "cost_max": 80,
+  "cost_note": "kart ve pul",
+  "duration_min": 25,
+  "duration_max": 45,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "postane",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [
+   "bayram"
+  ],
+  "required_items": [],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "dışarı",
+   "yeni bir şey",
+   "kısa sürsün"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yakin-mahalle-sahasi-mac",
+  "title": "Mahalle sahasında amatör maç izle",
+  "hook": "Tribünü olmayan maçta oyuncuların sesini duyarsın.",
+  "steps": [
+   "Hafta sonu okul ya da mahalle sahasında oynanan bir maça git.",
+   "Kenarda otur, bir takımı seç ve onu destekle.",
+   "Maç bitince skoru eve dönerken birine anlat."
+  ],
+  "fallback": "Maç yoksa: Parkta top oynayan çocukları ya da basketbol oynayan gençleri yarım saat izle.",
+  "category": "disari_yakin",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 45,
+  "duration_max": 100,
+  "companions": [
+   "solo",
+   "friends",
+   "kids"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [],
+  "cultural_tags": [
+   "pazar_gunu"
+  ],
+  "required_items": [],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "dışarı",
+   "arkadaşımla",
+   "sakin",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yakin-kitabi-disarida-oku",
+  "title": "Kitabını al, dışarıda bir saat oku",
+  "hook": "Aynı sayfa açık havada daha kolay akıyor.",
+  "steps": [
+   "Yarım kalmış bir kitabı ya da dergiyi çantana koy.",
+   "Gölgeli bir bank ya da çay bahçesi bul, telefonu sessize al.",
+   "Bir saat boyunca kalkmadan oku."
+  ],
+  "fallback": "Hava uygun değilse: Kitabı alıp evin en ışık alan penceresinin önüne otur.",
+  "category": "disari_yakin",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 45,
+  "duration_max": 75,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "cultural_tags": [],
+  "required_items": [
+   "kitap"
+  ],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "dışarı",
+   "sakin",
+   "tek başıma",
+   "ucuz",
+   "kalabalık olmasın"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yakin-ogle-arasi-disari",
+  "title": "Öğle arasında kısa bir tur at",
+  "hook": "Masadan kalkmadan geçen bir öğle arası öğleden sonrayı uzatıyor.",
+  "steps": [
+   "Yemeğini bitirir bitirmez binadan dışarı çık.",
+   "On beş dakika etrafta yürü, telefonda ekran açma.",
+   "Masaya dönmeden önce bir bardak su iç."
+  ],
+  "fallback": "Dışarı çıkamıyorsan: Binanın merdivenlerinde bir kat inip çık, pencere kenarında on dakika dur.",
+  "category": "disari_yakin",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 15,
+  "duration_max": 20,
+  "companions": [
+   "solo",
+   "friends"
+  ],
+  "energy": "medium",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "yuru",
+   "ekransiz"
+  ],
+  "tags": [
+   "dışarı",
+   "yürümek",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yakin-sokak-kedilerini-tani",
+  "title": "Sokak kedilerinin uğrak yerini bul",
+  "hook": "Mahallendeki kedilerin her birinin bir köşesi ve bir saati var.",
+  "steps": [
+   "Akşamüstü mahallende yavaşça yürü, kedilerin toplandığı yeri bul.",
+   "Onları rahatsız etmeden, uzaktan birkaç dakika izle.",
+   "Kaç tane olduklarını ve düzenli su bulup bulamadıklarını not et."
+  ],
+  "fallback": "Kedi bulamazsan: Mahallede kuşların toplandığı ağacı ya da çatıyı bul, aynı şekilde izle.",
+  "category": "disari_yakin",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 25,
+  "duration_max": 45,
+  "companions": [
+   "solo",
+   "kids",
+   "family"
+  ],
+  "energy": "low",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "yürümek",
+   "sakin",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "yakin-bulusmayi-yuruyuste-yap",
+  "title": "Buluşmayı kafede değil yürüyüşte yap",
+  "hook": "Yan yana yürürken sohbet masa başındakinden daha rahat açılıyor.",
+  "steps": [
+   "Görüşeceğin arkadaşına oturmak yerine yürüyelim de.",
+   "Bir noktada buluşup bir saatlik bir tur belirleyin.",
+   "Sonunda istersen bir yerde sadece bir çay için."
+  ],
+  "fallback": "Arkadaşın yürümek istemezse: Buluşma yerine yürüyerek git, dönüşü de yürüyerek yap.",
+  "category": "disari_yakin",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 50,
+  "duration_max": 90,
+  "companions": [
+   "friends",
+   "couple"
+  ],
+  "energy": "medium",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "yuru"
+  ],
+  "tags": [
+   "dışarı",
+   "yürümek",
+   "arkadaşımla",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "hareket-saat-basi-kalk",
+  "title": "Her saat başı iki dakika kalk",
+  "hook": "Gün boyu oturmak bir akşam koşusuyla telafi edilmiyor.",
+  "steps": [
+   "Telefona ya da bilgisayara saat başı çalan bir hatırlatıcı kur.",
+   "Her çaldığında kalk; omuzlarını çevir, olduğun yerde yürü.",
+   "Akşam kaç kez kalktığını say."
+  ],
+  "fallback": "Hatırlatıcı istemiyorsan: Her su içişinde ya da telefon açışında ayağa kalkmayı kural yap.",
+  "category": "hareket",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 2,
+  "duration_max": 20,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "evde",
+   "hareket",
+   "kısa sürsün",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "hareket-duvara-yaslanip-otur",
+  "title": "Duvara yaslanıp havada otur",
+  "hook": "Sandalyesiz oturmak otuz saniyede bacaklarını yakıyor.",
+  "steps": [
+   "Sırtını duvara daya, dizlerin doksan derece olana kadar aşağı kay.",
+   "Dayanabildiğin kadar bekle, süreyi telefonla ölç.",
+   "Bir dakika dinlen, üç tur tekrarla ve en iyi süreni yaz."
+  ],
+  "fallback": "Dizlerin rahatsızsa: Daha az çömel, yarım açıyla aynı üç turu yap.",
+  "category": "hareket",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 10,
+  "duration_max": 15,
+  "companions": [
+   "solo",
+   "friends"
+  ],
+  "energy": "high",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "evde",
+   "hareket",
+   "kısa sürsün",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "hareket-park-spor-aletleri",
+  "title": "Parktaki spor aletlerini dene",
+  "hook": "Belediyenin koyduğu aletler çoğu gün boş duruyor.",
+  "steps": [
+   "Yakındaki parkta açık hava spor aletlerinin olduğu köşeyi bul.",
+   "Her aleti ikişer dakika dene, zorlanmadan başla.",
+   "En çok zorlandığın aletin adını not et, haftaya ona tekrar gel."
+  ],
+  "fallback": "Alet yoksa: Parktaki bir bankta şınav, basamak çıkma ve esneme turu yap.",
+  "category": "hareket",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 25,
+  "duration_max": 45,
+  "companions": [
+   "solo",
+   "couple",
+   "friends"
+  ],
+  "energy": "high",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "hareket",
+   "yeni bir şey",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "hareket-cocukla-kosu-yarisi",
+  "title": "Çocukla koşu yarışı yap",
+  "hook": "Kaybetmek hiç bu kadar keyifli olmamıştı.",
+  "steps": [
+   "Parkta ya da boş bir alanda başlangıç ve bitiş çizgisi belirleyin.",
+   "Kısa mesafede beş yarış yapın, arada bir dakika dinlenin.",
+   "Son yarışı sen de gerçekten kazanmaya çalış."
+  ],
+  "fallback": "Dışarı çıkamıyorsanız: Evde koridorda ayak parmakları üstünde yürüme yarışı yapın.",
+  "category": "hareket",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 20,
+  "duration_max": 40,
+  "companions": [
+   "kids",
+   "family"
+  ],
+  "energy": "high",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "dışarı",
+   "hareket",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "hareket-tek-ayak-denge",
+  "title": "Tek ayak üstünde denge çalış",
+  "hook": "Otuz saniye kıpırdamadan durmak sandığından zor.",
+  "steps": [
+   "Diş fırçalarken ya da çay demlenirken tek ayağının üstünde dur.",
+   "Her ayakta otuz saniye bekle, düşersen yeniden başla.",
+   "Kolaylaşınca gözlerini kapatarak dene."
+  ],
+  "fallback": "Dengede zorlanıyorsan: Bir elini tezgaha ya da duvara hafifçe dayayarak çalış.",
+  "category": "hareket",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 5,
+  "duration_max": 10,
+  "companions": [
+   "solo",
+   "kids"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "evde",
+   "hareket",
+   "kısa sürsün",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "hareket-yuz-serbest-atis",
+  "title": "Açık sahada yüz serbest atış at",
+  "hook": "Pota her mahallede var, çoğu zaman boş.",
+  "steps": [
+   "Yakındaki okul ya da park sahasında boş bir pota bul.",
+   "Aynı noktadan onarlı gruplarla yüz atış yap.",
+   "Kaç tanesinin girdiğini say, haftaya yeniden dene."
+  ],
+  "fallback": "Topun ya da pota yoksa: Bir topu duvara atıp tut, yüz tekrar tamamla.",
+  "category": "hareket",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 50,
+  "companions": [
+   "solo",
+   "friends",
+   "kids"
+  ],
+  "energy": "high",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "top"
+  ],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "hareket",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "hareket-muzikle-ev-topla",
+  "title": "Müzik aç, evi tempoyla topla",
+  "hook": "Üç hızlı şarkı boyunca toplanan ev de ter de yeter.",
+  "steps": [
+   "En hareketli üç şarkıyı arka arkaya çal.",
+   "Şarkılar bitene kadar hiç durmadan topla, sil, süpür.",
+   "Son şarkı bitince nerede kaldıysan bırak."
+  ],
+  "fallback": "Toplanacak bir şey yoksa: Aynı üç şarkı boyunca olduğun yerde dans et.",
+  "category": "hareket",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 10,
+  "duration_max": 15,
+  "companions": [
+   "solo",
+   "couple",
+   "family"
+  ],
+  "energy": "high",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "duzen"
+  ],
+  "tags": [
+   "evde",
+   "hareket",
+   "müzik",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "hareket-parkta-badminton",
+  "title": "Parkta badminton oyna",
+  "hook": "Rüzgârsız bir akşam iki raket bir saat demek.",
+  "steps": [
+   "İki raket ve bir top bul; yoksa en ucuzunu al.",
+   "Rüzgâr almayan açık bir alanda karşılıklı geç.",
+   "Topu yere düşürmeden en uzun seriyi yakalamaya çalışın."
+  ],
+  "fallback": "Raket yoksa: Aynı alanda bir topla karşılıklı atıp tutma oyna.",
+  "category": "hareket",
+  "cost_min": 0,
+  "cost_max": 150,
+  "cost_note": "raket seti",
+  "duration_min": 30,
+  "duration_max": 60,
+  "companions": [
+   "couple",
+   "friends",
+   "family",
+   "kids"
+  ],
+  "energy": "high",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "cultural_tags": [],
+  "required_items": [
+   "raket",
+   "top"
+  ],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "hareket",
+   "arkadaşımla",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "hareket-boks-deneme-dersi",
+  "title": "Boks deneme dersine git",
+  "hook": "Kum torbasına vurmak günün gerginliğini bir saatte alıyor.",
+  "steps": [
+   "Yakındaki bir salonun başlangıç seviyesi deneme dersine kayıt ol.",
+   "Bandajı ve eldiveni salondan iste, kendin alma.",
+   "Dersin sonunda eğitmene temel duruşu bir kez daha göstermesini söyle."
+  ],
+  "fallback": "Salon yoksa ya da bütçe tutmazsa: Evde bir yastığa karşı gölge boksu videosuyla yirmi dakika çalış.",
+  "category": "hareket",
+  "cost_min": 400,
+  "cost_max": 800,
+  "cost_note": "deneme dersi",
+  "duration_min": 60,
+  "duration_max": 100,
+  "companions": [
+   "solo",
+   "friends"
+  ],
+  "energy": "high",
+  "place": "mekanli",
+  "venue_type": "boks salonu",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "hareket",
+   "yeni bir şey",
+   "tek başıma"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "hareket-salona-gunluk-giris",
+  "title": "Spor salonuna tek günlük giriş al",
+  "hook": "Üye olmadan önce bir kez gitmek kararı kolaylaştırır.",
+  "steps": [
+   "Yakındaki salonların günlük giriş ücretini sor.",
+   "Bugün git; koşu bandı ile birkaç aleti eğitmene sorarak dene.",
+   "Çıkarken haftada kaç kez gelebileceğini dürüstçe düşün."
+  ],
+  "fallback": "Günlük giriş yoksa: Parktaki spor aletleriyle aynı süreyi geçir.",
+  "category": "hareket",
+  "cost_min": 150,
+  "cost_max": 500,
+  "cost_note": "günlük giriş",
+  "duration_min": 60,
+  "duration_max": 100,
+  "companions": [
+   "solo",
+   "friends"
+  ],
+  "energy": "high",
+  "place": "mekanli",
+  "venue_type": "spor salonu",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "hareket",
+   "yeni bir şey",
+   "tek başıma"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "hareket-yuz-kez-comel-kalk",
+  "title": "Yüz kez çömelip kalk",
+  "hook": "Güne dağıtılmış yüz tekrar kimse fark etmeden bitiyor.",
+  "steps": [
+   "Yüz tekrarı yirmi beşerlik dört parçaya böl.",
+   "Sabah, öğle, akşamüstü ve akşam birer parçayı yap.",
+   "Dizlerini ayak parmaklarının önüne taşımadan, yavaş in ve kalk."
+  ],
+  "fallback": "Yüz fazla geliyorsa: Günü ellide bitir, yarın bir parça ekle.",
+  "category": "hareket",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 5,
+  "duration_max": 20,
+  "companions": [
+   "solo"
+  ],
+  "energy": "high",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "evde",
+   "hareket",
+   "kısa sürsün",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "hareket-yemekten-sonra-aile-turu",
+  "title": "Akşam yemeğinden sonra aileyle yürü",
+  "hook": "Sofradan kalkınca televizyon yerine sokak turu sohbeti de açıyor.",
+  "steps": [
+   "Yemek biter bitmez herkesi ayakkabılarını giymeye çağır.",
+   "Yirmi dakikalık kısa bir turu evin etrafında yapın.",
+   "Dönüşte kimin önde yürüdüğüne göre bir dahaki turu o seçsin."
+  ],
+  "fallback": "Hava uygun değilse: Apartmanın merdivenlerini birlikte iki kez inip çıkın.",
+  "category": "hareket",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 20,
+  "duration_max": 35,
+  "companions": [
+   "family",
+   "couple",
+   "kids"
+  ],
+  "energy": "medium",
+  "place": "yakin",
+  "venue_type": "",
+  "weather_need": "dry",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "yuru",
+   "ekransiz"
+  ],
+  "tags": [
+   "dışarı",
+   "yürümek",
+   "hareket",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
  }
 ]
