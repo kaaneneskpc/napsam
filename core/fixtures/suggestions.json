@@ -228,7 +228,8 @@
    "sakin",
    "gece",
    "yeni bir şey",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -483,7 +484,8 @@
    "dışarı",
    "tek başıma",
    "ucuz",
-   "kalabalık olmasın"
+   "kalabalık olmasın",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -523,7 +525,8 @@
    "dışarı",
    "hareket",
    "yeni bir şey",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": true
  },
@@ -562,7 +565,8 @@
    "dışarı",
    "yeni bir şey",
    "yürümek",
-   "tek başıma"
+   "tek başıma",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": true
  },
@@ -681,7 +685,8 @@
    "dışarı",
    "yeni bir şey",
    "tek başıma",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": true
  },
@@ -718,7 +723,8 @@
    "dışarı",
    "yürümek",
    "fotoğraf",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -754,7 +760,8 @@
   "tags": [
    "dışarı",
    "yemek",
-   "yeni bir şey"
+   "yeni bir şey",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -793,7 +800,8 @@
   "tags": [
    "dışarı",
    "yemek",
-   "sakin"
+   "sakin",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -829,7 +837,8 @@
   "tags": [
    "dışarı",
    "yemek",
-   "kısa sürsün"
+   "kısa sürsün",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -866,7 +875,8 @@
    "kahve",
    "sakin",
    "kısa sürsün",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -941,7 +951,8 @@
    "hareket",
    "dışarı",
    "tek başıma",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": true
  },
@@ -979,7 +990,8 @@
   "tags": [
    "hareket",
    "dışarı",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": true
  },
@@ -1159,7 +1171,8 @@
   "tags": [
    "öğrenmek",
    "yeni bir şey",
-   "sakin"
+   "sakin",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -1196,7 +1209,8 @@
    "öğrenmek",
    "yeni bir şey",
    "ucuz",
-   "fotoğraf"
+   "fotoğraf",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -1606,7 +1620,8 @@
    "dışarı",
    "yürümek",
    "yeni bir şey",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -1814,7 +1829,8 @@
    "sakin",
    "tek başıma",
    "ucuz",
-   "kalabalık olmasın"
+   "kalabalık olmasın",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -1900,7 +1916,8 @@
    "dışarı",
    "sakin",
    "kısa sürsün",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": true
  },
@@ -1942,7 +1959,8 @@
    "dışarı",
    "sakin",
    "kalabalık olmasın",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": true
  },
@@ -2519,7 +2537,8 @@
    "dışarı",
    "kahve",
    "sakin",
-   "kısa sürsün"
+   "kısa sürsün",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -2555,7 +2574,8 @@
   "tags": [
    "yeni bir şey",
    "gece",
-   "öğrenmek"
+   "öğrenmek",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -2667,7 +2687,8 @@
   "tags": [
    "öğrenmek",
    "ellerimi kullanayım",
-   "yeni bir şey"
+   "yeni bir şey",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -2707,7 +2728,8 @@
   "tags": [
    "hareket",
    "sakin",
-   "yeni bir şey"
+   "yeni bir şey",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -2782,7 +2804,8 @@
    "dışarı",
    "yeni bir şey",
    "sakin",
-   "kalabalık olmasın"
+   "kalabalık olmasın",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -2893,7 +2916,8 @@
    "sakin",
    "tek başıma",
    "ucuz",
-   "yeni bir şey"
+   "yeni bir şey",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -3196,7 +3220,8 @@
   "tags": [
    "dışarı",
    "yeni bir şey",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -3531,7 +3556,8 @@
    "yürümek",
    "hareket",
    "tek başıma",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -3575,7 +3601,8 @@
    "sakin",
    "kısa sürsün",
    "ucuz",
-   "ellerimi kullanayım"
+   "ellerimi kullanayım",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -3649,7 +3676,8 @@
   "tags": [
    "dışarı",
    "kahve",
-   "kısa sürsün"
+   "kısa sürsün",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -4896,7 +4924,8 @@
    "dışarı",
    "yürümek",
    "yeni bir şey",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -4935,7 +4964,8 @@
    "yürümek",
    "hareket",
    "dışarı",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": true
  },
@@ -5465,7 +5495,8 @@
    "gece",
    "sakin",
    "kalabalık olmasın",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": true
  },
@@ -6316,7 +6347,8 @@
   "tags": [
    "dışarı",
    "yemek",
-   "kısa sürsün"
+   "kısa sürsün",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -6352,7 +6384,8 @@
    "dışarı",
    "yemek",
    "sakin",
-   "kısa sürsün"
+   "kısa sürsün",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -6389,7 +6422,8 @@
    "dışarı",
    "yemek",
    "yeni bir şey",
-   "kısa sürsün"
+   "kısa sürsün",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -6483,7 +6517,8 @@
    "dışarı",
    "yemek",
    "sakin",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -6675,7 +6710,8 @@
   "tags": [
    "dışarı",
    "sakin",
-   "yeni bir şey"
+   "yeni bir şey",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -7240,7 +7276,8 @@
   "tags": [
    "dışarı",
    "gece",
-   "yeni bir şey"
+   "yeni bir şey",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -7277,7 +7314,8 @@
    "dışarı",
    "gece",
    "yeni bir şey",
-   "müzik"
+   "müzik",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -7533,7 +7571,8 @@
   "tags": [
    "hareket",
    "dışarı",
-   "yeni bir şey"
+   "yeni bir şey",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -7727,7 +7766,8 @@
    "ellerimi kullanayım",
    "yeni bir şey",
    "öğrenmek",
-   "dışarı"
+   "dışarı",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -7853,7 +7893,8 @@
    "evde",
    "ellerimi kullanayım",
    "yeni bir şey",
-   "sakin"
+   "sakin",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -8399,7 +8440,8 @@
    "dışarı",
    "sakin",
    "yeni bir şey",
-   "tek başıma"
+   "tek başıma",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -9547,7 +9589,8 @@
    "yemek",
    "kısa sürsün",
    "ucuz",
-   "sakin"
+   "sakin",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -9583,7 +9626,8 @@
    "dışarı",
    "yemek",
    "yeni bir şey",
-   "kısa sürsün"
+   "kısa sürsün",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -9666,7 +9710,8 @@
    "dışarı",
    "yemek",
    "gece",
-   "kısa sürsün"
+   "kısa sürsün",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -9709,7 +9754,8 @@
    "kahve",
    "sakin",
    "kısa sürsün",
-   "gece"
+   "gece",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -9745,7 +9791,8 @@
   "tags": [
    "dışarı",
    "yemek",
-   "kısa sürsün"
+   "kısa sürsün",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -9781,7 +9828,8 @@
   "tags": [
    "dışarı",
    "yemek",
-   "yeni bir şey"
+   "yeni bir şey",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -9826,7 +9874,8 @@
    "dışarı",
    "yemek",
    "kısa sürsün",
-   "yeni bir şey"
+   "yeni bir şey",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -10399,7 +10448,8 @@
   "tags": [
    "dışarı",
    "sakin",
-   "yeni bir şey"
+   "yeni bir şey",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -10542,7 +10592,8 @@
   "tags": [
    "dışarı",
    "hareket",
-   "kısa sürsün"
+   "kısa sürsün",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -10846,7 +10897,8 @@
   "tags": [
    "evde",
    "ellerimi kullanayım",
-   "yeni bir şey"
+   "yeni bir şey",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -11065,7 +11117,8 @@
    "dışarı",
    "sakin",
    "kısa sürsün",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -12217,7 +12270,8 @@
    "dışarı",
    "yürümek",
    "gece",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -12383,7 +12437,8 @@
    "dışarı",
    "yürümek",
    "kısa sürsün",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -12531,7 +12586,8 @@
    "hareket",
    "kısa sürsün",
    "tek başıma",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -12568,7 +12624,8 @@
    "dışarı",
    "hareket",
    "yeni bir şey",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -12682,7 +12739,8 @@
    "dışarı",
    "hareket",
    "tek başıma",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -12806,7 +12864,8 @@
   "tags": [
    "hareket",
    "yeni bir şey",
-   "tek başıma"
+   "tek başıma",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -12841,7 +12900,8 @@
   "tags": [
    "hareket",
    "yeni bir şey",
-   "tek başıma"
+   "tek başıma",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -13305,7 +13365,8 @@
    "dışarı",
    "öğrenmek",
    "yürümek",
-   "yeni bir şey"
+   "yeni bir şey",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -13381,7 +13442,8 @@
    "dışarı",
    "öğrenmek",
    "yürümek",
-   "yeni bir şey"
+   "yeni bir şey",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -13926,7 +13988,8 @@
    "fotoğraf",
    "yeni bir şey",
    "dışarı",
-   "yürümek"
+   "yürümek",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -13998,7 +14061,8 @@
   "tags": [
    "fotoğraf",
    "öğrenmek",
-   "yeni bir şey"
+   "yeni bir şey",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -14323,7 +14387,8 @@
    "yürümek",
    "dışarı",
    "yeni bir şey",
-   "hareket"
+   "hareket",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -14754,7 +14819,8 @@
    "evde",
    "ellerimi kullanayım",
    "kısa sürsün",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -14837,7 +14903,8 @@
    "ellerimi kullanayım",
    "yeni bir şey",
    "kısa sürsün",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },
@@ -15989,7 +16056,8 @@
    "evde",
    "öğrenmek",
    "yeni bir şey",
-   "ucuz"
+   "ucuz",
+   "arkadaşımla"
   ],
   "night_unsafe_solo": false
  },

@@ -131,6 +131,21 @@ class ValidatorTests(TestCase):
                 item = {**self.BASE, "steps": [metin, "dön"]}
                 self.assertEqual(check_location_independence(item), [], metin)
 
+    def test_arkadasla_yapilabilen_oneride_etiket_zorunlu(self):
+        """
+        Regresyon: cip ETIKETE bakiyor. companions 'friends' icerip etiketi
+        olmayan 26 bedava oneri "arkadasimla" seciminde hic gorunmuyor,
+        o havuzun %70'i oyuna sikisiyordu.
+        """
+        eksik = {**self.BASE, "companions": ["solo", "friends"], "tags": ["evde"]}
+        self.assertTrue(check_shape(eksik))
+        tamam = {**eksik, "tags": ["evde", "arkadaşımla"]}
+        self.assertEqual(check_shape(tamam), [])
+
+    def test_companions_verilmemisse_kural_devreye_girmez(self):
+        """AI son-denetimi companions gondermez; kural onu bozmamali."""
+        self.assertEqual(check_shape(self.BASE), [])
+
     def test_temiz_oneri_gecer(self):
         self.assertEqual(check_shape(self.BASE), [])
         self.assertEqual(check_location_independence(self.BASE), [])

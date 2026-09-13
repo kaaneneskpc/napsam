@@ -172,6 +172,15 @@ def check_shape(data: dict) -> list[str]:
     if len(data.get("required_items") or []) > 3:
         hatalar.append("required_items en fazla 3 madde")
 
+    # companions ile "arkadaşımla" etiketi tutarli olmali. Kullanici cipi
+    # sectiginde motor ETIKETE bakar, companions alanina degil. Etiket eksik
+    # oldugunda arkadasla yapilabilir 26 bedava oneri o secimde hic
+    # gorunmuyordu ve havuzun %70'i oyuna sikismisti.
+    companions = data.get("companions")
+    if companions is not None and "friends" in companions:
+        if "arkadaşımla" not in (data.get("tags") or []):
+            hatalar.append("companions 'friends' içeriyor ama 'arkadaşımla' etiketi yok")
+
     # seasonality AY NUMARASI listesidir. Buraya "ramazan" gibi bir etiket
     # yazmak oneriyi sessizce olduruyordu: ay filtresi hicbir zaman tutmaz
     # ve oneri havuzda gorunur olmasina ragmen ASLA gosterilmez.
