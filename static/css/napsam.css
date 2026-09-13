@@ -161,6 +161,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
 @media (min-width: 768px) { .shell { padding-inline: var(--margin); } }
 
 .stage { max-width: var(--stage); margin-inline: auto; }
+/* sabit ust bar (64px) kaydirilan oneri basligini ortmesin */
+#result-stage { scroll-margin-top: 64px; }
 
 /* --- ust bar ------------------------------------------------------------ */
 .header {

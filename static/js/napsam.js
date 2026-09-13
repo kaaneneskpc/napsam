@@ -284,9 +284,14 @@
       .finally(endBusy);
   }
 
+  // Yeni oneri her istendiginde kart basi gorunur olmali; sabit ust bar payi CSS'te.
+  function showStage() {
+    $("result-stage").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   $("napsam").addEventListener("click", function () {
     requestSuggestion();
-    $("result-stage").scrollIntoView({ behavior: "smooth", block: "start" });
+    showStage();
   });
 
   /* --- baska fikir: gecilen oneri 30 gun geri gelmez --- */
@@ -295,6 +300,7 @@
     if (slug && state.seen.indexOf(slug) === -1) state.seen.push(slug);
     post("/api/state/", { slug: slug, action: "dismiss" }).catch(function () {});
     requestSuggestion();
+    showStage();
   });
 
   /* --- kaydet --- */
