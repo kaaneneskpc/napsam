@@ -12920,5 +12920,904 @@
    "ucuz"
   ],
   "night_unsafe_solo": false
+ },
+ {
+  "slug": "kultur-cocuklugun-kitabi",
+  "title": "Çocukken okuduğun kitabı yeniden oku",
+  "hook": "Aynı kitap yıllar sonra bambaşka bir şey anlatıyor.",
+  "steps": [
+   "Çocukken bitirdiğin bir kitabı evde, kütüphanede ya da internette bul.",
+   "İlk bölümü sesli ya da sessiz, acele etmeden oku.",
+   "Hangi cümlenin o zaman aklında kalmadığını not et."
+  ],
+  "fallback": "O kitaba ulaşamazsan: Çocukluğunda izlediğin bir çizgi filmin ilk bölümünü aç.",
+  "category": "kultur",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 40,
+  "duration_max": 80,
+  "companions": [
+   "solo",
+   "kids"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "sakin",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "kultur-yesilcam-filmi",
+  "title": "Bir Yeşilçam filmini baştan izle",
+  "hook": "Anneannenin ezbere bildiği repliklerin nereden geldiğini gör.",
+  "steps": [
+   "Hiç izlemediğin ama adını duyduğun bir Yeşilçam filmi seç.",
+   "Telefonu başka odaya koy, filmi bölmeden izle.",
+   "Bittiğinde ailenden birine o filmi ilk ne zaman izlediğini sor."
+  ],
+  "fallback": "Uzun film izleyecek vaktin yoksa: Aynı filmin en bilinen sahnesini bul ve sadece onu izle.",
+  "category": "kultur",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 90,
+  "duration_max": 130,
+  "companions": [
+   "solo",
+   "couple",
+   "family"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "evde",
+   "sakin",
+   "gece",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "kultur-ozan-turkuleri",
+  "title": "Bir ozanın türkülerini sırayla dinle",
+  "hook": "Tek bir sesin elli yıllık hikâyesi bir akşama sığıyor.",
+  "steps": [
+   "Bir halk ozanı seç, en az beş türküsünü arka arkaya aç.",
+   "Dinlerken sözlerini de önüne aç, okuyarak dinle.",
+   "En çok takıldığın dizeyi bir kağıda yaz."
+  ],
+  "fallback": "Ozan seçemiyorsan: Yöresine göre derlenmiş bir türkü listesini baştan sona dinle.",
+  "category": "kultur",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 60,
+  "companions": [
+   "solo",
+   "couple",
+   "family"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "müzik",
+   "sakin",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "kultur-dogdugun-gunun-gazetesi",
+  "title": "Doğduğun günün gazetesini bul",
+  "hook": "Sen doğarken dünyanın neyi konuştuğunu hiç merak ettin mi?",
+  "steps": [
+   "Bir gazete arşivinde doğum tarihinin olduğu günü aç.",
+   "Manşeti, ilanları ve fiyatları tek tek oku.",
+   "En şaşırtıcı üç şeyi ailenle paylaş."
+  ],
+  "fallback": "Arşive ulaşamazsan: Ailenden birine doğduğun gün neler olduğunu anlatmasını iste.",
+  "category": "kultur",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 20,
+  "duration_max": 45,
+  "companions": [
+   "solo",
+   "family"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "evde",
+   "öğrenmek",
+   "yeni bir şey",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "kultur-ayni-makamda-uc-eser",
+  "title": "Aynı makamda üç eser dinle",
+  "hook": "Makamı fark etmeye başlayınca müziği başka duyuyorsun.",
+  "steps": [
+   "Türk musikisinden bir makam seç, adıyla aratıp kısa bir tanıtım oku.",
+   "O makamda bestelenmiş üç eseri art arda dinle.",
+   "Üçünde ortak olan havayı tek bir kelimeyle anlatmaya çalış."
+  ],
+  "fallback": "Makam kavramı yabancı geliyorsa: Tek bir bestecinin üç eserini dinle, ortak noktayı yine ara.",
+  "category": "kultur",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 25,
+  "duration_max": 45,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "evde",
+   "müzik",
+   "öğrenmek",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "kultur-ressamin-uc-tablosu",
+  "title": "Bir ressamın üç tablosunu incele",
+  "hook": "Bir tabloya beş dakika bakınca ilk bakışta görmediklerini görüyorsun.",
+  "steps": [
+   "Adını bildiğin ama eserlerini tanımadığın bir ressam seç.",
+   "Üç tablosunu yüksek çözünürlükte aç, her birine beş dakika bak.",
+   "Hangisinin neden daha çok aklında kaldığını iki cümleyle yaz."
+  ],
+  "fallback": "Ekrana bakmak istemiyorsan: Evdeki bir kitabın ya da takvimin resimlerinden birini aynı dikkatle incele.",
+  "category": "kultur",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 20,
+  "duration_max": 40,
+  "companions": [
+   "solo",
+   "couple"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "evde",
+   "öğrenmek",
+   "sakin",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "kultur-dede-korkut-hikayesi",
+  "title": "Dede Korkut'tan bir hikâye oku",
+  "hook": "Bin yıllık hikâyeler bir çay içimi kadar kısa.",
+  "steps": [
+   "Dede Korkut hikâyelerinden birinin sadeleştirilmiş metnini bul.",
+   "Çocuğa ya da yanındakine sesli oku.",
+   "Bitince hikâyenin bugün hâlâ tanıdık gelen yanını konuşun."
+  ],
+  "fallback": "Metne ulaşamazsan: Bir aile büyüğünden çocukken dinlediği bir masalı anlatmasını iste.",
+  "category": "kultur",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 20,
+  "duration_max": 40,
+  "companions": [
+   "solo",
+   "kids",
+   "family",
+   "couple"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "öğrenmek",
+   "sakin",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "kultur-karagoz-oyunu",
+  "title": "Bir Karagöz oyunu izle",
+  "hook": "Perde arkasındaki tasvirler hâlâ güldürüyor.",
+  "steps": [
+   "Kayıtlı bir Karagöz ve Hacivat oyunu bul.",
+   "Çocukla ya da tek başına baştan sona izle.",
+   "Sonra kartondan iki basit tasvir kesip bir el feneriyle duvarda oynatın."
+  ],
+  "fallback": "Oyun bulamazsan: Karton ve el feneriyle kendi gölge oyununuzu kurup beş dakikalık bir sahne uydurun.",
+  "category": "kultur",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 30,
+  "duration_max": 60,
+  "companions": [
+   "kids",
+   "family",
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [
+   "ramazan"
+  ],
+  "required_items": [],
+  "theme_tags": [
+   "elini_kullan"
+  ],
+  "tags": [
+   "evde",
+   "ellerimi kullanayım",
+   "yeni bir şey",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "kultur-cocuk-tiyatrosu",
+  "title": "Çocukla çocuk tiyatrosuna git",
+  "hook": "Sahneyi ilk kez görmek bir çocukta uzun süre kalıyor.",
+  "steps": [
+   "Yakındaki bir sahnenin çocuk oyunları programına bak.",
+   "Çocuğun yaşına uygun kısa bir oyun seç, biletleri al.",
+   "Oyundan sonra en sevdiği karakteri çizmesini iste."
+  ],
+  "fallback": "Oyun yoksa ya da bütçe tutmazsa: Evde bir çarşafı perde yapıp çocukla beş dakikalık bir oyun sahneleyin.",
+  "category": "kultur",
+  "cost_min": 500,
+  "cost_max": 1200,
+  "cost_note": "iki-üç bilet",
+  "duration_min": 90,
+  "duration_max": 150,
+  "companions": [
+   "kids",
+   "family"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "çocuk tiyatrosu",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "yeni bir şey",
+   "arkadaşımla"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "kultur-oren-yeri-gez",
+  "title": "Yakındaki bir ören yerini gez",
+  "hook": "Yolda önünden geçip tabelasını okuduğun yer binlerce yıllık.",
+  "steps": [
+   "Bulunduğun ile en yakın ören yerini ya da tarihi alanı bul.",
+   "Açılış saatine göre sabah git, suyunu yanına al.",
+   "Girişteki tanıtım panosunu okumadan içeri girme."
+  ],
+  "fallback": "Ören yeri uzaksa: En yakın arkeoloji ya da kent müzesini gez.",
+  "category": "kultur",
+  "cost_min": 400,
+  "cost_max": 1200,
+  "cost_note": "ulaşım ve giriş",
+  "duration_min": 180,
+  "duration_max": 360,
+  "companions": [
+   "solo",
+   "couple",
+   "family",
+   "friends"
+  ],
+  "energy": "medium",
+  "place": "mekanli",
+  "venue_type": "ören yeri",
+  "weather_need": "dry",
+  "seasonality": [
+   3,
+   4,
+   5,
+   6,
+   9,
+   10,
+   11
+  ],
+  "cultural_tags": [],
+  "required_items": [
+   "su"
+  ],
+  "theme_tags": [
+   "yuru"
+  ],
+  "tags": [
+   "dışarı",
+   "öğrenmek",
+   "yürümek",
+   "yeni bir şey"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "kultur-buyuk-sanat-kitabi",
+  "title": "Büyük boy bir sanat kitabı al",
+  "hook": "Sehpada duran bir sanat kitabı yıllarca açılıp kapanıyor.",
+  "steps": [
+   "Bir kitapçıda sanat, fotoğraf ya da mimarlık rafına git.",
+   "En çok sayfasını çevirdiğin kitabı seç, kapağına göre değil.",
+   "Kitaplığa koyma; oturma odasında el altında dursun."
+  ],
+  "fallback": "Bütçe tutmazsa: Aynı konuda kütüphaneden bir kitap ödünç al, iki hafta sehpada tut.",
+  "category": "kultur",
+  "cost_min": 1500,
+  "cost_max": 3500,
+  "cost_note": "tek kitap",
+  "duration_min": 60,
+  "duration_max": 120,
+  "companions": [
+   "solo",
+   "couple"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "kitapçı",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "öğrenmek",
+   "sakin",
+   "yeni bir şey",
+   "dışarı"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "kultur-rehberli-sehir-gezisi",
+  "title": "Tarih anlatımlı bir gezide yürü",
+  "hook": "Yıllardır yaşadığın yeri bir yabancının anlatımıyla dinlemek şaşırtıyor.",
+  "steps": [
+   "Belediyenin ya da bir derneğin düzenlediği rehberli yürüyüşlere bak.",
+   "En yakın tarihli olana kaydını yaptır.",
+   "Rehbere, sende en çok merak uyandıran tek bir soruyu sor."
+  ],
+  "fallback": "Rehberli gezi yoksa: Bulunduğun yerin tarihini anlatan bir yazıyı okuyup anlatılan yerleri kendin yürü.",
+  "category": "kultur",
+  "cost_min": 150,
+  "cost_max": 500,
+  "cost_note": "katılım",
+  "duration_min": 120,
+  "duration_max": 210,
+  "companions": [
+   "solo",
+   "couple",
+   "friends",
+   "family"
+  ],
+  "energy": "medium",
+  "place": "mekanli",
+  "venue_type": "rehberli gezi",
+  "weather_need": "dry",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "yuru"
+  ],
+  "tags": [
+   "dışarı",
+   "öğrenmek",
+   "yürümek",
+   "yeni bir şey"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "bakim-uyaninca-yatagi-topla",
+  "title": "Uyanır uyanmaz yatağını topla",
+  "hook": "Günün ilk bitmiş işi iki dakika sürüyor.",
+  "steps": [
+   "Yataktan kalkınca başka hiçbir şeye bakmadan yorganı düzelt.",
+   "Yastıkları yerleştir, üstünde bir şey bırakma.",
+   "Akşam odaya girdiğinde toplu yatağı fark et."
+  ],
+  "fallback": "Sabah vaktin yoksa: Sadece yorganı yukarı çek, gerisini akşama bırak.",
+  "category": "kendine_bakim",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 2,
+  "duration_max": 5,
+  "companions": [
+   "solo",
+   "couple"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "duzen"
+  ],
+  "tags": [
+   "evde",
+   "kısa sürsün",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "bakim-takvime-bos-saat",
+  "title": "Takvimine boş bir saat yaz",
+  "hook": "Hiçbir şey planlanmamış bir saat de planlanmayı hak ediyor.",
+  "steps": [
+   "Bu haftanın takviminde bir saati seç ve adına sadece boş yaz.",
+   "O saate kimseden gelen bir işi koyma.",
+   "Saat geldiğinde ne yapacağına o an karar ver."
+  ],
+  "fallback": "Takvim kullanmıyorsan: Bugün akşam bir saati kendine ayırdığını ev halkına söyle.",
+  "category": "kendine_bakim",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 60,
+  "duration_max": 60,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "evde",
+   "sakin",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "bakim-kibarca-hayir-de",
+  "title": "Bugün bir teklife kibarca hayır de",
+  "hook": "İstemediğin her evet, istediğin bir şeyden çalınan zaman.",
+  "steps": [
+   "Yapmak istemediğin ama kabul etmek üzere olduğun bir şeyi düşün.",
+   "Uzun açıklama yapmadan teşekkür edip hayır de.",
+   "O boşalan vakti gerçekten kendin için kullan."
+  ],
+  "fallback": "Bugün öyle bir teklif yoksa: Gelecek hafta için verdiğin gereksiz bir sözü geri al.",
+  "category": "kendine_bakim",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 5,
+  "duration_max": 15,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "kısa sürsün",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "bakim-bildirimleri-kapat",
+  "title": "Uygulama bildirimlerinin yarısını kapat",
+  "hook": "Telefonun seni değil, sen telefonu çağırmalısın.",
+  "steps": [
+   "Ayarlardan bildirim izni olan uygulamaların listesini aç.",
+   "Son bir haftada işine yaramayan her bildirimi kapat.",
+   "Sadece insanlardan gelen mesajları açık bırak."
+  ],
+  "fallback": "Tek tek uğraşmak istemiyorsan: Bugünlük telefonu sessize al ve ters çevir.",
+  "category": "kendine_bakim",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 10,
+  "duration_max": 20,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "kısa sürsün",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "bakim-ogleden-sonra-goz-kapat",
+  "title": "Öğleden sonra on dakika gözlerini kapat",
+  "hook": "Kısa bir mola günün ikinci yarısını toparlıyor.",
+  "steps": [
+   "Öğleden sonra sessiz bir köşe bul, telefona on dakikalık alarm kur.",
+   "Arkana yaslan, gözlerini kapat, uyumak zorunda değilsin.",
+   "Alarm çalınca hemen kalk, bir bardak su iç."
+  ],
+  "fallback": "Uzanacak yer yoksa: Masanda oturup gözlerini kapatarak aynı on dakikayı geçir.",
+  "category": "kendine_bakim",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 10,
+  "duration_max": 15,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "sakin",
+   "kısa sürsün",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "bakim-yarinin-kiyafeti",
+  "title": "Yarının kıyafetini akşamdan hazırla",
+  "hook": "Sabah dolabın önünde geçen beş dakika günü geriden başlatıyor.",
+  "steps": [
+   "Yatmadan önce yarın giyeceğin kıyafeti seç.",
+   "Ütülenmesi gerekiyorsa şimdi ütüle, sandalyeye as.",
+   "Çantanı da kapının yanına hazır koy."
+  ],
+  "fallback": "Yarın ne olacağı belli değilse: En rahat ettiğin kıyafeti hazırla, gerekirse sabah değiştirirsin.",
+  "category": "kendine_bakim",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 10,
+  "duration_max": 20,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [
+   "duzen"
+  ],
+  "tags": [
+   "evde",
+   "gece",
+   "kısa sürsün",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "bakim-aklindakileri-kagida-dok",
+  "title": "Aklını meşgul edenleri kağıda dök",
+  "hook": "Kafanda dönüp duran şey kağıtta çoğu zaman küçülüyor.",
+  "steps": [
+   "Bir kağıda aklını meşgul eden her şeyi sırasız ve kısa yaz.",
+   "Yanlarına bugün yapılabilir, beklemeli ya da elimde değil diye not düş.",
+   "Kağıdı katla ve bir çekmeceye koy."
+  ],
+  "fallback": "Yazmak istemiyorsan: Aynı listeyi sesli kayıt olarak söyle ve dinlemeden kaydet.",
+  "category": "kendine_bakim",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 10,
+  "duration_max": 20,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [
+   "kağıt",
+   "kalem"
+  ],
+  "theme_tags": [
+   "ekransiz"
+  ],
+  "tags": [
+   "evde",
+   "sakin",
+   "kısa sürsün",
+   "tek başıma",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "bakim-sabah-pencereyi-ac",
+  "title": "Sabah ilk iş pencereleri aç",
+  "hook": "Gece boyunca kapalı kalan oda taze havayı bekliyor.",
+  "steps": [
+   "Kalkar kalkmaz evin karşılıklı iki penceresini aç.",
+   "On dakika boyunca odaları havalandır, bu arada yatağını topla.",
+   "Pencereleri kapatırken dışarının sıcaklığını hisset."
+  ],
+  "fallback": "Hava çok soğuksa: Pencereleri iki dakikalığına aç, sonra kapat.",
+  "category": "kendine_bakim",
+  "cost_min": 0,
+  "cost_max": 0,
+  "cost_note": "",
+  "duration_min": 10,
+  "duration_max": 15,
+  "companions": [
+   "solo",
+   "couple",
+   "family"
+  ],
+  "energy": "low",
+  "place": "ev",
+  "venue_type": "",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "evde",
+   "kısa sürsün",
+   "ucuz"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "bakim-masaj-randevusu",
+  "title": "Bir saatlik masaj randevusu al",
+  "hook": "Omuzlarında taşıdığın ağırlığı bir saatliğine başkası taşısın.",
+  "steps": [
+   "Yakındaki bir salonun bu haftaki boş saatlerine bak.",
+   "Bir saatlik randevu al, sonrasına iş koyma.",
+   "Seanstan sonra yarım saat yürüyerek eve dön."
+  ],
+  "fallback": "Bütçe tutmazsa: Evde sıcak bir duştan sonra bir tenis topuyla sırtını duvara karşı on dakika gevşet.",
+  "category": "kendine_bakim",
+  "cost_min": 700,
+  "cost_max": 1500,
+  "cost_note": "bir saat",
+  "duration_min": 90,
+  "duration_max": 150,
+  "companions": [
+   "solo",
+   "couple"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "masaj salonu",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "sakin",
+   "yeni bir şey"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "bakim-yeni-yastik-sec",
+  "title": "Uykun için yeni bir yastık seç",
+  "hook": "Yıllardır aynı yastıkta uyuyorsan farkı ilk gece anlarsın.",
+  "steps": [
+   "Bir mağazada yatarak birkaç yastığı dene, sadece dokunarak seçme.",
+   "Yan ya da sırtüstü yatışına uygun sertliği sor.",
+   "Eskisini atmadan önce bir hafta yenisiyle uyu."
+  ],
+  "fallback": "Yeni almak istemiyorsan: Yastığını güneşte havalandır, kılıfını değiştir.",
+  "category": "kendine_bakim",
+  "cost_min": 500,
+  "cost_max": 1200,
+  "cost_note": "tek yastık",
+  "duration_min": 60,
+  "duration_max": 120,
+  "companions": [
+   "solo",
+   "couple"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "ev tekstili mağazası",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "gece",
+   "yeni bir şey"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "bakim-masa-icin-cicek",
+  "title": "Masan için bir demet çiçek al",
+  "hook": "Kimse için değil, sadece senin görmen için bir demet.",
+  "steps": [
+   "Çiçekçiye ya da pazara uğra, mevsiminde olan en sade demeti seç.",
+   "Evde saplarını çapraz kes, temiz suya koy.",
+   "Masana, gün içinde en çok baktığın yere yerleştir."
+  ],
+  "fallback": "Çiçek almak istemiyorsan: Bahçeden ya da yol kenarından düşmüş bir dalı suya koy.",
+  "category": "kendine_bakim",
+  "cost_min": 60,
+  "cost_max": 150,
+  "cost_note": "küçük demet",
+  "duration_min": 15,
+  "duration_max": 30,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "çiçekçi",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "kısa sürsün",
+   "sakin"
+  ],
+  "night_unsafe_solo": false
+ },
+ {
+  "slug": "bakim-rahat-pijama-al",
+  "title": "Kendine rahat bir pijama al",
+  "hook": "Evde geçirdiğin saatlerin kıyafeti de önemli.",
+  "steps": [
+   "Pamuklu ve bol kesimli bir pijama takımı seç.",
+   "Aldığın gün yıka, akşam hemen giy.",
+   "Eskimiş olanı bez olarak ayır ya da at."
+  ],
+  "fallback": "Yeni almak istemiyorsan: Dolaptaki en yumuşak iki parçayı evde giymek için ayır.",
+  "category": "kendine_bakim",
+  "cost_min": 300,
+  "cost_max": 500,
+  "cost_note": "tek takım",
+  "duration_min": 30,
+  "duration_max": 60,
+  "companions": [
+   "solo"
+  ],
+  "energy": "low",
+  "place": "mekanli",
+  "venue_type": "giyim mağazası",
+  "weather_need": "any",
+  "seasonality": [],
+  "cultural_tags": [],
+  "required_items": [],
+  "theme_tags": [],
+  "tags": [
+   "dışarı",
+   "kısa sürsün",
+   "yeni bir şey"
+  ],
+  "night_unsafe_solo": false
  }
 ]
