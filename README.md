@@ -18,10 +18,11 @@ Sonsuz liste yok, kaydırma yok, kararsızlık yok.
 </div>
 
 <p align="center">
-  <img src="docs/screenshots/desktop.png" alt="NAPSAM masaüstü görünümü" width="68%">
+  <a href="docs/screenshots/home-desktop.png"><img src="docs/screenshots/home-desktop.png" alt="NAPSAM ana sayfa, masaüstü, tam sayfa" width="77%"></a>
   &nbsp;
-  <img src="docs/screenshots/mobile.png" alt="NAPSAM mobil görünümü" width="24%">
+  <a href="docs/screenshots/home-mobile.png"><img src="docs/screenshots/home-mobile.png" alt="NAPSAM ana sayfa, telefon, tam sayfa" width="17%"></a>
 </p>
+<p align="center"><sub>Ana sayfa, baştan sona · masaüstü (1280 px) ve telefon (390 px) · büyütmek için görsele tıkla</sub></p>
 
 ---
 
@@ -40,6 +41,12 @@ Bu üründe uzun oturum bir başarı değil, bir hatadır.
 3. **NAPSAM?** butonuna bas. Karşına tek bir kart çıkar: ne yapacağın, 2-3 adımda nasıl yapacağın ve plan tutmazsa alternatifi.
 
 Beğenmezsen **Başka fikir**, beğenirsen **Kaydet** ya da **Tamam, yapıyorum**.
+
+### Diğer sayfalar
+
+| Kaydedilenler | Gizlilik |
+|---|---|
+| <a href="docs/screenshots/saved-desktop.png"><img src="docs/screenshots/saved-desktop.png" alt="Kaydedilenler sayfası, tam sayfa"></a> | <a href="docs/screenshots/privacy-desktop.png"><img src="docs/screenshots/privacy-desktop.png" alt="Gizlilik sayfası, tam sayfa"></a> |
 
 ## Öne çıkanlar
 
